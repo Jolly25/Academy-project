@@ -4,18 +4,25 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.corso.model.Match;
 import com.corso.model.StandardWord;
 import com.corso.service.MatchService;
 import com.corso.service.StandardWordService;
 
 public class StandardWordsFromDB implements StandardWords{
+	
+	@Autowired
+	MatchService matchService;
+	
+	@Autowired
+	StandardWordService swService;
 
 	@Override
 	public Set<String> getStandardWords() {
-		StandardWordService service = new StandardWordService();
 		Set<String> set = new HashSet<String>();
-		for(StandardWord sw : service.findAll()) {
+		for(StandardWord sw : swService.findAll()) {
 			set.add(sw.getValue());
 		}
 		return set;
@@ -23,8 +30,8 @@ public class StandardWordsFromDB implements StandardWords{
 
 	@Override
 	public List<Match> getMatch() {
-		MatchService service = new MatchService();
-		return service.getAllMatches();
+		return matchService.getAllMatches();
 	}
 	
 }
+

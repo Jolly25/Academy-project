@@ -2,30 +2,20 @@ package com.corso.checkstring;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.corso.standardwords.StandardWords;
-import com.corso.standardwords.StandardWordsFromDB;
-import com.corso.standardwords.StandardWordsFromTxt;
 
-public abstract class CheckStringWithList extends CheckString{
-
+public abstract class CheckStringWithList extends CheckString{	
+	
+	@Autowired
+	private StandardWords sw;
+	
 	private Set<String> countrylist;
-	
-	public CheckStringWithList(CheckString next) {
-		super(next);
-		//StandardWords sw = new StandardWordsFromDB();
-		StandardWords sw = new StandardWordsFromTxt("bla");
-		countrylist = sw.getStandardWords();
-	}
-	
-	public CheckStringWithList() {
-		super();
-		//StandardWords sw = new StandardWordsFromDB();
-		StandardWords sw = new StandardWordsFromTxt("bla");
-		countrylist = sw.getStandardWords();
-	}
 
 	@Override
 	protected String checkimpl(String input) {
+		countrylist = sw.getStandardWords();
 		for(String s : countrylist) {
 			if(internalcheck(s, input)) return s;
 		}
@@ -35,3 +25,4 @@ public abstract class CheckStringWithList extends CheckString{
 	protected abstract boolean internalcheck(String s, String input);
 
 }
+

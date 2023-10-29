@@ -3,6 +3,8 @@ package com.corso.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +14,8 @@ import com.corso.model.StandardWord;
 
 public class StandardWordDAO{
 	
-	@PersistenceContext
-	EntityManager em;
+	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("match_pu");
+	EntityManager em = entityManagerFactory.createEntityManager();
 
 	public List<StandardWord> findAllSW() {
 		String jpql = "from StandardWord";  

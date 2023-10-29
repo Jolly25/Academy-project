@@ -20,11 +20,15 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.corso.dao.MatchDAO;
 import com.corso.dao.StandardWordDAO;
+import com.corso.checkstring.AlgorithmHandler;
+import com.corso.checkstring.CheckString;
 import com.corso.checkstring.Contained;
 import com.corso.checkstring.Contains;
 import com.corso.checkstring.Levenshtein;
+import com.corso.checkstring.MatchCheckString;
 import com.corso.service.MatchService;
 import com.corso.service.StandardWordService;
+import com.corso.standardwords.StandardWords;
 import com.corso.standardwords.StandardWordsFromDB;
 
 @Configuration
@@ -42,8 +46,7 @@ public class Beans {
 		ds.setUrl("jdbc:mysql://localhost:3306/paesidb");
 		return ds; 
 	} 
-	
-	
+
 	@Bean
 	public EntityManagerFactory entityManagerFactory() throws SQLException {
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
@@ -54,8 +57,6 @@ public class Beans {
 		return factory.getObject();
 	}
 
-	
-	
 	@Bean
 	public EntityManager entityManager(EntityManagerFactory entityManagerFactory) {
 		return entityManagerFactory.createEntityManager();
@@ -69,18 +70,14 @@ public class Beans {
 		return adapter;
 	}	
 
-	
-
 	@Bean
 	public PlatformTransactionManager transactionManager() throws SQLException {
 		JpaTransactionManager txManager = new JpaTransactionManager();
 		txManager.setEntityManagerFactory(entityManagerFactory());
 		return txManager;
 	}
-	
-	
 
-	@Bean(name="dao")
+	@Bean(name="matchDao")
 	public MatchDAO getMatchDAO() {
 		return new MatchDAO();
 	}
@@ -103,13 +100,39 @@ public class Beans {
 		sws.setDao(getStandardWordDAO());
 		return sws;
 	}
-	
-	@Bean(name="swfd")
-	public StandardWordsFromDB getStandardWordsFromDB() {
-		return new StandardWordsFromDB();
+
+	@Bean(name="sw")
+	public StandardWords getStandardWordsFromDB() {
+		StandardWords sw = new StandardWordsFromDB();
+		return sw;
 	}
 
-	
+	@Bean(name="ah")
+	public AlgorithmHandler getAlgorithmHandler() {
+		AlgorithmHandler ah = new AlgorithmHandler();
+		return ah;
+	}
+
+	@Bean(name="c1")
+	public CheckString getMatchCheckString() {
+		return new MatchCheckString();
+	}
+
+	@Bean(name="c2")
+	public CheckString getContains() {
+		return new Contains();
+	}
+
+	@Bean(name="c3")
+	public CheckString getContained() {
+		return new Contained();
+	}
+
+	@Bean(name="c4")
+	public CheckString getLevenshtein() {
+		return new Levenshtein(1);
+	}
+
 
 
 }
