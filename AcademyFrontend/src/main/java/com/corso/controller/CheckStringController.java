@@ -93,24 +93,18 @@ public class CheckStringController {
 		else {
 			String username = loginForm.getUsername();
 			String pw = loginForm.getPassword();
-			String pwr = loginForm.getRepeatPassword();
-			if(!pw.equals(pwr)) {
-				return "formLogin";
-			}
-			else {
-				User u = userService.findByUsername(username);
-				if(u != null) {
-					if(u.checkPassword(pw)) {
-						if(u.getRuolo().equals("Admin")) {
-							return "loggedAdmin";
-						}
-						return "logged";
+			User u = userService.findByUsername(username);
+			if(u != null) {
+				if(u.checkPassword(pw)) {
+					if(u.getRuolo().equals("Admin")) {
+						return "loggedAdmin";
 					}
+					return "logged";
 				}
-				return "formLogin";
+			}
+			return "formLogin";
 			}
 
-		}
 	}
 
 }
