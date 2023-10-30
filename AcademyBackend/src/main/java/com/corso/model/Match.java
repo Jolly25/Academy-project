@@ -5,7 +5,7 @@ import javax.persistence.*;
 import com.corso.standardwords.AlgorithmType;
 
 @Entity
-@Table(name = "matches")
+@Table(name = "matchwords")
 public class Match{
 	
 	@Id
@@ -13,17 +13,17 @@ public class Match{
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name="input")
+	@Column(name="input_name")
 	private String input;
 	
-	@Column(name="standardword")
+	@Column(name="match_name")
 	private String standardword;
 	
 	@Column(name="algorithm")
 	@Enumerated(EnumType.STRING)
 	private AlgorithmType algorithm;
 	
-	@Column(name="confirm")
+	@Column(name="checked")
 	private boolean confirm;
 	
 	public Match() {}

@@ -36,16 +36,17 @@ import com.corso.standardwords.StandardWordsFromDB;
 @EnableTransactionManagement 
 
 public class Beans {
-
+	
+	
 	@Bean(name="dataSource")
-	public DataSource getDataSource () {
-		DriverManagerDataSource ds = new DriverManagerDataSource(); 
-		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		ds.setUsername("root");
-		ds.setPassword("Links23?");
-		ds.setUrl("jdbc:mysql://localhost:3306/paesidb");
-		return ds; 
-	} 
+    public DataSource getDataSource () {
+        DriverManagerDataSource ds = new DriverManagerDataSource(); 
+        ds.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        ds.setUsername("sa");
+        ds.setPassword("1234");
+        ds.setUrl("jdbc:sqlserver://localhost:1433;databaseName=academy;encrypt=true;trustServerCertificate=true");
+        return ds; 
+    }
 
 	@Bean
 	public EntityManagerFactory entityManagerFactory() throws SQLException {
@@ -64,7 +65,7 @@ public class Beans {
 
 	private HibernateJpaVendorAdapter getJpaVendorAdapter() {
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-		adapter.setDatabase(Database.MYSQL);   
+		adapter.setDatabase(Database.SQL_SERVER);   
 		adapter.setGenerateDdl(true);          
 		adapter.setShowSql(true);             
 		return adapter;
@@ -76,6 +77,7 @@ public class Beans {
 		txManager.setEntityManagerFactory(entityManagerFactory());
 		return txManager;
 	}
+	
 
 	@Bean(name="matchDao")
 	public MatchDAO getMatchDAO() {

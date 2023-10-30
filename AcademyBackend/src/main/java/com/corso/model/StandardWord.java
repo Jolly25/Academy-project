@@ -12,10 +12,10 @@ public class StandardWord{
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name="code")
+	@Column(name="isocode")
 	private String code;
 	
-	@Column(name="value")
+	@Column(name="country")
 	private String value;
 
 	public int getId() {

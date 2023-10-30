@@ -21,7 +21,7 @@ public class CheckStringTest {
 		ah.buildCheckString();
 		
 		String s = "Germanyy";
-		//cs.check(s.toUpperCase()); //ho messo toUpperCase perchè nel mio db le parole standard sono in stampatello
+		cs.check(s); //ho messo toUpperCase perchè nel mio db le parole standard sono in stampatello
 		
 		/*
 		MatchDAO dao = factory.getBean("matchDao", MatchDAO.class);
