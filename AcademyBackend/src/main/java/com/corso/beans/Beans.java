@@ -40,10 +40,10 @@ public class Beans {
 	@Bean(name="dataSource")
 	public DataSource getDataSource () {
 		DriverManagerDataSource ds = new DriverManagerDataSource(); 
-		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		ds.setUsername("root");
-		ds.setPassword("Links23?");
-		ds.setUrl("jdbc:mysql://localhost:3306/paesidb");
+		ds.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		ds.setUsername("sa");
+		ds.setPassword("1234");
+		ds.setUrl("jdbc:sqlserver://localhost:1433;databaseName=academy");
 		return ds; 
 	} 
 
