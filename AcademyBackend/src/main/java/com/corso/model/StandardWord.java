@@ -4,18 +4,18 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "standardwords")
+@Table(name = "ParolaStandard")
 public class StandardWord{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "IdParoleStandard")
 	private int id;
-	
-	@Column(name="isocode")
+
+	@Column(name="cca3")
 	private String code;
 	
-	@Column(name="country")
+	@Column(name="Common")
 	private String value;
 
 	public int getId() {

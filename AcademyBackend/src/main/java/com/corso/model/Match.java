@@ -5,25 +5,26 @@ import javax.persistence.*;
 import com.corso.standardwords.AlgorithmType;
 
 @Entity
-@Table(name = "matchwords")
+@Table(name = "Match")
 public class Match{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "IdMatch")
 	private int id;
 	
-	@Column(name="input_name")
+	@Column(name="Input")
 	private String input;
 	
-	@Column(name="match_name")
+	@Column(name="IdParolaStandard")
 	private String standardword;
 	
-	@Column(name="algorithm")
+	@Column(name="Algoritmo")
 	@Enumerated(EnumType.STRING)
 	private AlgorithmType algorithm;
 	
-	@Column(name="checked")
+
+	@Column(name="CheckWord")
 	private boolean confirm;
 	
 	public Match() {}
@@ -78,3 +79,4 @@ public class Match{
 	
 
 }
+

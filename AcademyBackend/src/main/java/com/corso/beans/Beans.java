@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.corso.dao.MatchDAO;
 import com.corso.dao.StandardWordDAO;
+import com.corso.dao.UserDAO;
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
 import com.corso.checkstring.Contained;
@@ -28,6 +29,7 @@ import com.corso.checkstring.Levenshtein;
 import com.corso.checkstring.MatchCheckString;
 import com.corso.service.MatchService;
 import com.corso.service.StandardWordService;
+import com.corso.service.UserService;
 import com.corso.standardwords.StandardWords;
 import com.corso.standardwords.StandardWordsFromDB;
 
@@ -47,6 +49,7 @@ public class Beans {
         ds.setUrl("jdbc:sqlserver://localhost:1433;databaseName=academy;encrypt=true;trustServerCertificate=true");
         return ds; 
     }
+
 
 	@Bean
 	public EntityManagerFactory entityManagerFactory() throws SQLException {
@@ -83,6 +86,11 @@ public class Beans {
 	public MatchDAO getMatchDAO() {
 		return new MatchDAO();
 	}
+	
+	@Bean(name="userDao")
+	public UserDAO getUserDAO() {
+		return new UserDAO();
+	}
 
 	@Bean(name="swDAO")
 	public StandardWordDAO getStandardWordDAO() {
@@ -93,6 +101,13 @@ public class Beans {
 	public MatchService getMatchService() {
 		MatchService ms = new MatchService();
 		ms.setDao(getMatchDAO());
+		return ms;
+	}
+	
+	@Bean(name="userService")
+	public UserService getUserService() {
+		UserService ms = new UserService();
+		ms.setDao(getUserDAO());
 		return ms;
 	}
 

@@ -36,6 +36,10 @@ public class MatchDAO extends BaseDAO{
 		System.out.println("Siamo qui");
 		return (Match) em.find(classe, id);
 	} 
+	
+	//public Match findByInput(String input) {
+	//	return (Match) super.findByAttribute(Match.class, "Input", input);
+	//}
 
 	public Match findByInput(String input) {
 	    //Query q =  em.createQuery("from Match where input = :input", Match.class);

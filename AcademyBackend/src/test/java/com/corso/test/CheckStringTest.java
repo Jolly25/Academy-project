@@ -1,4 +1,4 @@
-package com.corso.test;
+	package com.corso.test;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -7,30 +7,44 @@ import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
 import com.corso.dao.MatchDAO;
 import com.corso.model.Match;
-import com.corso.standardwords.AlgorithmType;
+import com.corso.model.User;
+import com.corso.service.MatchService;
+import com.corso.service.UserService;
+
 
 public class CheckStringTest {
 
 	public static void main(String[] args) {
-		
+
 		AnnotationConfigApplicationContext factory = new AnnotationConfigApplicationContext(Beans.class);
 
+		/*
 		CheckString cs = (CheckString) factory.getBean("c1"); 
 		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah"); 
 		
 		ah.buildCheckString();
 		
-		String s = "Germanyy";
-		cs.check(s); //ho messo toUpperCase perchè nel mio db le parole standard sono in stampatello
 		
-		/*
-		MatchDAO dao = factory.getBean("matchDao", MatchDAO.class);
-	 	Match m = new Match();
-	 	m.setInput("Francee");
-	 	m.setStandardword("FRANCE");
-	 	m.setAlgorithm(AlgorithmType.Admin);
-	 	dao.create(m);
+		cs.check("Germanyy");
+		
+		MatchDAO dao = (MatchDAO) factory.getBean("matchDao");
+		Match m = dao.findByInput("Germany");
+		System.out.println(m.getStandardword());
 		*/
+
+		UserService service = (UserService) factory.getBean("userService"); 
+		User u = new User();
+		u.setUsername("Admin");
+		u.setNewPassword("Admin");
+		u.setRuolo("Admin");
+		u.setStatus(true);
+		//service.create(u);
+		System.out.println(service.findByUsername("user").checkPassword("Admin"));
+		
+		
+		
+		//MatchService mser = (MatchService) factory.getBean("matchService");
+		//System.out.println(mser.find(9).getInput());
 	}
 
 }
