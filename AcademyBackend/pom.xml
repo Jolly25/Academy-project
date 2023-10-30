@@ -54,6 +54,20 @@
 	    <artifactId>mssql-jdbc</artifactId>
 	    <version>6.1.0.jre8</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc -->
+	<dependency>
+	    <groupId>com.microsoft.sqlserver</groupId>
+	    <artifactId>mssql-jdbc</artifactId>
+	    <version>12.4.1.jre11</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>com.google.guava</groupId>
+    	<artifactId>guava</artifactId>
+    	<version>31.0.1-jre</version>
+	</dependency>
+
 
 	<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
 	<dependency>

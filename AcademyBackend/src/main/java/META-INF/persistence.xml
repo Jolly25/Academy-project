@@ -4,14 +4,15 @@
 		
 		<class>com.corso.model.Match</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=academy"/>
-			<property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-			<property name="javax.persistence.jdbc.user" value="sa"/>
-			<property name="javax.persistence.jdbc.password" value="1234"/>
-			
-			<property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect" />
-			<property name="hibernate.show_sql" value="true" />
-		</properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=academy;encrypt=true;trustServerCertificate=true"/>
+            <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value="1234"/>
+
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect" />
+            <property name="hibernate.show_sql" value="true" />
+        </properties>
+
 		
 		
 	</persistence-unit>

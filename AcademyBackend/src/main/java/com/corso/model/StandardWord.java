@@ -11,7 +11,7 @@ public class StandardWord{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "IdParoleStandard")
 	private int id;
-	
+
 	@Column(name="cca3")
 	private String code;
 	

@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -23,7 +24,7 @@ public class MatchDAO extends BaseDAO{
 	
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("match_pu");
 	EntityManager em = entityManagerFactory.createEntityManager();
-
+	
 	@Transactional
 	public void create(Match match){
 		em.getTransaction().begin();
@@ -35,6 +36,10 @@ public class MatchDAO extends BaseDAO{
 		System.out.println("Siamo qui");
 		return (Match) em.find(classe, id);
 	} 
+	
+	//public Match findByInput(String input) {
+	//	return (Match) super.findByAttribute(Match.class, "Input", input);
+	//}
 
 	public Match findByInput(String input) {
 	    //Query q =  em.createQuery("from Match where input = :input", Match.class);

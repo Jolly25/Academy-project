@@ -23,6 +23,7 @@ public class Match{
 	@Enumerated(EnumType.STRING)
 	private AlgorithmType algorithm;
 	
+
 	@Column(name="CheckWord")
 	private boolean confirm;
 	

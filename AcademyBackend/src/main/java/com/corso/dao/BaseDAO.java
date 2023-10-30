@@ -3,6 +3,8 @@ package com.corso.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -11,9 +13,16 @@ import javax.persistence.Query;
 
 public /*abstract*/ class BaseDAO {
 	
-	@PersistenceContext
-	EntityManager manager;
+	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("match_pu");
+	EntityManager manager = entityManagerFactory.createEntityManager();
 	
+	
+	
+	public Object findByAttribute(Class c, String attribute, String value) {
+		Object o = manager.createQuery("SELECT t FROM " + c.getName() + " t where " + attribute + " = :value1")
+                .setParameter("value1", value).getSingleResult();
+		return o;
+	}
 	
 	public  List<?> all(Class c) {
 		String jpql = "from " + c.getClass().getSimpleName();  

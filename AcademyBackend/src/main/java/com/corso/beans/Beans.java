@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.corso.dao.MatchDAO;
 import com.corso.dao.StandardWordDAO;
+import com.corso.dao.UserDAO;
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
 import com.corso.checkstring.Contained;
@@ -28,6 +29,7 @@ import com.corso.checkstring.Levenshtein;
 import com.corso.checkstring.MatchCheckString;
 import com.corso.service.MatchService;
 import com.corso.service.StandardWordService;
+import com.corso.service.UserService;
 import com.corso.standardwords.StandardWords;
 import com.corso.standardwords.StandardWordsFromDB;
 
@@ -36,16 +38,18 @@ import com.corso.standardwords.StandardWordsFromDB;
 @EnableTransactionManagement 
 
 public class Beans {
-
+	
+	
 	@Bean(name="dataSource")
-	public DataSource getDataSource () {
-		DriverManagerDataSource ds = new DriverManagerDataSource(); 
-		ds.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-		ds.setUsername("sa");
-		ds.setPassword("1234");
-		ds.setUrl("jdbc:sqlserver://localhost:1433;databaseName=academy");
-		return ds; 
-	} 
+    public DataSource getDataSource () {
+        DriverManagerDataSource ds = new DriverManagerDataSource(); 
+        ds.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        ds.setUsername("sa");
+        ds.setPassword("1234");
+        ds.setUrl("jdbc:sqlserver://localhost:1433;databaseName=academy;encrypt=true;trustServerCertificate=true");
+        return ds; 
+    }
+
 
 	@Bean
 	public EntityManagerFactory entityManagerFactory() throws SQLException {
@@ -64,7 +68,7 @@ public class Beans {
 
 	private HibernateJpaVendorAdapter getJpaVendorAdapter() {
 		HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-		adapter.setDatabase(Database.MYSQL);   
+		adapter.setDatabase(Database.SQL_SERVER);   
 		adapter.setGenerateDdl(true);          
 		adapter.setShowSql(true);             
 		return adapter;
@@ -76,10 +80,16 @@ public class Beans {
 		txManager.setEntityManagerFactory(entityManagerFactory());
 		return txManager;
 	}
+	
 
 	@Bean(name="matchDao")
 	public MatchDAO getMatchDAO() {
 		return new MatchDAO();
+	}
+	
+	@Bean(name="userDao")
+	public UserDAO getUserDAO() {
+		return new UserDAO();
 	}
 
 	@Bean(name="swDAO")
@@ -91,6 +101,13 @@ public class Beans {
 	public MatchService getMatchService() {
 		MatchService ms = new MatchService();
 		ms.setDao(getMatchDAO());
+		return ms;
+	}
+	
+	@Bean(name="userService")
+	public UserService getUserService() {
+		UserService ms = new UserService();
+		ms.setDao(getUserDAO());
 		return ms;
 	}
 
