@@ -34,12 +34,12 @@ public class CheckStringTest {
 
 		UserService service = (UserService) factory.getBean("userService"); 
 		User u = new User();
-		u.setUsername("Admin");
+		u.setUsername("user2");
 		u.setNewPassword("Admin");
-		u.setRuolo("Admin");
+		u.setRuolo("User");
 		u.setStatus(true);
-		//service.create(u);
-		System.out.println(service.findByUsername("user").checkPassword("Admin"));
+		service.create(u);
+		//System.out.println(service.findByUsername("user").checkPassword("Admin"));
 		
 		
 		
