@@ -21,7 +21,6 @@
 	</dependency>
 
 	<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-beans</artifactId>
@@ -50,11 +49,10 @@
 	    <version>5.3.4</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
 	<dependency>
-	    <groupId>com.mysql</groupId>
-	    <artifactId>mysql-connector-j</artifactId>
-	    <version>8.0.33</version>
+	    <groupId>com.microsoft.sqlserver</groupId>
+	    <artifactId>mssql-jdbc</artifactId>
+	    <version>6.1.0.jre8</version>
 	</dependency>
 
 	<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
