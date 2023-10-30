@@ -18,7 +18,7 @@ public class CheckStringTest {
 		
 		ah.buildCheckString();
 		
-		cs.check("Germanyy");
+		cs.check("Germanyy");	
 		
 		
 		
