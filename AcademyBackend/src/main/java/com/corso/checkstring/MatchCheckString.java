@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.corso.standardwords.AlgorithmType;
 import com.corso.model.Match;
+import com.corso.service.MatchService;
 import com.corso.standardwords.StandardWords;
 
 public class MatchCheckString extends CheckString{
@@ -15,6 +16,9 @@ public class MatchCheckString extends CheckString{
 	@Autowired
 	private StandardWords sw;
 	
+	@Autowired
+	private MatchService matchService;
+	
 	@Override
 	protected AlgorithmType getAlgo() {
 		return AlgorithmType.Match;
@@ -22,13 +26,9 @@ public class MatchCheckString extends CheckString{
 
 	@Override
 	protected String checkimpl(String input) {
-		matchlist = sw.getMatch();
-		for(Match m : matchlist) {
-			if(input.equals(m.getInput())) {
-				return m.getStandardword();
-			}
-		}
-		return null;
+		Match m = matchService.findByInput(input);
+		if(m==null) return null;
+		return m.getStandardword();
 	}
 
 }
