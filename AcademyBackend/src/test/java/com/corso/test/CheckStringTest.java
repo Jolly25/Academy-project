@@ -20,7 +20,7 @@ public class CheckStringTest {
 
 		/*
 		CheckString cs = (CheckString) factory.getBean("c1"); 
-		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah"); 
+		 
 		
 		ah.buildCheckString();
 		
@@ -30,7 +30,7 @@ public class CheckStringTest {
 		MatchDAO dao = (MatchDAO) factory.getBean("matchDao");
 		Match m = dao.findByInput("Germany");
 		System.out.println(m.getStandardword());
-		*/
+		
 
 		UserService service = (UserService) factory.getBean("userService"); 
 		User u = new User();
@@ -40,9 +40,12 @@ public class CheckStringTest {
 		u.setStatus(true);
 		service.create(u);
 		//System.out.println(service.findByUsername("user").checkPassword("Admin"));
+		*/
 		
-		
-		
+		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
+		CheckString cs = ah.buildCheckString();
+		System.out.println(cs.check("x"));
+		System.out.println(cs.check("Italy"));
 		//MatchService mser = (MatchService) factory.getBean("matchService");
 		//System.out.println(mser.find(9).getInput());
 	}

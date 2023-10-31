@@ -32,7 +32,6 @@ public /*abstract*/ class BaseDAO {
 		return l;
 	}
 
-	
 	public Object find(Class c, Integer id) {
 		Object o = manager.find(c, id);
 		return o;
