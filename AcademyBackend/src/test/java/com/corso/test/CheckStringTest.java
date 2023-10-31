@@ -18,20 +18,15 @@ public class CheckStringTest {
 
 		AnnotationConfigApplicationContext factory = new AnnotationConfigApplicationContext(Beans.class);
 
-		/*
+		
 		CheckString cs = (CheckString) factory.getBean("c1"); 
 		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah"); 
 		
 		ah.buildCheckString();
 		
-		
-		cs.check("Germanyy");
-		
-		MatchDAO dao = (MatchDAO) factory.getBean("matchDao");
-		Match m = dao.findByInput("Germany");
-		System.out.println(m.getStandardword());
-		*/
+		cs.check("Ireiondd");
 
+		/*
 		UserService service = (UserService) factory.getBean("userService"); 
 		User u = new User();
 		u.setUsername("user2");
@@ -39,12 +34,8 @@ public class CheckStringTest {
 		u.setRuolo("User");
 		u.setStatus(true);
 		service.create(u);
-		//System.out.println(service.findByUsername("user").checkPassword("Admin"));
-		
-		
-		
-		//MatchService mser = (MatchService) factory.getBean("matchService");
-		//System.out.println(mser.find(9).getInput());
+		System.out.println(service.findByUsername("user").checkPassword("Admin"));
+		*/
 	}
 
 }
