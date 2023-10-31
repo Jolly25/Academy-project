@@ -9,14 +9,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 
-
-
 public /*abstract*/ class BaseDAO {
 	
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("match_pu");
 	EntityManager manager = entityManagerFactory.createEntityManager();
-	
-	
 	
 	public Object findByAttribute(Class c, String attribute, String value) {
 		Object o = manager.createQuery("SELECT t FROM " + c.getName() + " t where " + attribute + " = :value1")
@@ -32,7 +28,6 @@ public /*abstract*/ class BaseDAO {
 		return l;
 	}
 
-	
 	public Object find(Class c, Integer id) {
 		Object o = manager.find(c, id);
 		return o;

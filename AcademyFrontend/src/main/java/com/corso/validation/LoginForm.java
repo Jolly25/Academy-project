@@ -10,19 +10,8 @@ public class LoginForm {
 	@NotEmpty
 	private String password;
 	
-	@NotEmpty
-	private String repeatPassword;
-	
 	public String getUsername() {
 		return username;
-	}
-	
-	public String getRepeatPassword() {
-		return repeatPassword;
-	}
-	
-	public void setRepeatPassword(String repeatPassword) {
-		this.repeatPassword = repeatPassword;
 	}
 	
 	public void setUsername(String username) {

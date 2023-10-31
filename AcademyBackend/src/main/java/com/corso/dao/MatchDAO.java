@@ -37,10 +37,11 @@ public class MatchDAO extends BaseDAO{
 		return (Match) em.find(classe, id);
 	} 
 	
-	//public Match findByInput(String input) {
-	//	return (Match) super.findByAttribute(Match.class, "Input", input);
-	//}
+	public Match findByInput(String input) {
+		return (Match) super.findByAttribute(Match.class, "Input", input);
+	}
 
+	/*
 	public Match findByInput(String input) {
 	    //Query q =  em.createQuery("from Match where input = :input", Match.class);
 	    //q.setParameter("input", input);
@@ -58,6 +59,7 @@ public class MatchDAO extends BaseDAO{
 		else return null;
 		
 	}
+	*/
 
 	public int countMatches(String algorithm) {
 		String jpql = "from Match where algorithm = :algorithm";  
