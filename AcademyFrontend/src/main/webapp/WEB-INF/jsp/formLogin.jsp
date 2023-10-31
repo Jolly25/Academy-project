@@ -23,11 +23,6 @@
                  <td><form:errors path="password"/></td>
              </tr>
              <tr>
-                 <td><form:label path="repeatPassword">Repeat password</form:label></td>
-                 <td><form:password path="repeatPassword"/></td>
-                 <td><form:errors path="repeatPassword"/></td>
-             </tr>
-             <tr>
                  <td><input type="submit" value="Submit"/></td>
              </tr>
          </table>
