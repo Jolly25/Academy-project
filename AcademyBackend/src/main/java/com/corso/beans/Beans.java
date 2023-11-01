@@ -27,6 +27,9 @@ import com.corso.checkstring.Contained;
 import com.corso.checkstring.Contains;
 import com.corso.checkstring.Fisher;
 import com.corso.checkstring.Levenshtein;
+import com.corso.checkstring.Levenshtein1;
+import com.corso.checkstring.Levenshtein2;
+import com.corso.checkstring.Levenshtein3;
 import com.corso.checkstring.MatchCheckString;
 import com.corso.service.MatchService;
 import com.corso.service.StandardWordService;
@@ -147,11 +150,21 @@ public class Beans {
 	}
 
 	@Bean(name="c4")
-	public CheckString getLevenshtein() {
-		return new Levenshtein(1);
+	public CheckString getLevenshtein1() {
+		return new Levenshtein1();
 	}
 	
 	@Bean(name="c5")
+	public CheckString getLevenshtein2() {
+		return new Levenshtein2();
+	}
+	
+	@Bean(name="c6")
+	public CheckString getLevenshtein3() {
+		return new Levenshtein3();
+	}
+	
+	@Bean(name="c7")
 	public CheckString getFisher() {
 		return new Fisher(2);
 	}

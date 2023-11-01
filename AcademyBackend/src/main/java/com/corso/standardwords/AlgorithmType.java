@@ -1,6 +1,6 @@
 package com.corso.standardwords;
 
 public enum AlgorithmType {
-	Contained, Contains, Levenshtein, Match, Admin, NotFound, Equals, Fisher;
+	Contained, Contains, Match, Admin, NotFound, Equals, Fisher, Levenshtein2, Levenshtein3, Levenshtein1;
 
 }

@@ -19,17 +19,26 @@ public class CheckStringTest {
 		AnnotationConfigApplicationContext factory = new AnnotationConfigApplicationContext(Beans.class);
 
 		
-		CheckString cs = (CheckString) factory.getBean("c1");
-		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
+		CheckString c1 = (CheckString) factory.getBean("c1");
+		CheckString c2 = (CheckString) factory.getBean("c1");
+		
+		c1.setNext(c2);
+		
+		CheckString c3 = (CheckString) factory.getBean("c1");
+		System.out.println(c3.next);
+		//AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
 		
 		//ah.buildCheckString();
 	
 		//cs.check("Ireiondd");
-
+		/*
 		UserService service = (UserService) factory.getBean("userService"); 
 		User u = service.findByUsername("User9");
 		System.out.println(u);
 
+		
+		
+		
 		/*
 		UserService service = (UserService) factory.getBean("userService"); 
 		User u = new User();
