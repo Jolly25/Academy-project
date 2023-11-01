@@ -1,4 +1,4 @@
-	package com.corso.test;
+package com.corso.test;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -22,11 +22,13 @@ public class CheckStringTest {
 		CheckString cs = (CheckString) factory.getBean("c1");
 		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
 		
-		ah.buildCheckString();
+		//ah.buildCheckString();
 	
-		cs.check("Ireiondd");
+		//cs.check("Ireiondd");
 
-
+		UserService service = (UserService) factory.getBean("userService"); 
+		User u = service.findByUsername("User9");
+		System.out.println(u);
 
 		/*
 		UserService service = (UserService) factory.getBean("userService"); 

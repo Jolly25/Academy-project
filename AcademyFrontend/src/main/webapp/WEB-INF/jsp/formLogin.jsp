@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha2/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href=${pageContext.request.contextPath}/resources/style/login.css type="text/css">
 <title>Form Login</title>
+
 </head>
 <body>
 
@@ -23,17 +24,17 @@
             <div class="mb-3">
                 <form:label path="username" for="username" class="form-label text-light">Username</form:label>
                 <form:input path="username" type="text" class="form-control" id="username" placeholder="Inserisci il tuo username"/>
-                <form:errors path="username" cssClass="error"/>
+                <form:errors path="username" class="error"/>
             </div>
             <div class="mb-3">
                 <form:label path="password" for="password" class="form-label text-light">Password</form:label>
                 <form:input path="password" type="password" class="form-control" id="password" placeholder="Inserisci la tua password"/>
-                <form:errors path="password" cssClass="error"/>
+                <form:errors path="password" class="error"/>
                 <br>
             </div>
             <button type="submit" class="btn btn-primary btn-block login-button">Login</button>
             <br>
-            <p class="small-text"><a href="register.html">Non sei ancora registrato? Registrati</a></p>
+            <p class="small-text"><a href="form_register">Non sei ancora registrato? Registrati</a></p>
         </form:form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

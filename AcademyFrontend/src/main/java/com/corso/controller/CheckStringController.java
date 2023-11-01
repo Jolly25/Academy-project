@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -29,6 +30,7 @@ import com.corso.service.MatchService;
 import com.corso.service.UserService;
 import com.corso.validation.LoginForm;
 import com.corso.validation.MatchForm;
+import com.corso.validation.RegisterForm;
 
 
 @Controller
@@ -86,25 +88,59 @@ public class CheckStringController {
 	}
 
 	@PostMapping("/login")
-	public String login(@ModelAttribute("loginForm") @Valid LoginForm loginForm, BindingResult bindingResult) {
-		if(bindingResult.hasErrors()) {
+	public String login(@ModelAttribute("loginForm") @Valid LoginForm lf, BindingResult br) {
+		if(br.hasErrors()) {
 			return "formLogin";
 		}
-		else {
-			String username = loginForm.getUsername();
-			String pw = loginForm.getPassword();
-			User u = userService.findByUsername(username);
-			if(u != null) {
-				if(u.checkPassword(pw)) {
-					if(u.getRuolo().equals("Admin")) {
-						return "loggedAdmin";
-					}
-					return "logged";
-				}
-			}
-			return "formLogin";
-			}
 
+		String username = lf.getUsername();
+		String pw = lf.getPassword();
+		User u = userService.findByUsername(username);
+		if(u == null) {
+			br.rejectValue("username", "error.username", "Incorrect username");
+		}
+		if(br.hasErrors()) {
+			return "formLogin";
+		}
+		
+		if(!u.checkPassword(pw)) {
+			br.rejectValue("password", "error.password", "Incorrect password");
+		}
+		if(br.hasErrors()) {
+			return "formLogin";
+		}
+
+		if(u.getRuolo().equals("Admin")) {
+			return "loggedAdmin";
+		}
+		else return "logged";
+	}
+
+	@GetMapping("/form_register")
+	public String formRegister(Model m) {
+		RegisterForm registerForm = new RegisterForm();
+		m.addAttribute("registerForm", registerForm);
+		return "formRegister";
+	}
+
+	@PostMapping("/register")
+	public String register(@ModelAttribute("registerForm") @Valid RegisterForm rf, BindingResult br) {
+		if(!(rf.getPassword().equals(rf.getConfirmPassword()))) {
+			br.rejectValue("confirmPassword", "error.confirmPassword", "Password do not match");
+		}
+
+		if(br.hasErrors()) {
+			return "formRegister";
+		}
+		else {
+			User u = new User();
+			u.setUsername(rf.getUsername());
+			u.setNewPassword(rf.getPassword());
+			u.setRuolo("User");
+			u.setStatus(true);
+			userService.create(u);
+			return "home";
+		}
 	}
 
 }
