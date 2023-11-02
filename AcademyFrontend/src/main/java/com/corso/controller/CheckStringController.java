@@ -39,7 +39,7 @@ import com.corso.validation.RegisterForm;
 public class CheckStringController {
 
 	@Autowired
-	CheckString c1;
+	CheckString matchCS;
 
 	@Autowired
 	AlgorithmHandler ah;
@@ -69,7 +69,7 @@ public class CheckStringController {
 		}
 		else {
 			ah.buildCheckString();
-			c1.check(input);
+			matchCS.check(input);
 			return "viewOutput";
 		}
 	}
