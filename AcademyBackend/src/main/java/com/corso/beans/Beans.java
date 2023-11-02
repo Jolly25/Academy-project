@@ -18,6 +18,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.corso.dao.AlgorithmDAO;
 import com.corso.dao.MatchDAO;
 import com.corso.dao.StandardWordDAO;
 import com.corso.dao.UserDAO;
@@ -32,6 +33,7 @@ import com.corso.checkstring.Levenshtein1;
 import com.corso.checkstring.Levenshtein2;
 import com.corso.checkstring.Levenshtein3;
 import com.corso.checkstring.MatchCheckString;
+import com.corso.service.AlgorithmService;
 import com.corso.service.MatchService;
 import com.corso.service.StandardWordService;
 import com.corso.service.UserService;
@@ -92,6 +94,11 @@ public class Beans {
 		return new MatchDAO();
 	}
 	
+	@Bean(name="algorithmDao")
+	public AlgorithmDAO getAlgorithmDAO() {
+		return new AlgorithmDAO();
+	}
+	
 	@Bean(name="userDao")
 	public UserDAO getUserDAO() {
 		return new UserDAO();
@@ -107,6 +114,13 @@ public class Beans {
 		MatchService ms = new MatchService();
 		ms.setDao(getMatchDAO());
 		return ms;
+	}
+	
+	@Bean(name="algorithmService")
+	public AlgorithmService getAlgorithmService() {
+		AlgorithmService as = new AlgorithmService();
+		as.setDao(getAlgorithmDAO());
+		return as;
 	}
 	
 	@Bean(name="userService")
