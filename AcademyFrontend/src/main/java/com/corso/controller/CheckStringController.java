@@ -39,7 +39,7 @@ import com.corso.validation.RegisterForm;
 public class CheckStringController {
 
 	@Autowired
-	CheckString c1;
+	CheckString matchCS;
 
 	@Autowired
 	AlgorithmHandler ah;
@@ -69,7 +69,7 @@ public class CheckStringController {
 		}
 		else {
 			ah.buildCheckString();
-			c1.check(input);
+			matchCS.check(input);
 			return "viewOutput";
 		}
 	}
@@ -153,8 +153,11 @@ public class CheckStringController {
 			u.setNewPassword(rf.getPassword());
 			u.setRuolo("User");
 			u.setStatus(true);
-			userService.create(u);
-			return "formLogin";
+			if(userService.create(u) == null) {
+				br.rejectValue("username", "error.username", "You are already signed up");
+				return "formRegister";
+			}
+			return "redirect:/";
 		}
 	}
 	

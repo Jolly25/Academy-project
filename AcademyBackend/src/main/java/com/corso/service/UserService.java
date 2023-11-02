@@ -7,8 +7,8 @@ public class UserService {
 
 	private UserDAO dao;
 
-	public void create(User user) {
-		dao.create(user);
+	public User create(User user) {
+		return dao.create(user);
 	}
 	
 	public void setDao(UserDAO userDAO) {
