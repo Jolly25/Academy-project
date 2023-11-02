@@ -3,6 +3,7 @@ package com.corso.controller;
 import java.util.List;
 
 import javax.jws.WebParam;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,9 +50,9 @@ public class CheckStringController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(path = { "/", "/home" }, method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(path = { "/home_user" }, method = { RequestMethod.GET, RequestMethod.POST })
 	public String home() {
-		return "home";
+		return "homeUser";
 	}
 
 	@GetMapping("/form_add")
@@ -80,7 +81,7 @@ public class CheckStringController {
 		return "viewMatchList";
 	}
 
-	@GetMapping("/form_login")
+	@GetMapping("/")
 	public String formLogin(Model m) {
 		LoginForm loginForm = new LoginForm();
 		m.addAttribute("loginForm", loginForm);
@@ -88,7 +89,7 @@ public class CheckStringController {
 	}
 
 	@PostMapping("/login")
-	public String login(@ModelAttribute("loginForm") @Valid LoginForm lf, BindingResult br) {
+	public String login(@ModelAttribute("loginForm") @Valid LoginForm lf, BindingResult br, HttpSession session) {
 		if(br.hasErrors()) {
 			return "formLogin";
 		}
@@ -111,9 +112,12 @@ public class CheckStringController {
 		}
 
 		if(u.getRuolo().equals("Admin")) {
-			return "loggedAdmin";
+			return "homeAdmin";
 		}
-		else return "logged";
+		else {
+			session.setAttribute("user", u);
+			return "homeUser";
+		}
 	}
 
 	@GetMapping("/form_register")
@@ -139,8 +143,14 @@ public class CheckStringController {
 			u.setRuolo("User");
 			u.setStatus(true);
 			userService.create(u);
-			return "home";
+			return "formLogin";
 		}
 	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+	    session.invalidate();
+	    return "redirect:/";
+	} 
 
 }
