@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class AlgorithmHandler {
 	
 	@Autowired
-	private CheckString c1, c2, c3, c4, c5, c6, c7;
+	private CheckString c1, c2, c3, c4, c5, c6, c7, c8;
 	
 	private CheckString firstAlgo;
 
@@ -23,6 +23,7 @@ public class AlgorithmHandler {
 		c4.setNext(c5);
 		c5.setNext(c6);
 		c6.setNext(c7);
+		c7.setNext(c8);
 		
 		firstAlgo = c1;
 	}

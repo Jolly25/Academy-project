@@ -25,6 +25,7 @@ import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
 import com.corso.checkstring.Contained;
 import com.corso.checkstring.Contains;
+import com.corso.checkstring.Equals;
 import com.corso.checkstring.Fisher;
 import com.corso.checkstring.Levenshtein;
 import com.corso.checkstring.Levenshtein1;
@@ -168,6 +169,13 @@ public class Beans {
 	public CheckString getFisher() {
 		return new Fisher(2);
 	}
+	
+	@Bean(name="c8")
+	public CheckString getEquals() {
+		return new Equals();
+	}
+	
+	
 
 
 
