@@ -112,12 +112,23 @@ public class CheckStringController {
 		}
 
 		if(u.getRuolo().equals("Admin")) {
-			return "homeAdmin";
+			session.setAttribute("user", u);
+			return "redirect:/home_admin";
 		}
 		else {
 			session.setAttribute("user", u);
-			return "homeUser";
+			return "redirect:/home_userr";
 		}
+	}
+	
+	@GetMapping("/home_userr")
+	public String getHomeUser() {
+		return "homeUser";
+	}
+	
+	@GetMapping("/home_admin")
+	public String getHomeAdmin() {
+		return "homeAdmin";
 	}
 
 	@GetMapping("/form_register")
