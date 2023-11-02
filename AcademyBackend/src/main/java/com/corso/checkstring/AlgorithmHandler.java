@@ -31,7 +31,7 @@ public class AlgorithmHandler{
 		firstAlgo = getAlgorithmFromType(AlgorithmType.Match); 
 		CheckString temp1 = firstAlgo;
 		CheckString temp2 = null;
-		for(int i = 0; i < algos.size() - 1; i++) {
+		for(int i = 0; i < algos.size(); i++) {
 			temp2 = getAlgorithmFromType(algos.get(i).type);
 			temp1.setNext(temp2);
 			temp1 = temp2;
