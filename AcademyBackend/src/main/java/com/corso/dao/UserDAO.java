@@ -20,6 +20,7 @@ public class UserDAO extends BaseDAO{
 		try {
 			em.getTransaction().begin();
 			em.persist(user);
+			em.getTransaction().commit();
 			return user;
 		}
 		catch (Exception e){

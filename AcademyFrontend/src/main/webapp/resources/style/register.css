@@ -63,3 +63,7 @@ a {
 p {
     color: white;
 }
+
+.error {
+	color: red;
+}
