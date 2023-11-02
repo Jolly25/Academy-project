@@ -15,7 +15,7 @@ public class AlgorithmDAO extends BaseDAO{
 	
 	
 	public List<AlgoResult> getAllAlgoResult() {
-		String jpql = "from Match";
+		String jpql = "from AlgoResult";
 		Query q = em.createQuery(jpql, AlgoResult.class);
 		
 	    List<AlgoResult> list = q.getResultList();

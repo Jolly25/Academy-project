@@ -26,7 +26,7 @@ public class CheckStringTest {
 		
 		CheckString c3 = (CheckString) factory.getBean("c1");
 		System.out.println(c3.next);
-		//AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
+		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
 		
 		//ah.buildCheckString();
 	
@@ -48,8 +48,11 @@ public class CheckStringTest {
 		*/
 		MatchService service = (MatchService) factory.getBean("matchService"); 
 		
+		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
+		CheckString cs = ah.buildCheckString();
+		
 		Match m = service.findByInput("Ger");
-		System.out.println(m.getAlgorithm());
+		System.out.println(cs.check("Cina"));
 		
 	}
 
