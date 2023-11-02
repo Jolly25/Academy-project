@@ -49,6 +49,7 @@ public class CheckStringTest {
 		u.setStatus(true);
 		service.create(u);
 		System.out.println(service.findByUsername("user").checkPassword("Admin"));
+		MatchService service = (MatchService) factory.getBean("matchService"); 
 		
 		MatchService service = (MatchService) factory.getBean("matchService"); 
 		*/
