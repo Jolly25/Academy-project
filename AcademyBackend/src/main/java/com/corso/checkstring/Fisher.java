@@ -1,5 +1,7 @@
 package com.corso.checkstring;
 
+import com.corso.model.Algorithm;
+
 public class Fisher extends CheckStringWithList{
 
 	private int threshold;
@@ -9,8 +11,8 @@ public class Fisher extends CheckStringWithList{
 	}
 
 	@Override
-	protected AlgorithmType getAlgo() {
-		return AlgorithmType.Fisher;
+	protected Algorithm getAlgo() {
+		return new Algorithm(AlgorithmType.Fisher);
 	}
 
 	@Override

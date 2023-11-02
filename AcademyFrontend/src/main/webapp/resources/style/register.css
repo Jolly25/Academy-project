@@ -1,0 +1,65 @@
+body {
+    background-image: linear-gradient(to bottom right, #353752, #1FA1C6);
+    background-size: 200% 200%;
+    animation: gradient 10s infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.register-container {
+    background: #192734; /* Grigio molto scuro tendente al blu scuro */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-button {
+    transition: background 0.3s;
+    background-color: #192734;
+    border-color: white;
+}
+
+.login-button:hover {
+    background: #1FA1C6;
+}
+
+.gif-container {
+    text-align: center;
+}
+
+.gif-container img {
+    max-width: 100px; /* Imposta la larghezza massima per ridimensionare la gif */
+}
+
+.title {
+    text-align: center;
+}
+
+h2 {
+    color:white;
+}
+
+a {
+    color: white;
+}
+
+.small-text {
+    font-size: 10px;
+    text-align: center;
+}
+
+p {
+    color: white;
+}

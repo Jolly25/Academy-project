@@ -4,6 +4,7 @@ import com.corso.service.MatchService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.corso.model.Algorithm;
 import com.corso.model.Match;
 
 public abstract class CheckString {
@@ -38,14 +39,14 @@ public abstract class CheckString {
 		if(next != null) return next.check(input);
 		Match m = new Match();
 		m.setInput(input);
-		m.setAlgorithm(AlgorithmType.NotFound);
+		m.setAlgorithm(new Algorithm(AlgorithmType.NotFound));
 		m.setConfirm(false);
 		matchService.create(m);
 		System.out.println("Parola non trovata con gli algoritmi a disposizione");
 		return null;
 	}
 	
-	protected abstract AlgorithmType getAlgo();
+	protected abstract Algorithm getAlgo();
 
 	protected abstract String checkimpl(String input);
 

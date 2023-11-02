@@ -1,5 +1,7 @@
 package com.corso.checkstring;
 
+import com.corso.model.Algorithm;
+
 public class Levenshtein1 extends Levenshtein{
 
 	public Levenshtein1() {
@@ -7,8 +9,8 @@ public class Levenshtein1 extends Levenshtein{
 	}
 
 	@Override
-	protected AlgorithmType getAlgo() {
-		return AlgorithmType.Levenshtein1;
+	protected Algorithm getAlgo() {
+		return new Algorithm(AlgorithmType.Levenshtein1);
 	}
 
 }

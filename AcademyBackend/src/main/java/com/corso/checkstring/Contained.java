@@ -3,12 +3,14 @@ package com.corso.checkstring;
 
 import org.springframework.stereotype.Component;
 
+import com.corso.model.Algorithm;
+
 @Component
 public class Contained extends CheckStringWithList{
 
 	@Override
-	protected AlgorithmType getAlgo() {
-		return AlgorithmType.Contained;
+	protected Algorithm getAlgo() {
+		return new Algorithm(AlgorithmType.Contained);
 	}
 
 	@Override
