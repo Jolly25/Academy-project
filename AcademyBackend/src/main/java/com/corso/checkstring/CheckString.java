@@ -1,5 +1,6 @@
 package com.corso.checkstring;
 
+import com.corso.service.AlgorithmService;
 import com.corso.service.MatchService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,9 @@ public abstract class CheckString {
 	
 	@Autowired
 	private MatchService matchService;
+	
+	@Autowired
+	private AlgorithmService algorithmService;
 
 	public CheckString next;
 	
@@ -24,11 +28,11 @@ public abstract class CheckString {
 		String matchedword = checkimpl(input);
 		
 		if(matchedword != null) {
-			if(!getAlgo().equals(AlgorithmType.Match)){
+			if(!getAlgo().getAlgorithm().equals(AlgorithmType.Match)){
 				Match m = new Match();
 				m.setInput(input);
 				m.setStandardword(matchedword);
-				m.setAlgorithm(getAlgo());
+				m.setAlgorithm(algorithmService.getAlgorithmByType(getAlgo().getAlgorithm()));
 				m.setConfirm(false);
 				matchService.create(m);
 			}
@@ -39,7 +43,7 @@ public abstract class CheckString {
 		if(next != null) return next.check(input);
 		Match m = new Match();
 		m.setInput(input);
-		m.setAlgorithm(new Algorithm(AlgorithmType.NotFound));
+		m.setAlgorithm(algorithmService.getAlgorithmByType(AlgorithmType.NotFound));
 		m.setConfirm(false);
 		matchService.create(m);
 		System.out.println("Parola non trovata con gli algoritmi a disposizione");

@@ -43,4 +43,11 @@ public class Algorithm{
 		return algorithm.toString();
 	}
 
+	public boolean equals(Object o) {
+		if(!(o instanceof Algorithm)) return false;
+		Algorithm a = (Algorithm) o;
+		if(this.algorithm.equals(a.algorithm)) return true;
+		return false;
+	}
+	
 }

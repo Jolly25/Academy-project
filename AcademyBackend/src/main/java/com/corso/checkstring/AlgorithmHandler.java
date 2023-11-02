@@ -32,6 +32,7 @@ public class AlgorithmHandler{
 		CheckString temp1 = firstAlgo;
 		CheckString temp2 = null;
 		for(int i = 0; i < algos.size(); i++) {
+			System.out.println(i);
 			temp2 = getAlgorithmFromType(algos.get(i).getAlgorithm().getAlgorithm());
 			temp1.setNext(temp2);
 			temp1 = temp2;

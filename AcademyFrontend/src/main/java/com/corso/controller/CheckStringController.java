@@ -69,7 +69,7 @@ public class CheckStringController {
 		}
 		else {
 			ah.buildCheckString();
-			matchCS.check(input);
+			String match = matchCS.check(input);
 			return "viewOutput";
 		}
 	}

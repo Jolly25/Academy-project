@@ -6,7 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+
+import com.corso.checkstring.AlgorithmType;
 import com.corso.model.AlgoResult;
+import com.corso.model.Algorithm;
 
 public class AlgorithmDAO extends BaseDAO{
 
@@ -21,6 +24,10 @@ public class AlgorithmDAO extends BaseDAO{
 	    List<AlgoResult> list = q.getResultList();
 		
 	    return list;
+	}
+	
+	public Algorithm getAlgorithmByType(AlgorithmType type) {
+		return (Algorithm) super.findByAttribute(Algorithm.class, "Nome", type.toString());
 	}
 
 }

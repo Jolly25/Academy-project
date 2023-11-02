@@ -1,13 +1,17 @@
 package com.corso.test;
 
+import java.util.List;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.corso.beans.Beans;
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
 import com.corso.dao.MatchDAO;
+import com.corso.model.AlgoResult;
 import com.corso.model.Match;
 import com.corso.model.User;
+import com.corso.service.AlgorithmService;
 import com.corso.service.MatchService;
 import com.corso.service.UserService;
 
@@ -45,14 +49,19 @@ public class CheckStringTest {
 		u.setStatus(true);
 		service.create(u);
 		System.out.println(service.findByUsername("user").checkPassword("Admin"));
-		*/
+		
 		MatchService service = (MatchService) factory.getBean("matchService"); 
+		*/
 		
 		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
 		CheckString cs = ah.buildCheckString();
 		
-		Match m = service.findByInput("Ger");
-		System.out.println(cs.check("Cina"));
+		AlgorithmService service = (AlgorithmService) factory.getBean("algorithmService"); 
+		List<AlgoResult> algos = service.getAllAlgoResult();
+		
+		//Match m = service.findByInput("Ger");
+		System.out.println(cs.check("Itala"));
+		//System.out.println(algos.size());
 		
 	}
 
