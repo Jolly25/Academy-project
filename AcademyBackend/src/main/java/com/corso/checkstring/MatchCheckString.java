@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.corso.standardwords.AlgorithmType;
 import com.corso.model.Match;
 import com.corso.service.MatchService;
 import com.corso.standardwords.StandardWords;

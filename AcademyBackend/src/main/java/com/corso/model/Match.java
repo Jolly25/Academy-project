@@ -2,7 +2,7 @@ package com.corso.model;
 
 import javax.persistence.*;
 
-import com.corso.standardwords.AlgorithmType;
+import com.corso.checkstring.AlgorithmType;
 
 @Entity
 @Table(name = "Match")

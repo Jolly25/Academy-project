@@ -2,7 +2,6 @@ package com.corso.checkstring;
 
 
 import org.apache.commons.text.similarity.LevenshteinDistance;
-import com.corso.standardwords.AlgorithmType;
 
 
 public abstract class Levenshtein extends CheckStringWithList{

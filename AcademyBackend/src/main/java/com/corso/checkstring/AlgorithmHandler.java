@@ -28,16 +28,36 @@ public class AlgorithmHandler {
 	private void updateFirstAlgo() {
 		List<AlgoResult> algos = service.getAllAlgoResult(); 
 		Collections.sort(algos);
-		
-		
-		c1.setNext(c2);
-		c2.setNext(c3);
-		c3.setNext(c4);
-		c4.setNext(c5);
-		c5.setNext(c6);
-		c6.setNext(c7);
-		c7.setNext(c8);
-		
-		firstAlgo = c1;
+		firstAlgo = getAlgorithmFromType(algos.get(0).type); 
+		CheckString temp1 = firstAlgo;
+		CheckString temp2 = null;
+		for(int i = 1; i < algos.size() - 1; i++) {
+			temp2 = getAlgorithmFromType(algos.get(i).type);
+			temp1.setNext(temp2);
+			temp1 = temp2;
+		}
+	}
+
+	private CheckString getAlgorithmFromType(AlgorithmType type) {
+		switch(type) {
+		  case Contains:
+		    	return new Contains();
+		  case Contained:
+		    	return new Contained();
+		  case Equals:
+		    	return new Equals();
+		  case Match:
+		    	return new MatchCheckString();
+		  case Fisher:
+		    	return new Fisher();
+		  case Levenshtein1:
+		    	return new Levenshtein1();
+		  case Levenshtein2:
+		    	return new Levenshtein2();
+		  case Levenshtein3:
+		    	return new Levenshtein3();
+		  default:
+		    	return null;
+		}
 	}
 }

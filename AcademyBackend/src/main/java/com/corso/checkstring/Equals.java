@@ -3,8 +3,6 @@ package com.corso.checkstring;
 
 import org.springframework.stereotype.*;
 
-import com.corso.standardwords.AlgorithmType;
-
 @Component
 public class Equals extends CheckStringWithList{
 	

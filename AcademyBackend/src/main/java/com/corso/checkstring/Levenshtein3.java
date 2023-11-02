@@ -1,7 +1,5 @@
 package com.corso.checkstring;
 
-import com.corso.standardwords.AlgorithmType;
-
 public class Levenshtein3 extends Levenshtein{
 
 	public Levenshtein3() {

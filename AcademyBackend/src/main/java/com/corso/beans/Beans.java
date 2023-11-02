@@ -181,7 +181,7 @@ public class Beans {
 	
 	@Bean(name="c7")
 	public CheckString getFisher() {
-		return new Fisher(2);
+		return new Fisher();
 	}
 	
 	@Bean(name="c8")

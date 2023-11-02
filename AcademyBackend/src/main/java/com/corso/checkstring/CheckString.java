@@ -1,7 +1,6 @@
 package com.corso.checkstring;
 
 import com.corso.service.MatchService;
-import com.corso.standardwords.AlgorithmType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

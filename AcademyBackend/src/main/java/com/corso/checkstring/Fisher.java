@@ -1,14 +1,11 @@
 package com.corso.checkstring;
 
-import com.corso.standardwords.AlgorithmType;
-
-
 public class Fisher extends CheckStringWithList{
 
 	private int threshold;
 
-	public Fisher(int threshold) {
-		this.threshold = threshold;
+	public Fisher() {
+		this.threshold = 2;
 	}
 
 	@Override
