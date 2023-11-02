@@ -149,42 +149,42 @@ public class Beans {
 		return ah;
 	}
 
-	@Bean(name="c1")
+	@Bean(name="matchCS")
 	public CheckString getMatchCheckString() {
 		return new MatchCheckString();
 	}
 
-	@Bean(name="c2")
+	@Bean(name="containsCS")
 	public CheckString getContains() {
 		return new Contains();
 	}
 
-	@Bean(name="c3")
+	@Bean(name="containedCS")
 	public CheckString getContained() {
 		return new Contained();
 	}
 
-	@Bean(name="c4")
+	@Bean(name="levenshtein1CS")
 	public CheckString getLevenshtein1() {
 		return new Levenshtein1();
 	}
 	
-	@Bean(name="c5")
+	@Bean(name="levenshtein2CS")
 	public CheckString getLevenshtein2() {
 		return new Levenshtein2();
 	}
 	
-	@Bean(name="c6")
+	@Bean(name="levenshtein3CS")
 	public CheckString getLevenshtein3() {
 		return new Levenshtein3();
 	}
 	
-	@Bean(name="c7")
+	@Bean(name="fisherCS")
 	public CheckString getFisher() {
 		return new Fisher();
 	}
 	
-	@Bean(name="c8")
+	@Bean(name="equalsCS")
 	public CheckString getEquals() {
 		return new Equals();
 	}

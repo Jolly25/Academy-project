@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.corso.model.AlgoResult;
 import com.corso.service.AlgorithmService;
 
-public class AlgorithmHandler {
+public class AlgorithmHandler{
 	
 	@Autowired
-	private CheckString c1, c2, c3, c4, c5, c6, c7, c8;
+	private CheckString matchCS, containsCS, containedCS, levenshtein1CS, levenshtein2CS, levenshtein3CS, fisherCS, equalsCS;
 	
 	@Autowired
 	private AlgorithmService service;
@@ -28,10 +28,10 @@ public class AlgorithmHandler {
 	private void updateFirstAlgo() {
 		List<AlgoResult> algos = service.getAllAlgoResult(); 
 		Collections.sort(algos);
-		firstAlgo = getAlgorithmFromType(algos.get(0).type); 
+		firstAlgo = getAlgorithmFromType(AlgorithmType.Match); 
 		CheckString temp1 = firstAlgo;
 		CheckString temp2 = null;
-		for(int i = 1; i < algos.size() - 1; i++) {
+		for(int i = 0; i < algos.size() - 1; i++) {
 			temp2 = getAlgorithmFromType(algos.get(i).type);
 			temp1.setNext(temp2);
 			temp1 = temp2;
@@ -41,21 +41,21 @@ public class AlgorithmHandler {
 	private CheckString getAlgorithmFromType(AlgorithmType type) {
 		switch(type) {
 		  case Contains:
-		    	return new Contains();
+		    	return containsCS;
 		  case Contained:
-		    	return new Contained();
+		    	return containedCS;
 		  case Equals:
-		    	return new Equals();
+		    	return equalsCS;
 		  case Match:
-		    	return new MatchCheckString();
+		    	return matchCS;
 		  case Fisher:
-		    	return new Fisher();
+		    	return fisherCS;
 		  case Levenshtein1:
-		    	return new Levenshtein1();
+		    	return levenshtein1CS;
 		  case Levenshtein2:
-		    	return new Levenshtein2();
+		    	return levenshtein2CS;
 		  case Levenshtein3:
-		    	return new Levenshtein3();
+		    	return levenshtein3CS;
 		  default:
 		    	return null;
 		}
