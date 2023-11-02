@@ -19,9 +19,9 @@ public class Match{
 	@Column(name="IdParolaStandard")
 	private String standardword;
 	
-	@Column(name="Algoritmo")
-	@Enumerated(EnumType.STRING)
-	private AlgorithmType algorithm;
+	@ManyToOne()
+	@JoinColumn(name="IdAlgoritmo")
+	private Algorithm algorithm;
 	
 
 	@Column(name="CheckWord")
@@ -29,7 +29,7 @@ public class Match{
 	
 	public Match() {}
 	
-	public Match(String input, String sw, AlgorithmType algorithm) {
+	public Match(String input, String sw, Algorithm algorithm) {
 		this.input = input;
 		this.standardword = sw;
 		this.algorithm = algorithm;
@@ -59,11 +59,11 @@ public class Match{
 		this.standardword = sw;
 	}
 
-	public AlgorithmType getAlgorithm() {
+	public Algorithm getAlgorithm() {
 		return algorithm;
 	}
 
-	public void setAlgorithm(AlgorithmType algorithm) {
+	public void setAlgorithm(Algorithm algorithm) {
 		this.algorithm = algorithm;
 	}
 

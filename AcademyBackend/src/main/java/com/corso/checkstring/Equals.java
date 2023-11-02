@@ -3,6 +3,8 @@ package com.corso.checkstring;
 
 import org.springframework.stereotype.*;
 
+import com.corso.model.Algorithm;
+
 @Component
 public class Equals extends CheckStringWithList{
 	
@@ -12,8 +14,8 @@ public class Equals extends CheckStringWithList{
 	}
 
 	@Override
-	protected AlgorithmType getAlgo() {
-		return AlgorithmType.Equals;
+	protected Algorithm getAlgo() {
+		return new Algorithm(AlgorithmType.Equals);
 	}
 
 }

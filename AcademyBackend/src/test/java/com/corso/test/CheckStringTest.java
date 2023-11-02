@@ -18,7 +18,7 @@ public class CheckStringTest {
 
 		AnnotationConfigApplicationContext factory = new AnnotationConfigApplicationContext(Beans.class);
 
-		
+		/*
 		CheckString c1 = (CheckString) factory.getBean("c1");
 		CheckString c2 = (CheckString) factory.getBean("c1");
 		
@@ -31,14 +31,11 @@ public class CheckStringTest {
 		//ah.buildCheckString();
 	
 		//cs.check("Ireiondd");
-		/*
+		
 		UserService service = (UserService) factory.getBean("userService"); 
 		User u = service.findByUsername("User9");
 		System.out.println(u);
 
-		
-		
-		
 		/*
 		UserService service = (UserService) factory.getBean("userService"); 
 		User u = new User();
@@ -49,7 +46,11 @@ public class CheckStringTest {
 		service.create(u);
 		System.out.println(service.findByUsername("user").checkPassword("Admin"));
 		*/
-
+		MatchService service = (MatchService) factory.getBean("matchService"); 
+		
+		Match m = service.findByInput("Ger");
+		System.out.println(m.getAlgorithm());
+		
 	}
 
 }
