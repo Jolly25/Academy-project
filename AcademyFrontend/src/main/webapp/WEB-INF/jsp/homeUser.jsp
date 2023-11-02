@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home</title>
+<title>Home User</title>
 </head>
 <body >
 
-You are logged
+<a href="form_add">Inserisci paese</a> <br>
+<a href="logout">Logout</a>
 
 </body>
 </html>
