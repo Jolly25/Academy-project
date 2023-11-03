@@ -62,7 +62,7 @@ public class CheckStringTest {
 		
 		ah.trainAlgos();
 		//Match m = service.findByInput("Ger");
-		//System.out.println(cs.check("Itala"));
+		System.out.println(cs.check("bvufsibvufidbzvz"));
 		//System.out.println(algos.size());
 		//CheckString c1 = ah.buildCheckString();
 		//System.out.println(c1.next.next.getClass());

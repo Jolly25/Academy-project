@@ -32,6 +32,14 @@ public class MatchService {
 		return dao.getAllMatches();
 	}
 	
+	public List<Match> getAllCheckedAndFoundMatches() {
+		List<Match> matches = dao.getAllMatches();
+		for(Match m : matches) {
+			if(!m.isConfirm() || m.getStandardword()==null) matches.remove(m);
+		}
+		return matches;
+	}
+	
 	public void setDao(MatchDAO dao) {
 		this.dao = dao;
 	}

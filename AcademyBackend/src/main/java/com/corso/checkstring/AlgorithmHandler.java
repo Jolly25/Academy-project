@@ -46,7 +46,7 @@ public class AlgorithmHandler{
 	
 	public void trainAlgos() {
 		List<AlgoResult> results = algorithmService.getAllAlgoResult();
-		List<Match> matches = matchService.getAllMatches();
+		List<Match> matches = matchService.getAllCheckedAndFoundMatches();
 		for(AlgoResult ar : results) {
 			CheckString algo = getAlgorithmFromType(ar.getAlgorithm().getAlgorithm()); 
 			int correct = 0;
