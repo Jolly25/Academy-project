@@ -1,5 +1,8 @@
 package com.corso.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +35,14 @@ public class UserController {
 	}
 	
 	@GetMapping("/game")
-	public String getGamePage() {
+	public String getGamePage(Model m) {
 		//Partita p = partitaService.creaPartita();
 		//List<String> l = p.getArrayOfCountries();
+		List<String> array = new ArrayList<String>();
+		array.add("Italy");
+		array.add("France");
+		array.add("Germany");
+		m.addAttribute("array", array);
 		return "game";
 	}
 	

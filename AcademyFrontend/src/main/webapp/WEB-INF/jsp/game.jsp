@@ -15,6 +15,8 @@
         <input type="text" id="userInput" placeholder="Inserisci il nome del Paese">
         <button id="confirmButton">Indovina!</button>
     </div>
+    
+    <p hidden id="array">${array}</p>
 
 	<script src=${pageContext.request.contextPath}/resources/js/game.js></script>
 </body>
