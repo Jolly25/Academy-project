@@ -7,10 +7,10 @@
 <meta charset="ISO-8859-1">
 <title>Form CheckString</title>
 </head>
-<body >
+<body>
 
     <form:form method="POST" 
-       action="add" modelAttribute="matchForm">
+       action="checkstring" modelAttribute="matchForm">
           <table>
              <tr>
                  <td><form:label path="input">Input</form:label></td>

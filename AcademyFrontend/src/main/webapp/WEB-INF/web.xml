@@ -17,14 +17,14 @@
     </filter>
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
-        <url-pattern>/home_userr</url-pattern>
+        <url-pattern>/game</url-pattern>
         <url-pattern>/home_admin</url-pattern>
         <url-pattern>/form_add</url-pattern>
         <url-pattern>/view_matchlist</url-pattern>
     </filter-mapping>
         <filter-mapping>
         <filter-name>UserFilter</filter-name>
-        <url-pattern>/home_userr</url-pattern>
+        <url-pattern>/game</url-pattern>
         <url-pattern>/form_add</url-pattern>
     </filter-mapping>
         <filter-mapping>
