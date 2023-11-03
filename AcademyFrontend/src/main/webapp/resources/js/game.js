@@ -36,12 +36,14 @@ function displayFlag(flagURL, countryName) {
 
 document.getElementById('confirmButton').addEventListener('click', function() {
     let userInput = document.getElementById('userInput').value;
-
+    
     if (userInput.toLowerCase() === countryName.toLowerCase()) {
         alert('Risposta corretta! Si tratta di ' + countryName);
     } else {
         alert('Sbagliato :( la risposta corretta era ' + countryName);
     }
+
+
     getFlag();
 });
 

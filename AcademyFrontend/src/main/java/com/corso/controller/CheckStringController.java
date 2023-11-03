@@ -63,7 +63,7 @@ public class CheckStringController {
 		}
 		else {
 			session.setAttribute("user", u);
-			return "redirect:/game";
+			return "redirect:/home_userr";
 		}
 	}
 
