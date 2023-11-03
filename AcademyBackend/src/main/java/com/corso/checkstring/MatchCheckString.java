@@ -28,6 +28,7 @@ public class MatchCheckString extends CheckString{
 	protected String checkimpl(String input) {
 		Match m = matchService.findByInput(input);
 		if(m==null) return null;
+		System.out.println(m.getStandardword());
 		return m.getStandardword();
 	}
 

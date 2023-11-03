@@ -29,5 +29,11 @@ public class AlgorithmDAO extends BaseDAO{
 	public Algorithm getAlgorithmByType(AlgorithmType type) {
 		return (Algorithm) super.findByAttribute(Algorithm.class, "Nome", type.toString());
 	}
+	
+	public void updateAlgoResult(List<AlgoResult> results) {
+		for(AlgoResult r : results) {
+			super.update(r);
+		}
+	}
 
 }

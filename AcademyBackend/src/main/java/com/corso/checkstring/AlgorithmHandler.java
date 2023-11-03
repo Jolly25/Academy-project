@@ -6,7 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.corso.model.AlgoResult;
+import com.corso.model.Match;
 import com.corso.service.AlgorithmService;
+import com.corso.service.MatchService;
 
 public class AlgorithmHandler{
 	
@@ -14,7 +16,10 @@ public class AlgorithmHandler{
 	private CheckString matchCS, containsCS, containedCS, levenshtein1CS, levenshtein2CS, levenshtein3CS, fisherCS, equalsCS;
 	
 	@Autowired
-	private AlgorithmService service;
+	private AlgorithmService algorithmService;
+	
+	@Autowired
+	private MatchService matchService;
 	
 	private CheckString firstAlgo;
 
@@ -26,7 +31,7 @@ public class AlgorithmHandler{
 	}
 
 	private void updateFirstAlgo() {
-		List<AlgoResult> algos = service.getAllAlgoResult(); 
+		List<AlgoResult> algos = algorithmService.getAllAlgoResult(); 
 		Collections.sort(algos);
 		firstAlgo = getAlgorithmFromType(AlgorithmType.Match); 
 		CheckString temp1 = firstAlgo;
@@ -37,6 +42,24 @@ public class AlgorithmHandler{
 			temp1.setNext(temp2);
 			temp1 = temp2;
 		}
+	}
+	
+	public void trainAlgos() {
+		List<AlgoResult> results = algorithmService.getAllAlgoResult();
+		List<Match> matches = matchService.getAllMatches();
+		for(AlgoResult ar : results) {
+			CheckString algo = getAlgorithmFromType(ar.getAlgorithm().getAlgorithm()); 
+			int correct = 0;
+			for(Match m : matches) {
+				String output = algo.checkimpl(m.getInput());
+				if(output != null) 
+					if(output.equals(m.getStandardword())) 
+						correct++;
+			}
+			ar.setWinrate(correct);
+		}
+		algorithmService.updateAlgoResult(results);
+		updateFirstAlgo();
 	}
 
 	private CheckString getAlgorithmFromType(AlgorithmType type) {

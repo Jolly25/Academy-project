@@ -8,6 +8,10 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.transaction.annotation.Transactional;
+
+import com.corso.model.AlgoResult;
+
 
 public /*abstract*/ class BaseDAO {
 
@@ -41,6 +45,13 @@ public /*abstract*/ class BaseDAO {
 	public Object find(Class c, String id) {
 		Object o = manager.find(c, id);
 		return o;
+	}
+
+	@Transactional
+	public void update(Object o) {
+		manager.getTransaction().begin();
+		manager.merge(o);
+		manager.getTransaction().commit();
 	}
 
 }

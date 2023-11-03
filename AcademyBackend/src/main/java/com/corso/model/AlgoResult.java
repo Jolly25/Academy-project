@@ -65,7 +65,7 @@ public class AlgoResult implements Comparable<AlgoResult>{
 
 	@Override
 	public int compareTo(AlgoResult o) {
-		return (this.winrate>o.winrate)?1:-1;
+		return (this.winrate<o.winrate)?1:-1;
 	}
 
 }

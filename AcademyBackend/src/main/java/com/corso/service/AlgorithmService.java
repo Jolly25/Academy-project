@@ -23,4 +23,8 @@ public class AlgorithmService {
 	public void setDao(AlgorithmDAO dao) {
 		this.dao = dao;
 	}
+	
+	public void updateAlgoResult(List<AlgoResult> results) {
+		dao.updateAlgoResult(results);
+	}
 }
