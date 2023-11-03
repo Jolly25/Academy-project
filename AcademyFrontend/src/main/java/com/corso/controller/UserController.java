@@ -26,8 +26,15 @@ public class UserController {
 	@Autowired
 	AlgorithmHandler ah;
 	
+	@GetMapping("/home_userr")
+	public String getHomeUser() {
+		return "homeUser";
+	}
+	
 	@GetMapping("/game")
 	public String getGamePage() {
+		//Partita p = partitaService.creaPartita();
+		//List<String> l = p.getArrayOfCountries();
 		return "game";
 	}
 	

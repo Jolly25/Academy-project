@@ -15,8 +15,6 @@
         <input type="text" id="userInput" placeholder="Inserisci il nome del Paese">
         <button id="confirmButton">Indovina!</button>
     </div>
-    <a href="form_checkstring" style="color:white;">CheckString</a> <br>
-	<a href="logout" style="color:white;">Logout</a>
 
 	<script src=${pageContext.request.contextPath}/resources/js/game.js></script>
 </body>
