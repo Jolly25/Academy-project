@@ -23,6 +23,7 @@ public class MatchCheckString extends CheckString{
 	protected String checkimpl(String input) {
 		Match m = matchService.findByInput(input);
 		if(m==null) return null;
+		if(m.getAlgorithm().getAlgorithm().equals(AlgorithmType.NotFound) || m.getStandardword()==null) return "";
 		System.out.println(m.getStandardword());
 		return m.getStandardword();
 	}
