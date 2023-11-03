@@ -11,11 +11,6 @@ import com.corso.standardwords.StandardWords;
 
 public class MatchCheckString extends CheckString{
 
-	private List<Match> matchlist;
-	
-	@Autowired
-	private StandardWords sw;
-	
 	@Autowired
 	private MatchService matchService;
 	
@@ -28,6 +23,7 @@ public class MatchCheckString extends CheckString{
 	protected String checkimpl(String input) {
 		Match m = matchService.findByInput(input);
 		if(m==null) return null;
+		if(m.getAlgorithm().getAlgorithm().equals(AlgorithmType.NotFound) || m.getStandardword()==null) return "";
 		System.out.println(m.getStandardword());
 		return m.getStandardword();
 	}
