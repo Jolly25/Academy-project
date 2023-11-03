@@ -27,7 +27,7 @@ public abstract class CheckString {
 	public final String check(String input) {
 		String matchedword = checkimpl(input);
 		
-		if(matchedword != null) {
+		if(matchedword != null && !matchedword.equals("")) {
 			if(!getAlgo().getAlgorithm().equals(AlgorithmType.Match)){
 				Match m = new Match();
 				m.setInput(input);
@@ -38,6 +38,11 @@ public abstract class CheckString {
 			}
 			System.out.println("Trovata parola con " + this.getClass().getSimpleName() + ": " + matchedword);
 			return matchedword;
+		}
+		
+		if(matchedword != null && matchedword.equals("")) {
+			System.out.println("Parola non trovata con gli algoritmi a disposizione");
+			return null;
 		}
 		
 		if(next != null) return next.check(input);

@@ -11,11 +11,6 @@ import com.corso.standardwords.StandardWords;
 
 public class MatchCheckString extends CheckString{
 
-	private List<Match> matchlist;
-	
-	@Autowired
-	private StandardWords sw;
-	
 	@Autowired
 	private MatchService matchService;
 	

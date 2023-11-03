@@ -41,26 +41,6 @@ public class MatchDAO extends BaseDAO{
 		return (Match) super.findByAttribute(Match.class, "Input", input);
 	}
 
-	/*
-	public Match findByInput(String input) {
-	    //Query q =  em.createQuery("from Match where input = :input", Match.class);
-	    //q.setParameter("input", input);
-		CriteriaBuilder cb = em.getCriteriaBuilder();
-		CriteriaQuery<Match> cq = cb.createQuery(Match.class);
-		Root<Match> r = cq.from(Match.class);
-		cq.select(r);
-		cq.where(cb.equal(r.get("input"), input));
-		
-	    List<Match> list = em.createQuery(cq).getResultList();
-		
-		if(list.size() > 0) {
-			return list.get(0);
-		}
-		else return null;
-		
-	}
-	*/
-
 	public int countMatches(String algorithm) {
 		String jpql = "from Match where algorithm = :algorithm";  
 	    Query q =  em.createQuery(jpql, Match.class);
@@ -79,6 +59,5 @@ public class MatchDAO extends BaseDAO{
 		
 	    return list;
 	}
-
 
 }

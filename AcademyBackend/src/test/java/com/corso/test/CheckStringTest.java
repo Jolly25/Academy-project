@@ -49,18 +49,20 @@ public class CheckStringTest {
 		u.setStatus(true);
 		service.create(u);
 		System.out.println(service.findByUsername("user").checkPassword("Admin"));
-		MatchService service = (MatchService) factory.getBean("matchService"); 
 		
 		MatchService service = (MatchService) factory.getBean("matchService"); 
 		*/
 		
 		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
 		CheckString cs = ah.buildCheckString();
+		MatchService matchService = (MatchService) factory.getBean("matchService"); 
 		
 		AlgorithmService service = (AlgorithmService) factory.getBean("algorithmService"); 
 		List<AlgoResult> algos = service.getAllAlgoResult();
-		
-		ah.trainAlgos();
+		//Match m = new Match();
+		//m.setInput("German");
+		//matchService.checkMatch(m);
+		//ah.trainAlgos();
 		//Match m = service.findByInput("Ger");
 		System.out.println(cs.check("bvufsibvufidbzvz"));
 		//System.out.println(algos.size());

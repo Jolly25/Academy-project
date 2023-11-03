@@ -3,6 +3,7 @@ package com.corso.service;
 import com.corso.dao.MatchDAO;
 import com.corso.model.Match;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +34,18 @@ public class MatchService {
 	}
 	
 	public List<Match> getAllCheckedAndFoundMatches() {
-		List<Match> matches = dao.getAllMatches();
-		for(Match m : matches) {
-			if(!m.isConfirm() || m.getStandardword()==null) matches.remove(m);
+		List<Match> allmatches = dao.getAllMatches();
+		List<Match> matches = new ArrayList<Match>();
+		for(Match m : allmatches) {
+			if(m.isConfirm() && m.getStandardword()!=null) matches.add(m);
 		}
 		return matches;
+	}
+	
+	public void checkMatch(Match m) {
+		m = findByInput(m.getInput());
+		m.setConfirm(true);
+		dao.update(m);
 	}
 	
 	public void setDao(MatchDAO dao) {
