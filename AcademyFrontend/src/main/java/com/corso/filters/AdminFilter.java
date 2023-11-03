@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LoginFilter implements Filter{
+import com.corso.model.User;
+
+public class AdminFilter implements Filter{
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -26,8 +28,9 @@ public class LoginFilter implements Filter{
 		res.setDateHeader("Expires", 0); // Proxies.
 
 		HttpSession s = req.getSession();
+		User u = (User) s.getAttribute("user");
 
-		if(s.getAttribute("user") == null) {
+		if(!u.getRuolo().equals("Admin")) {
 			res.setStatus(403);
 			return;
 		}
