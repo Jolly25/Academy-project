@@ -58,17 +58,18 @@ public class CheckStringTest {
 		MatchService matchService = (MatchService) factory.getBean("matchService"); 
 		
 		AlgorithmService service = (AlgorithmService) factory.getBean("algorithmService"); 
-		List<AlgoResult> algos = service.getAllAlgoResult();
+		//List<AlgoResult> algos = service.getAllAlgoResult();
 		//Match m = new Match();
 		//m.setInput("German");
 		//matchService.checkMatch(m);
-		//ah.trainAlgos();
+		ah.trainAlgos();
 		//Match m = service.findByInput("Ger");
 		//System.out.println(cs.check("bvufsibvufidbzvz"));
 		//System.out.println(algos.size());
 		//CheckString c1 = ah.buildCheckString();
 		//System.out.println(c1.next.next.getClass());
-		matchService.setMatchByAdmin("Italii", "Italy");
+		//matchService.setMatchByAdmin("Italii", "Italy");
+		System.out.println(ah.getAlgorithmSequenceToString());
 		
 	}
 

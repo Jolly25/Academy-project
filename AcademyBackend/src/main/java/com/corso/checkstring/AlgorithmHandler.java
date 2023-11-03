@@ -35,13 +35,14 @@ public class AlgorithmHandler{
 		Collections.sort(algos);
 		firstAlgo = getAlgorithmFromType(AlgorithmType.Match); 
 		CheckString temp1 = firstAlgo;
-		CheckString temp2 = null;
+		CheckString temp2 = temp1;
 		for(int i = 0; i < algos.size(); i++) {
 			System.out.println(i);
 			temp2 = getAlgorithmFromType(algos.get(i).getAlgorithm().getAlgorithm());
 			temp1.setNext(temp2);
 			temp1 = temp2;
 		}
+		temp2.next = null;
 	}
 	
 	public void trainAlgos() {
@@ -60,6 +61,17 @@ public class AlgorithmHandler{
 		}
 		algorithmService.updateAlgoResult(results);
 		updateFirstAlgo();
+	}
+	
+	public String getAlgorithmSequenceToString() {
+		CheckString cs = buildCheckString();
+		String s = "";
+		while(cs!=null) {
+			s += cs.getAlgo().getAlgorithm() + "\n";
+			//System.out.println(cs.getAlgo().getAlgorithm().toString());
+			cs = cs.next;
+		}
+		return s;
 	}
 
 	private CheckString getAlgorithmFromType(AlgorithmType type) {
