@@ -16,8 +16,11 @@
         <button id="confirmButton">Indovina!</button>
     </div>
     
-    <p hidden id="array">${array}</p>
+    
+	<form hidden method="POST" action="score" id="partitaFinitaForm">
+		<input id="partitaFinitaInput" name="partitaFinitaInput">
+	</form>
 
-	<script src=${pageContext.request.contextPath}/resources/js/game.js></script>
+	<script src=${pageContext.request.contextPath}/resources/js/game.js param1=${partita} ></script>
 </body>
 </html>

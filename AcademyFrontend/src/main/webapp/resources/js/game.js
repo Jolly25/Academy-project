@@ -1,11 +1,25 @@
 let usedNumbers = [];
 let countries;
 let countryName;
+let array;
+let score = 0;
 
-let str1 = document.getElementById("array").innerHTML;
-let str2 = str1.substring(1, str1.length-1);
-let arrayNotRandom = str2.split(", ");
-let array = arrayNotRandom.sort((a, b) => 0.5 - Math.random());
+let partita;
+function getPartita() {
+	let partitaStringa = document.currentScript.getAttribute("param1");
+	partita = JSON.parse(partitaStringa);
+	let arrayNotRandom = partita.countriesToGuess.slice();
+	array = arrayNotRandom.sort((a, b) => 0.5 - Math.random());
+}
+
+function sendPartitaFinita() {
+	partita.score = score;
+	let partitaFinita = JSON.stringify(partita);
+	document.getElementById("partitaFinitaInput").value = partitaFinita;
+	document.getElementById("partitaFinitaForm").submit();
+}
+
+getPartita();
 
 
 function fetchData() {
@@ -51,13 +65,14 @@ document.getElementById('confirmButton').addEventListener('click', function() {
     
     
     if (userInput.toLowerCase() === countryName.toLowerCase()) {
+		score++;
         alert('Risposta corretta! Si tratta di ' + countryName);
     } else {
         alert('Sbagliato :( la risposta corretta era ' + countryName);
     }
 
 	if(array.length > 0) getFlag();
-	else console.log("finito");
+	else sendPartitaFinita();
 });
 
 fetchData();

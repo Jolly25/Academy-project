@@ -3,6 +3,7 @@ package com.corso.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
+import com.corso.model.Partita;
+import com.corso.model.User;
 import com.corso.validation.MatchForm;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/")
 public class UserController {
+	
+	User currentUser; //currentPartita
+	Partita p;
+	Gson gson = new Gson();
 	
 	@Autowired
 	CheckString matchCS;
@@ -35,14 +43,18 @@ public class UserController {
 	}
 	
 	@GetMapping("/game")
-	public String getGamePage(Model m) {
-		//Partita p = partitaService.creaPartita();
-		//List<String> l = p.getArrayOfCountries();
+	public String getGamePage(Model m, HttpSession s) {
+		int idUser =((User) s.getAttribute("user")).getId();
 		List<String> array = new ArrayList<String>();
 		array.add("Italy");
-		array.add("France");
+		array.add("Sweden");
 		array.add("Germany");
-		m.addAttribute("array", array);
+		
+		//Partita p = partitaService.creaPartita();
+		p = new Partita(1, idUser, array);
+		String json = gson.toJson(p);
+		m.addAttribute("partita", json);
+		
 		return "game";
 	}
 	
@@ -64,5 +76,15 @@ public class UserController {
 			return "viewOutput";
 		}
 	}
+	
+	@PostMapping("/score")
+	public String postScore(@RequestParam("partitaFinitaInput") String input, Model m) {
+		p = gson.fromJson(input, Partita.class);
+		m.addAttribute("p", p);
+		m.addAttribute("n", p.getCountriesToGuess().size());
+		return "viewScore";
+	}
+	
+	
 
 }
