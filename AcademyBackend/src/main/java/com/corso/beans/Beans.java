@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.corso.dao.AlgorithmDAO;
 import com.corso.dao.MatchDAO;
+import com.corso.dao.PartitaDAO;
 import com.corso.dao.StandardWordDAO;
 import com.corso.dao.UserDAO;
 import com.corso.checkstring.AlgorithmHandler;
@@ -35,6 +36,7 @@ import com.corso.checkstring.Levenshtein3;
 import com.corso.checkstring.MatchCheckString;
 import com.corso.service.AlgorithmService;
 import com.corso.service.MatchService;
+import com.corso.service.PartitaService;
 import com.corso.service.StandardWordService;
 import com.corso.service.UserService;
 import com.corso.standardwords.StandardWords;
@@ -108,6 +110,11 @@ public class Beans {
 	public StandardWordDAO getStandardWordDAO() {
 		return new StandardWordDAO();
 	}
+	
+	@Bean(name="partitaDAO")
+	public PartitaDAO getPartitaDAO() {
+		return new PartitaDAO();
+	}
 
 	@Bean(name="matchService")
 	public MatchService getMatchService() {
@@ -135,6 +142,13 @@ public class Beans {
 		StandardWordService sws = new StandardWordService();
 		sws.setDao(getStandardWordDAO());
 		return sws;
+	}
+	
+	@Bean(name="partitaService")
+	public PartitaService getPartitaService() {
+		PartitaService ps = new PartitaService();
+		ps.setDao(getPartitaDAO());
+		return ps;
 	}
 
 	@Bean(name="sw")

@@ -20,6 +20,7 @@ import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
 import com.corso.model.Partita;
 import com.corso.model.User;
+import com.corso.service.PartitaService;
 import com.corso.validation.MatchForm;
 import com.google.gson.Gson;
 
@@ -37,6 +38,9 @@ public class UserController {
 	@Autowired
 	AlgorithmHandler ah;
 	
+	@Autowired
+	PartitaService partitaService;
+	
 	@GetMapping("/home_userr")
 	public String getHomeUser() {
 		return "homeUser";
@@ -45,13 +49,13 @@ public class UserController {
 	@GetMapping("/game")
 	public String getGamePage(Model m, HttpSession s) {
 		int idUser =((User) s.getAttribute("user")).getId();
+		
 		List<String> array = new ArrayList<String>();
 		array.add("Italy");
 		array.add("Sweden");
 		array.add("Germany");
 		
-		//Partita p = partitaService.creaPartita();
-		p = new Partita(1, idUser, array);
+		p = partitaService.create(1, idUser, array);
 		String json = gson.toJson(p);
 		m.addAttribute("partita", json);
 		

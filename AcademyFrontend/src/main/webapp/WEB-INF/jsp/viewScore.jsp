@@ -9,6 +9,7 @@
 <body>
 
 Hai indovinato ${p.score} bandiere su ${n}
+<a href="logout">Logout</a>
 
 </body>
 </html>

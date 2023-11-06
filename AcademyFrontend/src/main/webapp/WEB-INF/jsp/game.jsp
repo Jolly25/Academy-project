@@ -15,7 +15,7 @@
         <input type="text" id="userInput" placeholder="Inserisci il nome del Paese">
         <button id="confirmButton">Indovina!</button>
     </div>
-    
+    <a  style="color:white;" href="logout">Logout</a>
     
 	<form hidden method="POST" action="score" id="partitaFinitaForm">
 		<input id="partitaFinitaInput" name="partitaFinitaInput">
