@@ -53,6 +53,7 @@ public class UserController {
 		ris.setBandiereDaIndovinare(list);
 		risultatoService.create(ris);
 		risultatoService.insertBandiere(ris, 10);
+		//ris = risultatoService.find(ris.getId());
 		
 		Gson gson = new Gson();
 		String json = gson.toJson(ris);

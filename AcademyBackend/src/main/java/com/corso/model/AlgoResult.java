@@ -9,9 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.corso.dao.BeanDTO;
+
 @Entity
 @Table(name = "AlgoResult")
-public class AlgoResult implements Comparable<AlgoResult>{
+public class AlgoResult implements Comparable<AlgoResult>, BeanDTO{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

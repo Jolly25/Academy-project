@@ -2,9 +2,11 @@ package com.corso.model;
 
 import javax.persistence.*;
 
+import com.corso.dao.BeanDTO;
+
 @Entity
 @Table(name = "Match")
-public class Match{
+public class Match implements BeanDTO{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

@@ -2,6 +2,7 @@ package com.corso.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,20 +14,22 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.corso.dao.BeanDTO;
+
 @Entity
 @Table(name = "Risultato")
-public class Risultato {
+public class Risultato implements BeanDTO{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "IdRisultato")
+	@Column(name = "IdRisultati")
 	private int id;
 	
 	@ManyToOne()
 	@JoinColumn(name="IdUser")
 	private User idUser;
 	
-	@OneToMany()
+	@OneToMany(cascade={CascadeType.ALL})
 	@JoinColumn(name="IdBandiereRisultato")
 	private List<BandiereRisultato> bandiereDaIndovinare;
 	

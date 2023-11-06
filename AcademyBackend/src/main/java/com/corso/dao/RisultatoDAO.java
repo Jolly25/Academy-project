@@ -12,6 +12,8 @@ public class RisultatoDAO extends BaseDAO{
 		return (Risultato) super.create(ris);
 	}
 	
-	
+	public void update(Risultato ris) {
+		
+	}
 	
 }

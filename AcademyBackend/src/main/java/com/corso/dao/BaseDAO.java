@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-public /*abstract*/ class BaseDAO {
+public /*abstract*/ class BaseDAO < T extends BeanDTO>  {
 
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("match_pu");
 	EntityManager manager = entityManagerFactory.createEntityManager();
@@ -67,7 +67,7 @@ public /*abstract*/ class BaseDAO {
 	}
 
 	@Transactional
-	public void update(Object o) {
+	public void update(T o) {
 		try {
 			manager.getTransaction().begin();
 			manager.merge(o);
@@ -77,7 +77,7 @@ public /*abstract*/ class BaseDAO {
 	}
 	
 	@Transactional
-	public Object create(Object o) {
+	public BeanDTO create(BeanDTO o) {
 		try {
 			manager.getTransaction().begin();
 			manager.persist(o);
@@ -91,7 +91,7 @@ public /*abstract*/ class BaseDAO {
 	}
 	
 	@Transactional
-	public void remove(Object o) {
+	public void remove(BeanDTO o) {
 		try {
 			manager.getTransaction().begin();
 			manager.remove(o);

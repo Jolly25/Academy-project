@@ -2,10 +2,12 @@ package com.corso.model;
 
 import javax.persistence.*;
 
+import com.corso.dao.BeanDTO;
+
 
 @Entity
 @Table(name = "ParolaStandard")
-public class StandardWord{
+public class StandardWord implements BeanDTO{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

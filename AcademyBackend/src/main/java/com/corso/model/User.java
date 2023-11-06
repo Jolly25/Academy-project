@@ -9,11 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.corso.dao.BeanDTO;
 import com.google.common.hash.Hashing;
 
 @Entity
 @Table(name = "Users")
-public class User{
+public class User implements BeanDTO{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

@@ -44,7 +44,7 @@ public class RisultatoService {
 			br.setIdRisultato(ris.getId());
 			br.setBandiera(s);
 			br.setIndovinato(false);
-			brs.create(br);
+			ris.getBandiereDaIndovinare().add(brs.create(br));
 		}
 	}
 	

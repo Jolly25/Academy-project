@@ -3,10 +3,11 @@ package com.corso.model;
 import javax.persistence.*;
 
 import com.corso.checkstring.AlgorithmType;
+import com.corso.dao.BeanDTO;
 
 @Entity
 @Table(name = "Algoritmo")
-public class Algorithm{
+public class Algorithm implements BeanDTO{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

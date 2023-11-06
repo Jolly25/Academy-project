@@ -81,12 +81,12 @@ public class CheckStringTest {
 		RisultatoService rs = (RisultatoService) factory.getBean("risultatoService"); 
 		Risultato r = new Risultato();
 		r.setIdUser(u);
-		r = rs.create(r);
-		System.out.println(r.getId());
+		//r = rs.create(r);
+		//System.out.println(r.getId());
 		
-		
-		
-		rs.insertBandiere(r, 10);
+		r = rs.find(1);
+		System.out.println(r.getIdUser());
+		//rs.insertBandiere(r, 10);
 
 		
 	}
