@@ -6,7 +6,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.corso.beans.Beans;
 import com.corso.checkstring.AlgorithmHandler;
+import com.corso.checkstring.AlgorithmType;
 import com.corso.checkstring.CheckString;
+import com.corso.dao.BaseDAO;
 import com.corso.dao.MatchDAO;
 import com.corso.model.AlgoResult;
 import com.corso.model.Match;
@@ -65,20 +67,20 @@ public class CheckStringTest {
 		//Match m = new Match();
 		//m.setInput("German");
 		//matchService.checkMatch(m);
-		ah.trainAlgos();
+		//ah.trainAlgos();
 		//Match m = service.findByInput("Ger");
 		//System.out.println(cs.check("bvufsibvufidbzvz"));
 		//System.out.println(algos.size());
 		//CheckString c1 = ah.buildCheckString();
 		//System.out.println(c1.next.next.getClass());
 		//matchService.setMatchByAdmin("Italii", "Italy");
-		System.out.println(ah.getAlgorithmSequenceToString());
-		*/
+	*/
 		
 		RisultatoService rs = (RisultatoService) factory.getBean("risultatoService"); 
 		Risultato r = new Risultato();
 		r = rs.create(r);
 		rs.insertBandiere(r);
+
 		
 	}
 

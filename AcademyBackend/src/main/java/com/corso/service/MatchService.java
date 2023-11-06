@@ -2,7 +2,6 @@ package com.corso.service;
 
 import com.corso.checkstring.AlgorithmType;
 import com.corso.dao.MatchDAO;
-import com.corso.model.Algorithm;
 import com.corso.model.Match;
 
 import java.util.ArrayList;
@@ -23,14 +22,14 @@ public class MatchService {
 	} 
 	
 	public Match find(int id) {
-		return dao.find(Match.class, id);
+		return dao.find(id);
 	}
 	
 	public Match findByInput(String input) {
 		return dao.findByInput(input);
 	}
 	
-	public int countMatches(String algorithm) {
+	public int countMatches(AlgorithmType algorithm) {
 		return dao.countMatches(algorithm);
 	}
 	
@@ -60,6 +59,11 @@ public class MatchService {
 		m = findByInput(m.getInput());
 		m.setConfirm(true);
 		dao.update(m);
+	}
+	
+	public void removeMatch(Match m) {
+		m = findByInput(m.getInput());
+		dao.remove(m);
 	}
 	
 	public void setMatchByAdmin(String input, String standardword) {
