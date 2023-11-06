@@ -61,6 +61,11 @@ public class MatchService {
 		dao.update(m);
 	}
 	
+	public void removeMatch(Match m) {
+		m = findByInput(m.getInput());
+		dao.remove(m);
+	}
+	
 	public void setMatchByAdmin(String input, String standardword) {
 		Match m = findByInput(input);
 		if(m==null) {

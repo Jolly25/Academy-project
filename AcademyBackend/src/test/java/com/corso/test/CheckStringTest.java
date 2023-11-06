@@ -72,7 +72,8 @@ public class CheckStringTest {
 		//System.out.println(c1.next.next.getClass());
 		//matchService.setMatchByAdmin("Italii", "Italy");
 		BaseDAO dao = new BaseDAO();
-		System.out.println(matchService.countMatches(AlgorithmType.Contains));
+		//matchService.removeMatch(m);
+		System.out.println();
 		
 	}
 

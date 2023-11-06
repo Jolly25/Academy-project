@@ -15,6 +15,10 @@ public class MatchDAO extends BaseDAO{
 	public void create(Match match){
 		super.create(match);
 	}
+	
+	public void remove(Match match) {
+		super.remove(match);
+	}
 
 	public Match find(Integer id){
 		return (Match) super.find(Match.class, id);

@@ -88,5 +88,16 @@ public /*abstract*/ class BaseDAO {
 			return null;
 		}
 	}
+	
+	@Transactional
+	public void remove(Object o) {
+		try {
+			manager.getTransaction().begin();
+			manager.remove(o);
+			manager.getTransaction().commit();
+		}
+		catch (Exception e) {
+		}
+	}
 
 }
