@@ -46,11 +46,11 @@ public class Risultato {
 		this.id = id;
 	}
 
-	public int getIdUser() {
+	public User getIdUser() {
 		return idUser;
 	}
 
-	public void setIdUser(int idUser) {
+	public void setIdUser(User idUser) {
 		this.idUser = idUser;
 	}
 	

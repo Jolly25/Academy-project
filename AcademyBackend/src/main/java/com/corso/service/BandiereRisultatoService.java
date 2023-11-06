@@ -8,8 +8,8 @@ public class BandiereRisultatoService {
 
 	private BandiereRisultatoDAO dao;
 	
-	public void create(BandiereRisultato br) {
-		dao.create(br); 
+	public BandiereRisultato create(BandiereRisultato br) {
+		return dao.create(br); 
 	} 
 	
 	public void setDao(BandiereRisultatoDAO dao) {

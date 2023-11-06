@@ -75,11 +75,18 @@ public class CheckStringTest {
 		//System.out.println(c1.next.next.getClass());
 		//matchService.setMatchByAdmin("Italii", "Italy");
 	*/
+		UserService service = (UserService) factory.getBean("userService"); 
+		User u = service.find(21);
 		
 		RisultatoService rs = (RisultatoService) factory.getBean("risultatoService"); 
 		Risultato r = new Risultato();
+		r.setIdUser(u);
 		r = rs.create(r);
-		rs.insertBandiere(r);
+		System.out.println(r.getId());
+		
+		
+		
+		rs.insertBandiere(r, 10);
 
 		
 	}

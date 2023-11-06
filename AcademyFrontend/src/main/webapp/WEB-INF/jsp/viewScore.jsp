@@ -8,7 +8,7 @@
 </head>
 <body>
 
-Hai indovinato ${r.score} bandiere su ${n}
+Hai indovinato ${r}
 <a href="logout">Logout</a>
 
 </body>

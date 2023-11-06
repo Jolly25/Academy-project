@@ -56,12 +56,6 @@ public class BandiereRisultato {
 	public void setIndovinato(boolean indovinato) {
 		this.indovinato = indovinato;
 	}
-
-	public BandiereRisultato(int idRisultato, String bandiera, boolean indovinato) {
-		this.idRisultato = idRisultato;
-		this.bandiera = bandiera;
-		this.indovinato = indovinato;
-	}
 	
 	public BandiereRisultato() {}
 	

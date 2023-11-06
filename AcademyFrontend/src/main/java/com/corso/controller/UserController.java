@@ -18,9 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
-import com.corso.model.Partita;
+import com.corso.model.BandiereRisultato;
+import com.corso.model.Risultato;
 import com.corso.model.User;
-import com.corso.service.PartitaService;
+import com.corso.service.RisultatoService;
 import com.corso.validation.MatchForm;
 import com.google.gson.Gson;
 
@@ -35,7 +36,7 @@ public class UserController {
 	AlgorithmHandler ah;
 	
 	@Autowired
-	PartitaService partitaService;
+	RisultatoService risultatoService;
 	
 	@GetMapping("/home_userr")
 	public String getHomeUser() {
@@ -44,19 +45,19 @@ public class UserController {
 	
 	@GetMapping("/game")
 	public String getGamePage(Model m, HttpSession s) {
-		/*
-		int idUser =((User) s.getAttribute("user")).getId();
+		User u = ((User) s.getAttribute("user"));
+		List<BandiereRisultato> list = new ArrayList<BandiereRisultato>();
 		
-		List<String> array = new ArrayList<String>();
-		array.add("Italy");
-		array.add("Sweden");
-		array.add("Germany");
+		Risultato ris = new Risultato();
+		ris.setIdUser(u);
+		ris.setBandiereDaIndovinare(list);
+		risultatoService.create(ris);
+		risultatoService.insertBandiere(ris, 10);
 		
-		Risultato r = risultatoService.create(1, idUser, array);
 		Gson gson = new Gson();
-		String json = gson.toJson(r);
+		String json = gson.toJson(ris);
 		m.addAttribute("partita", json);
-		*/
+		
 		
 		return "game";
 	}
@@ -83,9 +84,10 @@ public class UserController {
 	@PostMapping("/score")
 	public String postScore(@RequestParam("partitaFinitaInput") String input, Model m) {
 		Gson gson = new Gson();
-		Risultato r = gson.fromJson(input, Partita.class);
+		Risultato r = gson.fromJson(input, Risultato.class);
+		
+		risultatoService.update(r);
 		m.addAttribute("r", r);
-		m.addAttribute("n", r.getCountriesToGuess().size());
 		return "viewScore";
 	}
 	

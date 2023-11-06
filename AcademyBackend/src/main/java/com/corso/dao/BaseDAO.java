@@ -81,6 +81,7 @@ public /*abstract*/ class BaseDAO {
 		try {
 			manager.getTransaction().begin();
 			manager.persist(o);
+			manager.flush();
 			manager.getTransaction().commit();
 			return o;
 		}
