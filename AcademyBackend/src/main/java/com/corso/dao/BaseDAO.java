@@ -7,7 +7,8 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-public /*abstract*/ class BaseDAO  {
+
+public /*abstract*/ class BaseDAO{
 
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("match_pu");
 	EntityManager manager = entityManagerFactory.createEntityManager();

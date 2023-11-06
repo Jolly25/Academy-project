@@ -13,7 +13,7 @@ public class RisultatoDAO extends BaseDAO{
 	}
 	
 	public void update(Risultato ris) {
-		
+		super.update(ris);
 	}
 	
 }

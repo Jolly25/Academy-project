@@ -86,7 +86,6 @@ public class UserController {
 	public String postScore(@RequestParam("partitaFinitaInput") String input, Model m) {
 		Gson gson = new Gson();
 		Risultato r = gson.fromJson(input, Risultato.class);
-		
 		risultatoService.update(r);
 		m.addAttribute("r", r);
 		return "viewScore";
