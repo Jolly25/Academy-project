@@ -7,7 +7,7 @@ import com.corso.model.Algorithm;
 import com.corso.model.Match;
 import com.corso.service.AlgorithmService;
 
-public class MatchDAO extends BaseDAO<Match>{
+public class MatchDAO extends BaseDAO{
 	
 	@Autowired
 	private AlgorithmService algorithmService;

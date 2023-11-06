@@ -7,12 +7,13 @@ let score = 0;
 let partita;
 function getPartita() {
 	let partitaStringa = document.currentScript.getAttribute("param1");
+	console.log(partitaStringa);
 	partita = JSON.parse(partitaStringa);
 
 	for(let i=0; i<partita.bandiereDaIndovinare.length; i++) {
 		array[i] = partita.bandiereDaIndovinare[i].bandiera;
 	}
-	console.log(array);
+	console.log(partita);
 }
 
 function sendPartitaFinita() {
@@ -82,7 +83,9 @@ document.getElementById('confirmButton').addEventListener('click', function() {
     partita.bandiereViste++;
 
 	if(array.length > 0) getFlag();
-	else sendPartitaFinita();
+	else {
+		sendPartitaFinita();
+	}
 });
 
 fetchData();
