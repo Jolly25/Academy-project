@@ -1,23 +1,18 @@
 package com.corso.dao;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
 import org.springframework.transaction.annotation.Transactional;
-
-import com.corso.model.AlgoResult;
-
 
 public /*abstract*/ class BaseDAO {
 
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("match_pu");
 	EntityManager manager = entityManagerFactory.createEntityManager();
 
+	@SuppressWarnings("rawtypes")
 	public Object findOneByAttribute(Class c, String attribute, String value) {
 		try {
 			Object o = manager.createQuery("SELECT t FROM " + c.getName() + " t where " + attribute + " = :value1")
@@ -29,6 +24,7 @@ public /*abstract*/ class BaseDAO {
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public List<?> findAllByAttribute(Class c, String attribute, String value) {
 		try {
 			List<?> l = manager.createQuery("SELECT t FROM " + c.getName() + " t where " + attribute + " = :value1")
@@ -40,14 +36,15 @@ public /*abstract*/ class BaseDAO {
 		}
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public  List<?> all(Class c) {
 		String jpql = "from " + c.getSimpleName();  
 		Query q =  manager.createQuery(jpql,c);
-		@SuppressWarnings("unchecked")
 		List<?> l = q.getResultList();
 		return l;
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Object find(Class c, Integer id) {
 		try {
 			Object o = manager.find(c, id);
@@ -58,6 +55,7 @@ public /*abstract*/ class BaseDAO {
 		}
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public Object find(Class c, String id) {
 		try {
 			Object o = manager.find(c, id);

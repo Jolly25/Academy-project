@@ -2,8 +2,6 @@ package com.corso.model;
 
 import javax.persistence.*;
 
-import com.corso.checkstring.AlgorithmType;
-
 @Entity
 @Table(name = "Match")
 public class Match{

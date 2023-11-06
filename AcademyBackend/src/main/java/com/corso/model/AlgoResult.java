@@ -9,8 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.corso.checkstring.AlgorithmType;
-
 @Entity
 @Table(name = "AlgoResult")
 public class AlgoResult implements Comparable<AlgoResult>{
