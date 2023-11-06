@@ -1,9 +1,16 @@
 package com.corso.dao;
 
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.corso.checkstring.AlgorithmType;
+import com.corso.model.Algorithm;
 import com.corso.model.Match;
+import com.corso.service.AlgorithmService;
 
 public class MatchDAO extends BaseDAO{
+	
+	@Autowired
+	private AlgorithmService algorithmService;
 	
 	public void create(Match match){
 		super.create(match);
@@ -17,9 +24,9 @@ public class MatchDAO extends BaseDAO{
 		return (Match) super.findOneByAttribute(Match.class, "Input", input);
 	}
 
-	public int countMatches(String algorithm) {
-	    return super.findAllByAttribute(Match.class, "IdAlgoritmo", algorithm).size();
-	    
+	public int countMatches(AlgorithmType type) {
+		Algorithm algorithm = algorithmService.getAlgorithmByType(type);
+	    return super.findAllByAttribute(Match.class, "IdAlgoritmo", "" + algorithm.getId()).size();
 	}
 	
 	@SuppressWarnings("unchecked")

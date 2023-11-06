@@ -6,6 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.corso.beans.Beans;
 import com.corso.checkstring.AlgorithmHandler;
+import com.corso.checkstring.AlgorithmType;
 import com.corso.checkstring.CheckString;
 import com.corso.dao.BaseDAO;
 import com.corso.dao.MatchDAO;
@@ -71,7 +72,7 @@ public class CheckStringTest {
 		//System.out.println(c1.next.next.getClass());
 		//matchService.setMatchByAdmin("Italii", "Italy");
 		BaseDAO dao = new BaseDAO();
-		System.out.println(matchService.countMatches("1"));
+		System.out.println(matchService.countMatches(AlgorithmType.Contains));
 		
 	}
 

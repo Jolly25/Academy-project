@@ -2,7 +2,6 @@ package com.corso.service;
 
 import com.corso.checkstring.AlgorithmType;
 import com.corso.dao.MatchDAO;
-import com.corso.model.Algorithm;
 import com.corso.model.Match;
 
 import java.util.ArrayList;
@@ -30,7 +29,7 @@ public class MatchService {
 		return dao.findByInput(input);
 	}
 	
-	public int countMatches(String algorithm) {
+	public int countMatches(AlgorithmType algorithm) {
 		return dao.countMatches(algorithm);
 	}
 	
