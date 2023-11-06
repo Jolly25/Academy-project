@@ -23,7 +23,7 @@ public class MatchService {
 	} 
 	
 	public Match find(int id) {
-		return dao.find(Match.class, id);
+		return dao.find(id);
 	}
 	
 	public Match findByInput(String input) {
