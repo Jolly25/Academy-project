@@ -22,12 +22,7 @@ public class RisultatoService {
 	} 
 	
 	public void update(Risultato ris) {
-		List<BandiereRisultato> bandiere = ris.getBandiereDaIndovinare();
-		ris.setBandiereDaIndovinare(null);
 		dao.update(ris);
-		for(BandiereRisultato br : bandiere) {
-			dao.update(br);
-		}
 	}
 	
 	public Risultato find(int id) {

@@ -1,8 +1,11 @@
 package com.corso.dao;
 
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
+import com.corso.model.BandiereRisultato;
 import com.corso.model.Risultato;
 
 public class RisultatoDAO extends BaseDAO{
@@ -13,7 +16,12 @@ public class RisultatoDAO extends BaseDAO{
 	}
 	
 	public void update(Risultato ris) {
+		List<BandiereRisultato> bandiere = ris.getBandiereDaIndovinare();
+		ris.setBandiereDaIndovinare(null);
 		super.update(ris);
+		for(BandiereRisultato br : bandiere) {
+			super.update(br);
+		}
 	}
 	
 }
