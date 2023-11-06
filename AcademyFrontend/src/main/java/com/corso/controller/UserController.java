@@ -28,10 +28,6 @@ import com.google.gson.Gson;
 @RequestMapping("/")
 public class UserController {
 	
-	User currentUser; //currentPartita
-	Partita p;
-	Gson gson = new Gson();
-	
 	@Autowired
 	CheckString matchCS;
 
@@ -48,6 +44,7 @@ public class UserController {
 	
 	@GetMapping("/game")
 	public String getGamePage(Model m, HttpSession s) {
+		/*
 		int idUser =((User) s.getAttribute("user")).getId();
 		
 		List<String> array = new ArrayList<String>();
@@ -55,9 +52,11 @@ public class UserController {
 		array.add("Sweden");
 		array.add("Germany");
 		
-		p = partitaService.create(1, idUser, array);
-		String json = gson.toJson(p);
+		Risultato r = risultatoService.create(1, idUser, array);
+		Gson gson = new Gson();
+		String json = gson.toJson(r);
 		m.addAttribute("partita", json);
+		*/
 		
 		return "game";
 	}
@@ -83,9 +82,10 @@ public class UserController {
 	
 	@PostMapping("/score")
 	public String postScore(@RequestParam("partitaFinitaInput") String input, Model m) {
-		p = gson.fromJson(input, Partita.class);
-		m.addAttribute("p", p);
-		m.addAttribute("n", p.getCountriesToGuess().size());
+		Gson gson = new Gson();
+		Risultato r = gson.fromJson(input, Partita.class);
+		m.addAttribute("r", r);
+		m.addAttribute("n", r.getCountriesToGuess().size());
 		return "viewScore";
 	}
 	

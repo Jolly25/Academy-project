@@ -19,8 +19,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.corso.dao.AlgorithmDAO;
+import com.corso.dao.BandiereRisultatoDAO;
 import com.corso.dao.MatchDAO;
-import com.corso.dao.PartitaDAO;
+import com.corso.dao.RisultatoDAO;
 import com.corso.dao.StandardWordDAO;
 import com.corso.dao.UserDAO;
 import com.corso.checkstring.AlgorithmHandler;
@@ -35,8 +36,9 @@ import com.corso.checkstring.Levenshtein2;
 import com.corso.checkstring.Levenshtein3;
 import com.corso.checkstring.MatchCheckString;
 import com.corso.service.AlgorithmService;
+import com.corso.service.BandiereRisultatoService;
 import com.corso.service.MatchService;
-import com.corso.service.PartitaService;
+import com.corso.service.RisultatoService;
 import com.corso.service.StandardWordService;
 import com.corso.service.UserService;
 import com.corso.standardwords.StandardWords;
@@ -111,9 +113,14 @@ public class Beans {
 		return new StandardWordDAO();
 	}
 	
-	@Bean(name="partitaDAO")
-	public PartitaDAO getPartitaDAO() {
-		return new PartitaDAO();
+	@Bean(name="risultatoDAO")
+	public RisultatoDAO getRisultatoDAO() {
+		return new RisultatoDAO();
+	}
+	
+	@Bean(name = "bandiereRisultatoDAO")
+	public BandiereRisultatoDAO getBandiereRisultatoDAO() {
+		return new BandiereRisultatoDAO();
 	}
 
 	@Bean(name="matchService")
@@ -144,11 +151,18 @@ public class Beans {
 		return sws;
 	}
 	
-	@Bean(name="partitaService")
-	public PartitaService getPartitaService() {
-		PartitaService ps = new PartitaService();
-		ps.setDao(getPartitaDAO());
-		return ps;
+	@Bean(name="risultatoService")
+	public RisultatoService getPartitaService() {
+		RisultatoService rs = new RisultatoService();
+		rs.setDao(getRisultatoDAO());
+		return rs;
+	}
+	
+	@Bean(name="brs")
+	public BandiereRisultatoService getBandiereRisultatoService() {
+		BandiereRisultatoService brs = new BandiereRisultatoService();
+		brs.setDao(getBandiereRisultatoDAO());
+		return brs;
 	}
 
 	@Bean(name="sw")

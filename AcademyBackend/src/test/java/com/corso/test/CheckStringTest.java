@@ -10,9 +10,12 @@ import com.corso.checkstring.CheckString;
 import com.corso.dao.MatchDAO;
 import com.corso.model.AlgoResult;
 import com.corso.model.Match;
+import com.corso.model.Risultato;
 import com.corso.model.User;
 import com.corso.service.AlgorithmService;
+import com.corso.service.BandiereRisultatoService;
 import com.corso.service.MatchService;
+import com.corso.service.RisultatoService;
 import com.corso.service.UserService;
 
 
@@ -40,7 +43,7 @@ public class CheckStringTest {
 		User u = service.findByUsername("User9");
 		System.out.println(u);
 
-		/*
+		
 		UserService service = (UserService) factory.getBean("userService"); 
 		User u = new User();
 		u.setUsername("user2");
@@ -51,7 +54,7 @@ public class CheckStringTest {
 		System.out.println(service.findByUsername("user").checkPassword("Admin"));
 		
 		MatchService service = (MatchService) factory.getBean("matchService"); 
-		*/
+		
 		
 		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
 		CheckString cs = ah.buildCheckString();
@@ -70,6 +73,12 @@ public class CheckStringTest {
 		//System.out.println(c1.next.next.getClass());
 		//matchService.setMatchByAdmin("Italii", "Italy");
 		System.out.println(ah.getAlgorithmSequenceToString());
+		*/
+		
+		RisultatoService rs = (RisultatoService) factory.getBean("risultatoService"); 
+		Risultato r = new Risultato();
+		r = rs.create(r);
+		rs.insertBandiere(r);
 		
 	}
 
