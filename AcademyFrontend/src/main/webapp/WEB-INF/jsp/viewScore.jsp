@@ -5,11 +5,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Score</title>
+<link rel="stylesheet" href=${pageContext.request.contextPath}/resources/style/viewScore.css type="text/css">
 </head>
 <body>
 
-Hai indovinato ${r.score} bandiere su ${r.bandiereViste}
-<a href="logout">Logout</a>
+<p id="output">Hai indovinato ${r.score} bandiere su ${r.bandiereViste}</p>
+
+<a href="logout" id="logout">Logout</a>
 
 </body>
 </html>
