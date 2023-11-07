@@ -84,8 +84,8 @@ public class CheckStringTest {
 		//r = rs.create(r);
 		//System.out.println(r.getId());
 		
-		r = rs.find(1);
-		System.out.println(r.getIdUser());
+		r = rs.find(12);
+		System.out.println("" + r.getScore() + " " + r.getBandiereViste());
 		//rs.insertBandiere(r, 10);
 
 		
