@@ -12,8 +12,14 @@
     <h1>Indovina la bandiera!</h1>
     <div id="country-container">
         <img class="flag" id="flagImage" src="">
-        <input type="text" id="userInput" placeholder="Inserisci il nome del Paese">
+        
+        <form method="post" action="checkstring_prova" id="checkstring_form">
+	        <input type="text" id="userInput" name="input" placeholder="Inserisci il nome del Paese">
+	        <button type="submit">CheckString</button>
+        </form>
+        
         <button id="confirmButton">Indovina!</button>
+        
     </div>
     <a  style="color:white;" href="logout">Logout</a>
     

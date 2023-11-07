@@ -58,7 +58,6 @@ public class UserController {
 		String json = gson.toJson(ris);
 		m.addAttribute("partita", json);
 		
-		
 		return "game";
 	}
 	
@@ -90,6 +89,13 @@ public class UserController {
 		return "viewScore";
 	}
 	
+	
+	@PostMapping("/checkstring_prova")
+	public String checkString(@RequestParam("input") String input, Model m) {
+		ah.buildCheckString();
+		String match = matchCS.check(input);
+		return "game";
+	}
 	
 
 }
