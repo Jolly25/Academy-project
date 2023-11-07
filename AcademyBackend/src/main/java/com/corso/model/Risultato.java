@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.corso.dao.BeanDTO;
 
@@ -38,6 +39,17 @@ public class Risultato implements BeanDTO{
 	@Column(name = "BandiereViste")
 	private int bandiereViste;
 	
+	@Transient
+	private int turn;
+	
+	public int getTurn() {
+		return turn;
+	}
+
+	public void setTurn(int turn) {
+		this.turn = turn;
+	}
+
 	public Risultato() {};
 
 	public int getId() {

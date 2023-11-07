@@ -43,24 +43,6 @@ public class UserController {
 		return "homeUser";
 	}
 	
-	@GetMapping("/game")
-	public String getGamePage(Model m, HttpSession s) {
-		User u = ((User) s.getAttribute("user"));
-		List<BandiereRisultato> list = new ArrayList<BandiereRisultato>();
-		
-		Risultato ris = new Risultato();
-		ris.setIdUser(u);
-		ris.setBandiereDaIndovinare(list);
-		risultatoService.create(ris);
-		risultatoService.insertBandiere(ris, 10);
-		
-		Gson gson = new Gson();
-		String json = gson.toJson(ris);
-		m.addAttribute("partita", json);
-		
-		return "game";
-	}
-	
 	@GetMapping("/form_checkstring")
 	public String formCheckstring(Model m) {
 		MatchForm matchForm = new MatchForm();
@@ -80,21 +62,73 @@ public class UserController {
 		}
 	}
 	
-	@PostMapping("/score")
-	public String postScore(@RequestParam("partitaFinitaInput") String input, Model m) {
+	@GetMapping("/game")
+	public String getGamePage(Model m, HttpSession s) {
+		User u = ((User) s.getAttribute("user"));
+		List<BandiereRisultato> list = new ArrayList<BandiereRisultato>();
+		
+		if(s.getAttribute("partita")==null) {
+			Risultato ris = new Risultato();
+			ris.setIdUser(u);
+			ris.setBandiereDaIndovinare(list);
+			ris.setTurn(0);
+			risultatoService.create(ris);
+			risultatoService.insertBandiere(ris, 10);
+			s.setAttribute("partita", ris);
+		}
+		
+		Risultato risultato = (Risultato) s.getAttribute("partita"); 
+		String flag = risultato.getBandiereDaIndovinare().get(risultato.getTurn()).getBandiera();		
 		Gson gson = new Gson();
-		Risultato r = gson.fromJson(input, Risultato.class);
-		risultatoService.update(r);
-		m.addAttribute("r", r);
-		return "viewScore";
+		String json = gson.toJson(flag);
+		m.addAttribute("flag", json);
+		
+		return "game";
 	}
 	
-	
 	@PostMapping("/checkstring_prova")
-	public String checkString(@RequestParam("input") String input, Model m) {
+	public String checkString(@RequestParam("input") String input, Model m, HttpSession s) {
 		ah.buildCheckString();
+		Gson gson = new Gson();
+		Risultato ris = (Risultato) s.getAttribute("partita");
 		String match = matchCS.check(input);
+		String flag = ris.getBandiereDaIndovinare().get(ris.getTurn()).getBandiera();		
+		String json = gson.toJson(flag);
+		m.addAttribute("flag", json);
+		json = gson.toJson(match);
+		m.addAttribute("match", json);
 		return "game";
+	}
+	
+	@PostMapping("/turno")
+	public String turnChange(@RequestParam("match") String match, Model m, HttpSession s) {
+		Risultato r = (Risultato) s.getAttribute("partita");
+		BandiereRisultato flag = r.getBandiereDaIndovinare().get(r.getTurn());
+		String flagname = flag.getBandiera();
+		if(match.equals(flagname)) {
+			flag.setIndovinato(true);
+			r.setScore(r.getScore() + 1);
+		}
+		r.setBandiereViste(r.getBandiereViste() + 1);
+		r.setTurn(r.getTurn() + 1);
+		if(r.getTurn() < r.getBandiereDaIndovinare().size()) {
+			Gson gson = new Gson();
+			String json = gson.toJson(flag);
+			m.addAttribute("flag", json);
+			json = gson.toJson(match);
+			m.addAttribute("match", json);
+			return "game";
+		}
+		return "score";
+	}
+	
+	@PostMapping("/score")
+	public String postScore(Model m, HttpSession s) {
+		Risultato r = (Risultato) s.getAttribute("partita");
+		risultatoService.update(r);
+		m.addAttribute("r", r);
+		s.setAttribute("partita", null);
+		return "viewScore";
 	}
 	
 
