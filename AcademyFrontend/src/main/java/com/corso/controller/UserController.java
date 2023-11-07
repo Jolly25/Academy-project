@@ -81,6 +81,7 @@ public class UserController {
 		String flag = risultato.getBandiereDaIndovinare().get(risultato.getTurn()).getBandiera();		
 		Gson gson = new Gson();
 		String json = gson.toJson(flag);
+		System.out.println(json);
 		m.addAttribute("flag", json);
 		
 		return "game";
@@ -97,32 +98,37 @@ public class UserController {
 		m.addAttribute("flag", json);
 		json = gson.toJson(match);
 		m.addAttribute("match", json);
+		s.setAttribute("match", match);
 		return "game";
 	}
 	
 	@PostMapping("/turno")
-	public String turnChange(@RequestParam("match") String match, Model m, HttpSession s) {
+	public String turnChange(Model m, HttpSession s) {
 		Risultato r = (Risultato) s.getAttribute("partita");
 		BandiereRisultato flag = r.getBandiereDaIndovinare().get(r.getTurn());
 		String flagname = flag.getBandiera();
+		String match = (String) s.getAttribute("match");
+		System.out.println("ciao" + match);
 		if(match.equals(flagname)) {
 			flag.setIndovinato(true);
 			r.setScore(r.getScore() + 1);
 		}
 		r.setBandiereViste(r.getBandiereViste() + 1);
 		r.setTurn(r.getTurn() + 1);
+		System.out.println(r.getTurn());
 		if(r.getTurn() < r.getBandiereDaIndovinare().size()) {
 			Gson gson = new Gson();
-			String json = gson.toJson(flag);
+			flag = r.getBandiereDaIndovinare().get(r.getTurn());
+			flagname = flag.getBandiera();
+			String json = gson.toJson(flagname);
 			m.addAttribute("flag", json);
-			json = gson.toJson(match);
-			m.addAttribute("match", json);
+			m.addAttribute("match", null);
 			return "game";
 		}
-		return "score";
+		return "redirect:/score";
 	}
 	
-	@PostMapping("/score")
+	@GetMapping("/score")
 	public String postScore(Model m, HttpSession s) {
 		Risultato r = (Risultato) s.getAttribute("partita");
 		risultatoService.update(r);
