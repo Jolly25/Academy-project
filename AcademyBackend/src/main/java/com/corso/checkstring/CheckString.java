@@ -10,6 +10,8 @@ import com.corso.model.Match;
 
 public abstract class CheckString {
 	
+	String output;
+	
 	@Autowired
 	private MatchService matchService;
 	
