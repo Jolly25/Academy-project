@@ -21,7 +21,7 @@ public class Risultato implements BeanDTO{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name = "IdRisultati")
+	@Column(name = "IdRisultato")
 	private int id;
 	
 	@ManyToOne()
