@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #353752 0%, #1FA1C6 100%);
+    background-size: 300% 300%;
+    height: 100vh;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logout {
+	color: white;
+	position:fixed;
+	right:10px;
+	top:5px;
+}
+
+#play_btn {
+	background-color: red;
+	height: 100px;
+	width: 200px;
+	color: white;
+	font-size: 50px;
+	border-radius: 10px;
+}
+
+#play_btn:hover {
+	cursor: pointer;
+	background-color: #0056b3;
+}
+
