@@ -22,6 +22,7 @@ import com.corso.dao.AlgorithmDAO;
 import com.corso.dao.BandiereRisultatoDAO;
 import com.corso.dao.MatchDAO;
 import com.corso.dao.RisultatoDAO;
+import com.corso.dao.SegnalazioneDAO;
 import com.corso.dao.StandardWordDAO;
 import com.corso.dao.UserDAO;
 import com.corso.checkstring.AlgorithmHandler;
@@ -30,7 +31,6 @@ import com.corso.checkstring.Contained;
 import com.corso.checkstring.Contains;
 import com.corso.checkstring.Equals;
 import com.corso.checkstring.Fisher;
-import com.corso.checkstring.Levenshtein;
 import com.corso.checkstring.Levenshtein1;
 import com.corso.checkstring.Levenshtein2;
 import com.corso.checkstring.Levenshtein3;
@@ -39,6 +39,7 @@ import com.corso.service.AlgorithmService;
 import com.corso.service.BandiereRisultatoService;
 import com.corso.service.MatchService;
 import com.corso.service.RisultatoService;
+import com.corso.service.SegnalazioneService;
 import com.corso.service.StandardWordService;
 import com.corso.service.UserService;
 import com.corso.standardwords.StandardWords;
@@ -122,6 +123,11 @@ public class Beans {
 	public BandiereRisultatoDAO getBandiereRisultatoDAO() {
 		return new BandiereRisultatoDAO();
 	}
+	
+	@Bean(name="segnalazioneDAO")
+	public SegnalazioneDAO getSegnalazioneDAO() {
+		return new SegnalazioneDAO();
+	}
 
 	@Bean(name="matchService")
 	public MatchService getMatchService() {
@@ -156,6 +162,13 @@ public class Beans {
 		RisultatoService rs = new RisultatoService();
 		rs.setDao(getRisultatoDAO());
 		return rs;
+	}
+	
+	@Bean(name="segnalazioneService")
+	public SegnalazioneService getSegnalazioneService() {
+		SegnalazioneService ss = new SegnalazioneService();
+		ss.setDao(getSegnalazioneDAO());
+		return ss;
 	}
 	
 	@Bean(name="brs")
