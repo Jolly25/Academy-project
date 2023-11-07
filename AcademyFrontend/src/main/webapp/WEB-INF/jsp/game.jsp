@@ -16,23 +16,18 @@
         
         <form method="post" action="checkstring_prova" id="checkstring_form">
 	        <input type="text" id="userInput" name="input" placeholder="Inserisci il nome del Paese">
-	        <button type="submit">CheckString</button>
+	        <button type="submit" id="checkstringButton">CheckString</button>
         </form>
-        
-		
-        
-        
-        ${match}
-        
-        ${flag}
+       
+        <p id="match">${match}</p>
         
         <form method="post" action="turno">
-        	<button id="confirmButton" type="submit">Indovina!</button>
+        	<button id="confirmButton" type="submit">Conferma</button>
         </form>
         
         
     </div>
-    <a  style="color:white;" href="logout">Logout</a>
+    <a href="logout" id="logout">Logout</a>
 
 	<script src=${pageContext.request.contextPath}/resources/js/game.js param1=${flag} param2=${match}></script>
 </body>

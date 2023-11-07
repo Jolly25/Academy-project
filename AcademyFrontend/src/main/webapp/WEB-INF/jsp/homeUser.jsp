@@ -4,13 +4,16 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home Admin</title>
+<title>Home</title>
+<link rel="stylesheet" href=${pageContext.request.contextPath}/resources/style/homeUser.css type="text/css">
 </head>
 <body>
 
-<a href="game">Play</a> <br>
-<a href="form_checkstring">Checkstring</a> <br>
-<a href="logout">Logout</a>
+<form action="game">
+    <input type="submit" value="Play" id="play_btn"/>
+</form>
+
+<a href="logout" id="logout">Logout</a>
 
 </body>
 </html>

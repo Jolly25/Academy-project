@@ -31,7 +31,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-#confirmButton {
+#confirmButton, #checkstringButton {
 	padding: 10px 20px;
 	font-size: 16px;
 	background-color: black;
@@ -43,4 +43,19 @@ h1 {
 
 #confirmButton:hover {
     background-color: #0056b3;
+}
+
+#checkstringButton:hover {
+    background-color: #0056b3;
+}
+
+#logout {
+	color: white;
+	position:fixed;
+	right:10px;
+	top:5px;
+}
+
+#match {
+	color: white;
 }
