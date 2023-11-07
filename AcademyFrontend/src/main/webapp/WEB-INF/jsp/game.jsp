@@ -11,6 +11,7 @@
 <body>
     <h1>Indovina la bandiera!</h1>
     <div id="country-container">
+    
         <img class="flag" id="flagImage" src="">
         
         <form method="post" action="checkstring_prova" id="checkstring_form">
@@ -18,15 +19,21 @@
 	        <button type="submit">CheckString</button>
         </form>
         
-        <button id="confirmButton">Indovina!</button>
+		
+        
+        
+        ${match}
+        
+        ${flag}
+        
+        <form method="post" action="turno">
+        	<button id="confirmButton" type="submit">Indovina!</button>
+        </form>
+        
         
     </div>
     <a  style="color:white;" href="logout">Logout</a>
-    
-	<form hidden method="POST" action="score" id="partitaFinitaForm">
-		<input id="partitaFinitaInput" name="partitaFinitaInput">
-	</form>
 
-	<script src=${pageContext.request.contextPath}/resources/js/game.js param1=${partita} ></script>
+	<script src=${pageContext.request.contextPath}/resources/js/game.js param1=${flag} param2=${match}></script>
 </body>
 </html>
