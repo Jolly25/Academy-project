@@ -83,6 +83,7 @@ public class UserController {
 		String json = gson.toJson(flag);
 		System.out.println(json);
 		m.addAttribute("flag", json);
+		m.addAttribute("match", json);
 		
 		return "game";
 	}
