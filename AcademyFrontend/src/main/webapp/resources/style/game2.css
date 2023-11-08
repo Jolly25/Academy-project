@@ -1,0 +1,193 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
+  #timer {
+    margin: auto;
+    width: 400px;
+    fill: rgb(34, 213, 201);
+    stroke: #fff;
+    stroke-width: 0px;
+    font: 45px "Open Sans";
+    font-weight: 900;
+    text-anchor: middle;
+    fill: rgb(34, 213, 201);
+  }
+
+  .pulse {
+    fill: rgb(255, 74, 74) !important;
+  }
+
+  .path--foreground {
+    fill: #eee;
+    stroke: #eee;
+    stroke-width: 2px;
+  }
+
+  body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #353752 0%, #1FA1C6 100%);
+            background-size: 300% 300%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+  h1 {
+    color: white;
+  }
+
+  /* Stile per posizionare gli elementi nella stessa colonna */
+  #counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+  .flag {
+    width: 250px;
+    height: 150px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  #userInput {
+    width: 30%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+
+  .flagButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .flagButton:hover {
+    background-color: #0056b3;
+  }
+
+  #overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: none;
+  }
+
+  #restartButton {
+    background-color: black;
+  }
+
+  #restartButton.enabled {
+    background-color: #0056b3;
+  }
+
+  #counter {
+    font-size: 2em;
+    color: black;
+    text-align: center;
+  }
+
+  /* Stile per la modale di risposta corretta */
+  #correctModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 10000;
+  }
+
+  /* Stile per la modale di risposta errata */
+  #wrongModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FF5733;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 10000;
+  }
+
+  #gameResultModal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#gameResultMessage {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+#gameResultModal.show {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#counter, #mainText {
+    color: white;
+}
+
+#logout {
+	color: white;
+	position:fixed;
+	right:10px;
+	top:5px;
+}

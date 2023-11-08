@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<form action="game">
+<form action="start_game">
     <input type="submit" value="Play" id="play_btn"/>
 </form>
 

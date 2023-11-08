@@ -76,20 +76,10 @@ public class CheckStringTest {
 		//CheckString c1 = ah.buildCheckString();
 		//System.out.println(c1.next.next.getClass());
 		//matchService.setMatchByAdmin("Italii", "Italy");
-	
+	*/
 		
-		
-		RisultatoService rs = (RisultatoService) factory.getBean("risultatoService"); 
-		Risultato r = new Risultato();
-		r.setIdUser(u);
-		//r = rs.create(r);
-		//System.out.println(r.getId());
-		
-		r = rs.find(12);
-		System.out.println("" + r.getScore() + " " + r.getBandiereViste());
-		//rs.insertBandiere(r, 10);
-		
-		*/
+		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
+		ah.trainAlgos();
 		
 		UserService service = (UserService) factory.getBean("userService"); 
 		User u = service.find(7);
@@ -103,7 +93,6 @@ public class CheckStringTest {
 		s.setMatch(m);
 		ss.remove(ss.find(3));
 		System.out.println(s.getIdUser().getId());
-		
 
 		
 	}
