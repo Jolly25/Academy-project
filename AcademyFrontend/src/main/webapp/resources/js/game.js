@@ -94,7 +94,7 @@
 
   function showConfirmationModal() {
     if (confirm("Sei sicuro di voler ricominciare il gioco?")) {
-      restart();
+      document.getElementById("restart_form").submit();
     }
     document.getElementById("userInput").focus();
   }
@@ -139,26 +139,6 @@
     return function(t) {
       return arc(i(t));
     };
-  }
-
-  function restart() {
-    //location.reload();
-	var xhr = new XMLHttpRequest();
-
-	xhr.open("GET", "/home_userr", true);
-	
-	xhr.onload = function() {
-		if (xhr.status >= 200 && xhr.status < 300) {
-        // La richiesta ha avuto successo
-        var responseData = JSON.parse(xhr.responseText); // Analizza la risposta JSON
-        console.log(responseData); // Fai qualcosa con i dati ottenuti
-    	} else {
-        // La richiesta ha restituito un errore
-        console.error("Errore durante la richiesta: " + xhr.status);
-    }
-	};
-	
-	xhr.send();
   }
 
 

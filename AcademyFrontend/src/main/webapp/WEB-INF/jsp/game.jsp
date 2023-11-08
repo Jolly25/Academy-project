@@ -32,8 +32,9 @@
 			     
 			      <div class="col-md-6">
 			     
+			        <form method="get" action="home_userr" id="restart_form"></form>
+		        	<button class="flagButton" id="restartButton" onclick="showConfirmationModal()">Ricomincia</button>
 			        
-			        <button class="flagButton" id="restartButton" onclick="showConfirmationModal()">Ricomincia</button>
 			      </div>
 			  </div>
 			</div>
