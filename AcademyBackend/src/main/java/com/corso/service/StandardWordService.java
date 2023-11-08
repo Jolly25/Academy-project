@@ -17,7 +17,7 @@ public class StandardWordService {
 	public List<String> getRandomStandardWords(int n) {
 		List<StandardWord> allsw = dao.findAllSW();
 		List<String> randomlist = new ArrayList<>();
-		while(randomlist.size() < n - 1) {
+		while(randomlist.size() < n) {
 			int randomNum = (int)(Math.random() * allsw.size());
 			String swtoadd = allsw.get(randomNum).getValue();
 			if(!randomlist.contains(swtoadd)) randomlist.add(swtoadd);

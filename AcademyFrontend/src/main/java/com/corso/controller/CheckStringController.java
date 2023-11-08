@@ -85,6 +85,11 @@ public class CheckStringController {
 			return "formRegister";
 		}
 
+		if(userService.userExists(rf.getUsername())) {
+			br.rejectValue("username", "error.username", "You are already signed up");
+			return "formRegister";
+		}
+		
 		User u = new User();
 		u.setUsername(rf.getUsername());
 		u.setNewPassword(rf.getPassword());
