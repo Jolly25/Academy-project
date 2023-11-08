@@ -79,7 +79,7 @@ public class CheckStringTest {
 	*/
 		
 		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
-		ah.trainAlgos();
+		//ah.trainAlgos();
 		
 		UserService service = (UserService) factory.getBean("userService"); 
 		User u = service.find(7);
@@ -92,7 +92,9 @@ public class CheckStringTest {
 		s.setIdUser(u);
 		s.setMatch(m);
 		ss.remove(ss.find(3));
-		System.out.println(s.getIdUser().getId());
+		CheckString cs = ah.buildCheckString();
+		System.out.println(cs.check(" "));
+		
 
 		
 	}
