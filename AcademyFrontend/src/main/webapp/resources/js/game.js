@@ -1,10 +1,7 @@
-//timer
-//let score = 0;
-
   var width = 300,
     height = 300,
     timePassed = 0,
-    timeLimit = 40  ;
+    timeLimit = 15  ;
 
   var fields = [{
     value: timeLimit,
@@ -107,7 +104,7 @@
     if (event.key === "Enter") {
       // Verifica se il tasto premuto Ã¨ "Invio"
       event.preventDefault(); // Impedisce l'invio del modulo predefinito
-      document.getElementById("confirmButton").click(); // Simula il clic sul tasto "Indovina!"
+      document.getElementById("indovina").click(); // Simula il clic sul tasto "Indovina!"
     }
   });
 
@@ -132,9 +129,9 @@
       .on("end", function() {
         field.selectAll("path").remove()
       });
+      
+      document.getElementById("indovina").click();
 
-    // Chiamata alla modale di fine partita
-    showGameResultModal();
   }
 
   function arcTween(b) {
@@ -145,14 +142,24 @@
   }
 
   function restart() {
-    location.reload();
+    //location.reload();
+	var xhr = new XMLHttpRequest();
+
+	xhr.open("GET", "/home_userr", true);
+	
+	xhr.onload = function() {
+		if (xhr.status >= 200 && xhr.status < 300) {
+        // La richiesta ha avuto successo
+        var responseData = JSON.parse(xhr.responseText); // Analizza la risposta JSON
+        console.log(responseData); // Fai qualcosa con i dati ottenuti
+    	} else {
+        // La richiesta ha restituito un errore
+        console.error("Errore durante la richiesta: " + xhr.status);
+    }
+	};
+	
+	xhr.send();
   }
-
-
-
-
-
-
 
 
 
@@ -166,7 +173,9 @@ let score = 0;
 let countryName;
 
 let flag = document.currentScript.getAttribute("param1");
-let match = document.currentScript.getAttribute("param2");
+let previousMatch = document.currentScript.getAttribute("param2");
+let previousInput = document.currentScript.getAttribute("param3");
+let previousFlag = document.currentScript.getAttribute("param4");
 
 
 function fetchData() {
@@ -199,60 +208,49 @@ function displayFlag(flagURL, countryName) {
 }
 
 
+window.addEventListener('load', function() {
+	if(previousFlag != null || previousMatch != null || previousInput != null) {
+	console.log("modale");
+	console.log(previousMatch);
+	console.log(previousFlag);
+	  if (previousMatch.toLowerCase().trim() === previousFlag.toLowerCase().trim()) {
+	    showCorrectModal(previousInput, previousMatch); // Visualizza la modale per la risposta corretta
+	    incrementCounter();
+	  } else {
+	    showWrongModal(previousInput, previousMatch, previousFlag); // Visualizza la modale per la risposta errata
+	  }
+	  
+	}
+});
+
 fetchData();
 
 
 
 
 
-function incrementCounter() {
-  var counter = document.getElementById("counter");
-  var currentValue = parseInt(counter.innerHTML);
-  counter.innerHTML = currentValue + 1;
-  score++;
-}
-
-//modali
   // Funzione per visualizzare la modale di risposta corretta
-  function showCorrectModal() {
+  function showCorrectModal(matchedWord, correctWord) {
     const correctModal = document.getElementById("correctModal");
+    const correctAnswerElement = document.getElementById("matchedWord");
+    correctAnswerElement.textContent ="Risposta corretta: " + matchedWord + " = " + correctWord;
     correctModal.style.display = "block";
     setTimeout(() => {
       correctModal.style.display = "none";
-    }, 2000);
+    }, 10000);
   }
 
   // Funzione per visualizzare la modale di risposta errata
-  function showWrongModal(correctAnswer) {
+  function showWrongModal(previousInput, previousMatch, previousFlag) {
     const wrongModal = document.getElementById("wrongModal");
     const correctAnswerElement = document.getElementById("correctAnswer");
-    correctAnswerElement.textContent = correctAnswer;
+    correctAnswerElement.textContent = "Hai inserito: " + previousInput + " = " + previousMatch + "\n Risposta corretta: " + previousFlag;
     wrongModal.style.display = "block";
     setTimeout(() => {
       wrongModal.style.display = "none";
-    }, 2000);
+    }, 10000);
   }
 
-   // Funzione per visualizzare la modale finale del risultato
-  function showGameResultModal() {
-  const gameResultModal = document.getElementById("gameResultModal");
-  const gameResultMessage = document.getElementById("gameResultMessage");
-  gameResultMessage.textContent = "Hai totalizzato: " + score + " bandiere indovinate";
-  gameResultModal.style.display = "block";
-  setTimeout(() => {
-      correctModal.style.display = "none";
-    }, 2000);
-}
 
-// Aggiungi un event listener per chiudere la modale quando si clicca sulla "X"
-document.getElementById("closeGameResultModal").addEventListener("click", function() {
-  closeGameResultModal();
-});
-
-// Funzione per chiudere la modale
-function closeGameResultModal() {
-  const gameResultModal = document.getElementById("gameResultModal");
-  gameResultModal.style.display = "none";
-}
 
 

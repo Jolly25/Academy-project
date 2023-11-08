@@ -20,23 +20,19 @@
 			     <img class="flag" id="flagImage" src="">
 			     <div id="timer" class="container"></div>
 			      <div id="counter-container">
-			        <span id="mainText">Bandiere indovinate: <span id="counter">0</span></span> 
+			        <span id="mainText">Bandiere indovinate: ${score}</span> 
 			      </div>
 			      <br>
 			      
 				    <!--<input type="text" id="userInput" placeholder="Inserisci il nome del Paese">  -->
-				    <form method="post" action="checkstring_prova" id="checkstring_form">
+				    <form method="post" action="turno" id="indovina_form">
 				        <input type="text" id="userInput" name="input" placeholder="Inserisci il nome del Paese">
-				        <button type="submit" id="checkstringButton" class="flagButton">CheckString</button>
+				        <button type="submit" id="indovina" class="flagButton">Indovina</button>
 		        	</form>
 		        	<p id="match">${match}</p>
 			     
 			      <div class="col-md-6">
-			      
-			        <!--<button class="flagButton" id="confirmButton">Indovina!</button>  -->
-			        <form method="post" action="turno">
-	        			<button id="confirmButton" type="submit" class="flagButton">Conferma</button>
-	        		</form>
+			     
 			        
 			        <button class="flagButton" id="restartButton" onclick="showConfirmationModal()">Ricomincia</button>
 			      </div>
@@ -45,13 +41,16 @@
 			
 		<!-- Modale per risposta corretta -->
 		<div id="correctModal">
-		  Risposta corretta!
+		  Risposta corretta! <br>
+		  <span id="matchedWord"></span>
+		  <button id="reportButton" class="flagButton">Segnala</button>
 		</div>
 		
 		<!-- Modale per risposta errata -->
 		<div id="wrongModal">
-		  Risposta errata :<br>
-		  La risposta corretta era <span id="correctAnswer"></span>
+		  Risposta errata! <br>
+		  <span id="correctAnswer"></span>
+		  <button id="reportButton" class="flagButton">Segnala</button>
 		</div>
 		
 		<div id="gameResultModal" class="modal">
@@ -62,6 +61,6 @@
 	
 	<a href="logout" id="logout">Logout</a>
 
-	<script src=${pageContext.request.contextPath}/resources/js/game.js param1=${flag} param2=${match}></script>
+	<script src=${pageContext.request.contextPath}/resources/js/game.js param1=${flag} param4=${previousFlag} param2=${previousMatch} param3=${previousInput}></script>
 </body>
 </html>
