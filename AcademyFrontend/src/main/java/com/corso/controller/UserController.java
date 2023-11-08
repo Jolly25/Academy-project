@@ -84,11 +84,8 @@ public class UserController {
 
 		Risultato risultato = (Risultato) s.getAttribute("partita"); 
 		String flag = risultato.getBandiereDaIndovinare().get(risultato.getTurn()).getBandiera();		
-		Gson gson = new Gson();
-		String json = gson.toJson(flag);
-		System.out.println(json);
-		m.addAttribute("flag", json);
-		m.addAttribute("match", json);
+		m.addAttribute("flag", flag);
+		m.addAttribute("score", risultato.getScore());
 		
 		return "game";
 	}

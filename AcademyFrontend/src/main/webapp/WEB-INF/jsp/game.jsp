@@ -29,7 +29,6 @@
 				        <input type="text" id="userInput" name="input" placeholder="Inserisci il nome del Paese">
 				        <button type="submit" id="indovina" class="flagButton">Indovina</button>
 		        	</form>
-		        	<p id="match">${match}</p>
 			     
 			      <div class="col-md-6">
 			     
