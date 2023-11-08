@@ -40,6 +40,7 @@ public class UserController {
 	
 	@GetMapping("/home_userr")
 	public String getHomeUser() {
+		System.out.println("Siamo nella home dello user");
 		return "homeUser";
 	}
 	

@@ -145,7 +145,7 @@
     //location.reload();
 	var xhr = new XMLHttpRequest();
 
-	xhr.open("GET", "/home_userr", true);
+	xhr.open("GET", "http://localhost:8766/AcademyFrontend/home_userr", true);
 	
 	xhr.onload = function() {
 		if (xhr.status >= 200 && xhr.status < 300) {
