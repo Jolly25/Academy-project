@@ -1,3 +1,164 @@
+//timer
+//let score = 0;
+
+  var width = 300,
+    height = 300,
+    timePassed = 0,
+    timeLimit = 40  ;
+
+  var fields = [{
+    value: timeLimit,
+    size: timeLimit,
+    update: function() {
+      return timePassed = timePassed + 1;
+    }
+  }];
+
+  var nilArc = d3.arc()
+    .innerRadius(width / 3 - 133)
+    .outerRadius(width / 3 - 133)
+    .startAngle(0)
+    .endAngle(2 * Math.PI);
+
+  var arc = d3.arc()
+    .innerRadius(width / 3 - 55)
+    .outerRadius(width / 3 - 25)
+    .startAngle(0)
+    .endAngle(function(d) {
+      return ((d.value / d.size) * 2 * Math.PI);
+    });
+
+  var svg = d3.select(".container").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+  var field = svg.selectAll(".field")
+    .data(fields)
+    .enter().append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")")
+    .attr("class", "field");
+
+  var back = field.append("path")
+    .attr("class", "path path--background")
+    .attr("d", arc);
+
+  var path = field.append("path")
+    .attr("class", "path path--foreground");
+
+  var label = field.append("text")
+    .attr("class", "label")
+    .attr("dy", ".35em");
+
+  (function update() {
+    field.each(function(d) {
+      d.previous = d.value;
+      d.value = d.update(timePassed);
+    });
+
+    path
+      .transition()
+      .duration(500)
+      .attrTween("d", arcTween);
+
+    if (timeLimit - timePassed <= 10) {
+      pulseText();
+    } else {
+      label.text(function(d) {
+        return d.size - d.value;
+      });
+    }
+
+    if (timePassed <= timeLimit) {
+      setTimeout(update, 1000 - (timePassed % 1000));
+    } else {
+      destroyTimer();
+    }
+  })();
+
+  function pulseText() {
+    back.classed("pulse", true);
+    label.classed("pulse", true);
+
+    if (timeLimit - timePassed >= 0) {
+      label
+        .style("font-size", "45px")
+        .attr("transform", "translate(0, 4)")
+        .text(function(d) {
+          return d.size - d.value;
+        });
+    }
+
+    label
+      .transition()
+      .duration(900)
+      .style("font-size", "45px")
+      .attr("transform", "translate(0, -10)");
+  }
+
+  function showConfirmationModal() {
+    if (confirm("Sei sicuro di voler ricominciare il gioco?")) {
+      restart();
+    }
+    document.getElementById("userInput").focus();
+  }
+
+  // Aggiungi un event listener per gestire l'invio del modulo
+  document.getElementById("userInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      // Verifica se il tasto premuto Ã¨ "Invio"
+      event.preventDefault(); // Impedisce l'invio del modulo predefinito
+      document.getElementById("confirmButton").click(); // Simula il clic sul tasto "Indovina!"
+    }
+  });
+
+  function destroyTimer() {
+
+    label.transition()
+      .duration(700)
+      .style("opacity", "0")
+      .style("font-size", "5")
+      .attr("transform", "translate(0," + -40 + ")")
+      .on("end", function() {
+        field.selectAll("text").remove()
+      });
+
+    path.transition()
+      .duration(700)
+      .attr("d", nilArc);
+
+    back.transition()
+      .duration(700)
+      .attr("d", nilArc)
+      .on("end", function() {
+        field.selectAll("path").remove()
+      });
+
+    // Chiamata alla modale di fine partita
+    showGameResultModal();
+  }
+
+  function arcTween(b) {
+    var i = d3.interpolateObject({ value: b.previous }, b);
+    return function(t) {
+      return arc(i(t));
+    };
+  }
+
+  function restart() {
+    location.reload();
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 let usedNumbers = [];
 let countries;
 let array = new Array;
@@ -39,5 +200,59 @@ function displayFlag(flagURL, countryName) {
 
 
 fetchData();
+
+
+
+
+
+function incrementCounter() {
+  var counter = document.getElementById("counter");
+  var currentValue = parseInt(counter.innerHTML);
+  counter.innerHTML = currentValue + 1;
+  score++;
+}
+
+//modali
+  // Funzione per visualizzare la modale di risposta corretta
+  function showCorrectModal() {
+    const correctModal = document.getElementById("correctModal");
+    correctModal.style.display = "block";
+    setTimeout(() => {
+      correctModal.style.display = "none";
+    }, 2000);
+  }
+
+  // Funzione per visualizzare la modale di risposta errata
+  function showWrongModal(correctAnswer) {
+    const wrongModal = document.getElementById("wrongModal");
+    const correctAnswerElement = document.getElementById("correctAnswer");
+    correctAnswerElement.textContent = correctAnswer;
+    wrongModal.style.display = "block";
+    setTimeout(() => {
+      wrongModal.style.display = "none";
+    }, 2000);
+  }
+
+   // Funzione per visualizzare la modale finale del risultato
+  function showGameResultModal() {
+  const gameResultModal = document.getElementById("gameResultModal");
+  const gameResultMessage = document.getElementById("gameResultMessage");
+  gameResultMessage.textContent = "Hai totalizzato: " + score + " bandiere indovinate";
+  gameResultModal.style.display = "block";
+  setTimeout(() => {
+      correctModal.style.display = "none";
+    }, 2000);
+}
+
+// Aggiungi un event listener per chiudere la modale quando si clicca sulla "X"
+document.getElementById("closeGameResultModal").addEventListener("click", function() {
+  closeGameResultModal();
+});
+
+// Funzione per chiudere la modale
+function closeGameResultModal() {
+  const gameResultModal = document.getElementById("gameResultModal");
+  gameResultModal.style.display = "none";
+}
 
 

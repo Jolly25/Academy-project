@@ -99,6 +99,7 @@ public class UserController {
 		json = gson.toJson(match);
 		m.addAttribute("match", json);
 		s.setAttribute("match", match);
+		//return "redirect:/turno";
 		return "game";
 	}
 	

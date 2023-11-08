@@ -21,16 +21,18 @@
         <url-pattern>/home_admin</url-pattern>
         <url-pattern>/home_userr</url-pattern>
         <url-pattern>/game</url-pattern>
-         <url-pattern>/score</url-pattern>
-        <url-pattern>/checkstring</url-pattern>
+        <url-pattern>/checkstring_prova</url-pattern>
+        <url-pattern>/turno</url-pattern>
+        <url-pattern>/score</url-pattern>
         <url-pattern>/view_matchlist</url-pattern>
     </filter-mapping>
         <filter-mapping>
         <filter-name>UserFilter</filter-name>
         <url-pattern>/home_userr</url-pattern>
         <url-pattern>/game</url-pattern>
-         <url-pattern>/score</url-pattern>
-        <url-pattern>/checkstring</url-pattern>
+        <url-pattern>/checkstring_prova</url-pattern>
+        <url-pattern>/turno</url-pattern>
+        <url-pattern>/score</url-pattern>
     </filter-mapping>
         <filter-mapping>
         <filter-name>AdminFilter</filter-name>
