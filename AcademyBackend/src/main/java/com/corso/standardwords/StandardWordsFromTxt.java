@@ -8,10 +8,7 @@ import com.corso.service.MatchService;
 
 public class StandardWordsFromTxt implements StandardWords{
 	
-	private String filelocation;
-	
 	public StandardWordsFromTxt(String location) {
-		this.filelocation = location;
 	}
 
 	@Override

@@ -1,11 +1,8 @@
 package com.corso.service;
 
 
-import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.corso.dao.RisultatoDAO;
 import com.corso.model.BandiereRisultato;
 import com.corso.model.Risultato;
@@ -16,6 +13,9 @@ public class RisultatoService {
 	
 	@Autowired
 	BandiereRisultatoService brs;
+	
+	@Autowired
+	StandardWordService swService;
 	
 	public Risultato create(Risultato ris) {
 		return dao.create(ris); 
@@ -34,10 +34,7 @@ public class RisultatoService {
 	}
 	
 	public void insertBandiere(Risultato ris, int num) {
-		List<String> list = new ArrayList<String>();
-		list.add("Italy");
-		list.add("Sweden");
-		list.add("Germany");
+		List<String> list = swService.getRandomStandardWords(num);
 		
 		for(String s: list) {
 			BandiereRisultato br = new BandiereRisultato();

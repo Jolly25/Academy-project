@@ -57,19 +57,19 @@ public class UserController {
 		}
 		else {
 			ah.buildCheckString();
-			String match = matchCS.check(input);
+			//String match = matchCS.check(input);
 			return "viewOutput";
 		}
 	}
 	
 	@GetMapping("/game")
 	public String getGamePage(Model m, HttpSession s) {
-		User u = ((User) s.getAttribute("user"));
-		List<BandiereRisultato> list = new ArrayList<BandiereRisultato>();
-		
+
 		if(s.getAttribute("partita")==null) {
+			User u = ((User) s.getAttribute("user"));
 			Risultato ris = new Risultato();
 			ris.setIdUser(u);
+			List<BandiereRisultato> list = new ArrayList<BandiereRisultato>();
 			ris.setBandiereDaIndovinare(list);
 			ris.setTurn(0);
 			risultatoService.create(ris);

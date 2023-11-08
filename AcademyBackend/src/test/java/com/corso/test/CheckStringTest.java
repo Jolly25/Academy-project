@@ -13,11 +13,13 @@ import com.corso.dao.MatchDAO;
 import com.corso.model.AlgoResult;
 import com.corso.model.Match;
 import com.corso.model.Risultato;
+import com.corso.model.Segnalazione;
 import com.corso.model.User;
 import com.corso.service.AlgorithmService;
 import com.corso.service.BandiereRisultatoService;
 import com.corso.service.MatchService;
 import com.corso.service.RisultatoService;
+import com.corso.service.SegnalazioneService;
 import com.corso.service.UserService;
 
 
@@ -74,23 +76,24 @@ public class CheckStringTest {
 		//CheckString c1 = ah.buildCheckString();
 		//System.out.println(c1.next.next.getClass());
 		//matchService.setMatchByAdmin("Italii", "Italy");
-	
-		UserService service = (UserService) factory.getBean("userService"); 
-		User u = service.find(21);
-		
-		RisultatoService rs = (RisultatoService) factory.getBean("risultatoService"); 
-		Risultato r = new Risultato();
-		r.setIdUser(u);
-		//r = rs.create(r);
-		//System.out.println(r.getId());
-		
-		r = rs.find(12);
-		System.out.println("" + r.getScore() + " " + r.getBandiereViste());
-		//rs.insertBandiere(r, 10);
-*/
+	*/
 		
 		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
 		ah.trainAlgos();
+		
+		UserService service = (UserService) factory.getBean("userService"); 
+		User u = service.find(7);
+		
+		MatchService matchService = (MatchService) factory.getBean("matchService"); 
+		Match m = matchService.findByInput("Ger");
+		
+		SegnalazioneService ss = (SegnalazioneService) factory.getBean("segnalazioneService"); 
+		Segnalazione s = new Segnalazione();
+		s.setIdUser(u);
+		s.setMatch(m);
+		ss.remove(ss.find(3));
+		System.out.println(s.getIdUser().getId());
+
 		
 	}
 
