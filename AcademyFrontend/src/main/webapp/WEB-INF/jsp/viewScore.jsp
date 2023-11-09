@@ -33,6 +33,6 @@
   <button id="reportButton" class="flagButton">Segnala</button>
 </div>
 
-<script src=${pageContext.request.contextPath}/resources/js/score.js param1=${flag} param4=${previousFlag} param2=${previousMatch} param3=${previousInput}></script>
+<script src=${pageContext.request.contextPath}/resources/js/score.js param1=${flag} param4=${previousFlag} param3=${previousInput} param2=${previousMatch}></script>
 </body>
 </html>

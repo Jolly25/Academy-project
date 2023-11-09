@@ -23,7 +23,6 @@ import com.corso.model.Risultato;
 import com.corso.model.User;
 import com.corso.service.BandiereRisultatoService;
 import com.corso.service.RisultatoService;
-import com.corso.validation.InputForm;
 import com.google.gson.Gson;
 
 @Controller
@@ -61,7 +60,6 @@ public class UserController {
 		ris.setTurn(0);
 		risultatoService.create(ris);
 		risultatoService.insertBandiere(ris, 5);
-		System.out.println(ris.getBandiereDaIndovinare());
 		s.setAttribute("partita", ris);
 		
 		return "redirect:/game";
@@ -76,20 +74,17 @@ public class UserController {
 		m.addAttribute("flag", flag);
 		m.addAttribute("score", risultato.getScore());
 		
-		InputForm inputForm = new InputForm();
-		m.addAttribute("inputForm", inputForm);
-		
 		return "game";
 	}
 	
 	@PostMapping("/turno")
 	public String turnChange(@RequestParam("input") String input, Model m, HttpSession s) {
 
-		String match = "";
+		String match = " ";
 		if(!input.trim().equals("")) {
 			ah.buildCheckString();
 			match = matchCS.check(input);
-			if(match == null) match = "";
+			if(match == null) match = " ";
 		}
 
 		Risultato r = (Risultato) s.getAttribute("partita");
@@ -107,6 +102,8 @@ public class UserController {
 			m.addAttribute("flag", flagname);
 			m.addAttribute("previousFlag", pFlagname);
 			m.addAttribute("previousInput", input);
+			System.out.println(match);
+			System.out.println(pFlagname);
 			m.addAttribute("previousMatch", match);
 			m.addAttribute("score", r.getScore());
 			return "game";
