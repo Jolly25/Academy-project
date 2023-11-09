@@ -216,7 +216,7 @@ fetchData();
     correctModal.style.display = "block";
     setTimeout(() => {
       correctModal.style.display = "none";
-    }, 10000);
+    }, 2000);
   }
 
   // Funzione per visualizzare la modale di risposta errata
@@ -227,7 +227,7 @@ fetchData();
     wrongModal.style.display = "block";
     setTimeout(() => {
       wrongModal.style.display = "none";
-    }, 10000);
+    }, 2000);
   }
 
 

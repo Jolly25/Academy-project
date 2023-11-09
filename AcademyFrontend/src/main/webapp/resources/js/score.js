@@ -27,7 +27,7 @@ window.addEventListener('load', function() {
     correctModal.style.display = "block";
     setTimeout(() => {
       correctModal.style.display = "none";
-    }, 10000);
+    }, 2000);
   }
 
   // Funzione per visualizzare la modale di risposta errata
@@ -38,5 +38,5 @@ window.addEventListener('load', function() {
     wrongModal.style.display = "block";
     setTimeout(() => {
       wrongModal.style.display = "none";
-    }, 10000);
+    }, 2000);
   }
