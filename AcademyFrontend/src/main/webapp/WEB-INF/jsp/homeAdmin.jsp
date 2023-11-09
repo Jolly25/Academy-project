@@ -9,12 +9,15 @@
         <script>
             $(document).on("click", "#buttonLoad", function() {
                 $.get("matchlist", function(responseJson) {
-                    var $select = $("#list");
-                    $select.find("option").remove();  
+                    var $form = $("#list");
+                    $form.find("label").remove();
+                    $form.find("input").remove(); 
                     $.each(responseJson, function(index, match) {
-                        $("<option>").val(match.id).text(match.input).appendTo($select);
+                        $("<label>").val(match.id).text(match.input + " ").appendTo($form);
+                        $("<label>").val(match.id).text(match.standardword).appendTo($form); 
+                        $("<br>").appendTo($form);
+                        
                     });                   
-                     
                 });
             });
              
@@ -34,7 +37,7 @@
 <div>
 <h2>Dynamic Drop Down List (AJAX) Demo</h2>
     <button id="buttonLoad">Load</button> &nbsp;
-    <select id="list"></select>
+    <form id="list"></form>
     <br/><br/>
     <button id="buttonSubmit">Submit</button>
 </div>
