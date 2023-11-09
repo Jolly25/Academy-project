@@ -94,6 +94,7 @@
 
   function showConfirmationModal() {
     if (confirm("Sei sicuro di voler ricominciare il gioco?")) {
+	  sessionStorage.removeItem("firstLoad");
       document.getElementById("restart_form").submit();
     }
   }
