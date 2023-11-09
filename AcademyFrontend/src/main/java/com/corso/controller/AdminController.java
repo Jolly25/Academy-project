@@ -3,6 +3,7 @@ package com.corso.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +45,25 @@ public class AdminController {
 	}
 	
 	@PostMapping("/matchlist")
-	public void postMatchList() {
-		System.out.println("We are in post");
+	public void postMatchList(HttpServletRequest request) {
+		String matchid = request.getParameter("matchid");
+		System.out.println("We are in post, match: " + matchid);
+	}
+	
+	@PostMapping("/checkmatch")
+	public void postCheckmatch(HttpServletRequest request) {
+		String matchid = request.getParameter("matchid");
+		Match m = matchService.find(Integer.parseInt(matchid));
+		matchService.checkMatch(m);
+		System.out.println("Match " + matchid + " checked!");
+	}
+	
+	@PostMapping("/removematch")
+	public void postRemoveMatch(HttpServletRequest request) {
+		String matchid = request.getParameter("matchid");
+		Match m = matchService.find(Integer.parseInt(matchid));
+		matchService.removeMatch(m);
+		System.out.println("Match " + matchid + " removed!");
 	}
 	
 	
