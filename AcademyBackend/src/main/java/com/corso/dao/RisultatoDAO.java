@@ -24,4 +24,9 @@ public class RisultatoDAO extends BaseDAO{
 		}
 	}
 	
+	@Transactional
+	public void remove(Risultato ris) {
+		super.remove(ris);
+	}
+	
 }

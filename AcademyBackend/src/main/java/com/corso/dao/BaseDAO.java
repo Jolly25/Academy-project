@@ -36,6 +36,18 @@ public /*abstract*/ class BaseDAO{
 			return null;
 		}
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public List<?> findAllByAttributeWithId(Class c, String attribute, int value) {
+		try {
+			List<?> l = manager.createQuery("SELECT t FROM " + c.getName() + " t where " + attribute + " = :value1")
+					.setParameter("value1", value).getResultList();
+			return l;
+		}
+		catch (Exception e) {
+			return null;
+		}
+	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public  List<?> all(Class c) {
@@ -101,5 +113,6 @@ public /*abstract*/ class BaseDAO{
 		catch (Exception e) {
 		}
 	}
+	
 
 }

@@ -21,6 +21,7 @@ import com.corso.checkstring.CheckString;
 import com.corso.model.BandiereRisultato;
 import com.corso.model.Risultato;
 import com.corso.model.User;
+import com.corso.service.BandiereRisultatoService;
 import com.corso.service.RisultatoService;
 import com.corso.validation.MatchForm;
 import com.google.gson.Gson;
@@ -37,6 +38,9 @@ public class UserController {
 	
 	@Autowired
 	RisultatoService risultatoService;
+	
+	@Autowired
+	BandiereRisultatoService brs;
 	
 	@GetMapping("/home_userr")
 	public String getHomeUser() {
@@ -73,6 +77,7 @@ public class UserController {
 		ris.setTurn(0);
 		risultatoService.create(ris);
 		risultatoService.insertBandiere(ris, 5);
+		System.out.println(ris.getBandiereDaIndovinare());
 		s.setAttribute("partita", ris);
 		
 		return "redirect:/game";
@@ -124,6 +129,16 @@ public class UserController {
 		m.addAttribute("r", r);
 		s.setAttribute("partita", null);
 		return "viewScore";
+	}
+	
+	
+	@GetMapping("/restart")
+	public String restartGame(Model m, HttpSession s) {
+		Risultato r = (Risultato) s.getAttribute("partita");
+		risultatoService.update(r);
+		s.setAttribute("partita", null);
+		
+		return "redirect:/home_userr";
 	}
 
 	

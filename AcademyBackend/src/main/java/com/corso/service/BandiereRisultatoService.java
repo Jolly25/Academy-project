@@ -15,4 +15,8 @@ public class BandiereRisultatoService {
 	public void setDao(BandiereRisultatoDAO dao) {
 		this.dao = dao;
 	}
+	
+	public void deleteBandierePartita(int partitaId) {
+		dao.deleteBandierePartita(partitaId);
+	}
 }

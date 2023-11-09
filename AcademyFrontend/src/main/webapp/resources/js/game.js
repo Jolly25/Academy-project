@@ -96,7 +96,6 @@
     if (confirm("Sei sicuro di voler ricominciare il gioco?")) {
       document.getElementById("restart_form").submit();
     }
-    document.getElementById("userInput").focus();
   }
 
   // Aggiungi un event listener per gestire l'invio del modulo
