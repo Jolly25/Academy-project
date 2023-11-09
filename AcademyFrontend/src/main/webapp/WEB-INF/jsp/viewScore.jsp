@@ -13,6 +13,10 @@
 
 <p id="output">Hai indovinato ${r.score} bandiere su ${r.bandiereViste}</p>
 
+<form method="get" action="home_userr" id="restart_form">
+	<button class="flagButton" id="restartButton" type="submit">Ricomincia</button>
+</form>
+
 <a href="logout" id="logout">Logout</a>
 
 <!-- Modale per risposta corretta -->

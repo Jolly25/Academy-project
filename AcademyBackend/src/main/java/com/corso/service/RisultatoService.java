@@ -45,4 +45,8 @@ public class RisultatoService {
 		}
 	}
 	
+	public void remove(Risultato ris) {
+		dao.remove(ris);
+	}
+	
 }

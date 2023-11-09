@@ -21,8 +21,9 @@ import com.corso.checkstring.CheckString;
 import com.corso.model.BandiereRisultato;
 import com.corso.model.Risultato;
 import com.corso.model.User;
+import com.corso.service.BandiereRisultatoService;
 import com.corso.service.RisultatoService;
-import com.corso.validation.MatchForm;
+import com.corso.validation.InputForm;
 import com.google.gson.Gson;
 
 @Controller
@@ -38,30 +39,15 @@ public class UserController {
 	@Autowired
 	RisultatoService risultatoService;
 	
+	@Autowired
+	BandiereRisultatoService brs;
+	
 	@GetMapping("/home_userr")
 	public String getHomeUser() {
 		System.out.println("Siamo nella home dello user");
 		return "homeUser";
 	}
-	
-	@GetMapping("/form_checkstring")
-	public String formCheckstring(Model m) {
-		MatchForm matchForm = new MatchForm();
-		m.addAttribute("matchForm", matchForm);
-		return "formCheckstring";
-	}
 
-	@PostMapping("/checkstring")
-	public String add(@ModelAttribute("matchForm") @Valid MatchForm matchForm, BindingResult bindingResult, @RequestParam("input") String input, Model m) {
-		if(bindingResult.hasErrors()) {
-			return "formCheckstring";
-		}
-		else {
-			ah.buildCheckString();
-			//String match = matchCS.check(input);
-			return "viewOutput";
-		}
-	}
 	
 	@GetMapping("/start_game")
 	public String startGame(Model m, HttpSession s) {
@@ -75,6 +61,7 @@ public class UserController {
 		ris.setTurn(0);
 		risultatoService.create(ris);
 		risultatoService.insertBandiere(ris, 5);
+		System.out.println(ris.getBandiereDaIndovinare());
 		s.setAttribute("partita", ris);
 		
 		return "redirect:/game";
@@ -89,14 +76,22 @@ public class UserController {
 		m.addAttribute("flag", flag);
 		m.addAttribute("score", risultato.getScore());
 		
+		InputForm inputForm = new InputForm();
+		m.addAttribute("inputForm", inputForm);
+		
 		return "game";
 	}
 	
 	@PostMapping("/turno")
 	public String turnChange(@RequestParam("input") String input, Model m, HttpSession s) {
-		ah.buildCheckString();
-		String match = matchCS.check(input);
-		if(match == null) match = "";
+
+		String match = "";
+		if(!input.trim().equals("")) {
+			ah.buildCheckString();
+			match = matchCS.check(input);
+			if(match == null) match = "";
+		}
+
 		Risultato r = (Risultato) s.getAttribute("partita");
 		BandiereRisultato pFlag = r.getBandiereDaIndovinare().get(r.getTurn());
 		String pFlagname = pFlag.getBandiera();
@@ -107,10 +102,8 @@ public class UserController {
 		r.setBandiereViste(r.getBandiereViste() + 1);
 		r.setTurn(r.getTurn() + 1);
 		if(r.getTurn() < r.getBandiereDaIndovinare().size()) {
-			Gson gson = new Gson();
 			BandiereRisultato flag = r.getBandiereDaIndovinare().get(r.getTurn());
 			String flagname = flag.getBandiera();
-			//String json = gson.toJson(flagname);
 			m.addAttribute("flag", flagname);
 			m.addAttribute("previousFlag", pFlagname);
 			m.addAttribute("previousInput", input);
@@ -126,6 +119,17 @@ public class UserController {
 		m.addAttribute("r", r);
 		s.setAttribute("partita", null);
 		return "viewScore";
+	}
+	
+	
+	@GetMapping("/restart")
+	public String restartGame(Model m, HttpSession s) {
+		Risultato r = (Risultato) s.getAttribute("partita");
+		r.setBandiereViste(r.getBandiereViste() + 1);
+		risultatoService.update(r);
+		s.setAttribute("partita", null);
+		
+		return "redirect:/home_userr";
 	}
 
 	
