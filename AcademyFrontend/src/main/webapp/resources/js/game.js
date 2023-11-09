@@ -219,8 +219,8 @@ fetchData();
     correctAnswerElement.textContent ="Risposta corretta: " + matchedWord + " = " + correctWord;
     correctModal.style.display = "block";
     setTimeout(() => {
-      correctModal.style.display = "none";
-    }, 10000);
+      correctModal.style.display = "none !Important";
+    }, 1000);
   }
 
   // Funzione per visualizzare la modale di risposta errata
@@ -230,8 +230,8 @@ fetchData();
     correctAnswerElement.textContent = "Hai inserito: " + previousInput + " = " + previousMatch + "\n Risposta corretta: " + previousFlag;
     wrongModal.style.display = "block";
     setTimeout(() => {
-      wrongModal.style.display = "none";
-    }, 10000);
+      wrongModal.style.display = "none !Important";
+    }, 1000);
   }
 
 
