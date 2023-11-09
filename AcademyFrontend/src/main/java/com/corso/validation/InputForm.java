@@ -4,9 +4,9 @@ import javax.validation.constraints.Size;
 
 
 
-public class MatchForm {
+public class InputForm {
 	
-	@Size(min=2, max=20)
+	@Size(min=1, max=30)
 	private String input;
 
 	public String getInput() {
