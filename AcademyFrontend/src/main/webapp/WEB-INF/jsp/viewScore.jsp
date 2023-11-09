@@ -8,16 +8,21 @@
 	<link rel="stylesheet" href=${pageContext.request.contextPath}/resources/style/viewScore.css type="text/css">
 	<link rel="stylesheet" href=${pageContext.request.contextPath}/resources/style/game2.css type="text/css">
 	<script src="https://d3js.org/d3.v7.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
 </head>
 <body>
 
-<p id="output">Hai indovinato ${r.score} bandiere su ${r.bandiereViste}</p>
+<p id="output">Hai indovinato ${r.score} bandiere su ${r.bandiereViste}</p> 
 
-<form method="get" action="home_userr" id="restart_form">
-	<button class="flagButton" id="restartButton" type="submit">Ricomincia</button>
-</form>
 
-<a href="logout" id="logout">Logout</a>
+<!-- <form method="get" action="home_userr" id="restart_form"> -->
+<!-- 	<button class="flagButton" id="restartButton" type="submit">Ricomincia</button> -->
+<!-- </form> -->
+
+<button class="restartButton" type="button" onclick="window.location.href='home_userr'">Ricomincia</button>
+
+
+<button type="button" class="btn btn-outline-danger btn-logout" onclick="window.location.href='logout'" id="logout">Logout</button>
 
 <!-- Modale per risposta corretta -->
 <div id="correctModal">

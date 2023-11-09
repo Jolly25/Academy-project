@@ -76,7 +76,7 @@ public class CheckStringTest {
 		//CheckString c1 = ah.buildCheckString();
 		//System.out.println(c1.next.next.getClass());
 		//matchService.setMatchByAdmin("Italii", "Italy");
-	*/
+	
 		
 		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
 		//ah.trainAlgos();
@@ -94,7 +94,14 @@ public class CheckStringTest {
 		ss.remove(ss.find(3));
 		CheckString cs = ah.buildCheckString();
 		System.out.println(cs.check(" "));
-		
+		*/
+		UserService service = (UserService) factory.getBean("userService"); 
+		User u = new User();
+		u.setUsername("user2");
+		u.setNewPassword("Admin");
+		u.setRuolo("User");
+		u.setStatus(true);
+		service.create(u);
 
 		
 	}

@@ -190,20 +190,25 @@ function displayFlag(flagURL, countryName) {
 
 
 window.addEventListener('load', function() {
-	if(previousFlag != null || previousMatch != null || previousInput != null) {
-	console.log(previousMatch);
-	console.log(previousFlag);
-	if(previousMatch === null) {
-		previousMatch = "";
+	if(sessionStorage.getItem("firstLoad") === null) {
+		sessionStorage.setItem("firstLoad", true);
 	}
-	  if (previousMatch.toLowerCase().trim() === previousFlag.toLowerCase().trim()) {
-	    showCorrectModal(previousInput, previousMatch); // Visualizza la modale per la risposta corretta
-	    incrementCounter();
-	  } else {
-	    showWrongModal(previousInput, previousMatch, previousFlag); // Visualizza la modale per la risposta errata
-	  }
-	  
+	else {
+		if(previousFlag != null || previousMatch != null || previousInput != null) {
+			if(previousMatch === null) previousMatch = "";
+			
+			if(previousFlag == null) showWrongModal(previousInput, previousMatch, previousFlag);
+			else {
+				if (previousMatch.toLowerCase().trim() === previousFlag.toLowerCase().trim()) {
+				    showCorrectModal(previousInput, previousMatch); // Visualizza la modale per la risposta corretta
+				    incrementCounter();
+			  	} else {
+			    	showWrongModal(previousInput, previousMatch, previousFlag); // Visualizza la modale per la risposta errata
+			  	}
+			}
+		}
 	}
+
 });
 
 fetchData();
@@ -219,19 +224,20 @@ fetchData();
     correctAnswerElement.textContent ="Risposta corretta: " + matchedWord + " = " + correctWord;
     correctModal.style.display = "block";
     setTimeout(() => {
-      correctModal.style.display = "none !Important";
-    }, 1000);
+      correctModal.style.display = "none";
+    }, 2000);
   }
 
   // Funzione per visualizzare la modale di risposta errata
   function showWrongModal(previousInput, previousMatch, previousFlag) {
     const wrongModal = document.getElementById("wrongModal");
     const correctAnswerElement = document.getElementById("correctAnswer");
-    correctAnswerElement.textContent = "Hai inserito: " + previousInput + " = " + previousMatch + "\n Risposta corretta: " + previousFlag;
+    if(previousFlag === null) correctAnswerElement.textContent = "Nessun inserimento";
+    else correctAnswerElement.textContent = "Hai inserito: " + previousInput + " = " + previousMatch + "\n Risposta corretta: " + previousFlag;
     wrongModal.style.display = "block";
     setTimeout(() => {
-      wrongModal.style.display = "none !Important";
-    }, 1000);
+      wrongModal.style.display = "none";
+    }, 2000);
   }
 
 
