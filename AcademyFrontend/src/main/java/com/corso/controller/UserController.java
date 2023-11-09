@@ -66,6 +66,7 @@ public class UserController {
 	@GetMapping("/start_game")
 	public String startGame(Model m, HttpSession s) {
 		
+		s.setAttribute("partita", null);
 		User u = ((User) s.getAttribute("user"));
 		Risultato ris = new Risultato();
 		ris.setIdUser(u);
