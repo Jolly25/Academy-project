@@ -107,6 +107,7 @@
     }
   });
 
+var timerAlive = true;
   function destroyTimer() {
 
     label.transition()
@@ -129,6 +130,7 @@
         field.selectAll("path").remove()
       });
       
+      timerAlive = false;
       document.getElementById("indovina").click();
 
   }
@@ -189,9 +191,11 @@ function displayFlag(flagURL, countryName) {
 
 window.addEventListener('load', function() {
 	if(previousFlag != null || previousMatch != null || previousInput != null) {
-	console.log("modale");
 	console.log(previousMatch);
 	console.log(previousFlag);
+	if(previousMatch === null) {
+		previousMatch = "";
+	}
 	  if (previousMatch.toLowerCase().trim() === previousFlag.toLowerCase().trim()) {
 	    showCorrectModal(previousInput, previousMatch); // Visualizza la modale per la risposta corretta
 	    incrementCounter();

@@ -28,6 +28,7 @@
 				    <!--<input type="text" id="userInput" placeholder="Inserisci il nome del Paese">  -->
 				    <form method="post" action="turno" id="indovina_form">
 				        <input type="text" id="userInput" name="input" placeholder="Inserisci il nome del Paese">
+				        <p id="error"></p>
 				        <button type="submit" id="indovina" class="flagButton">Indovina</button>
 		        	</form>
 			     
@@ -62,6 +63,7 @@
 	
 	<a href="logout" id="logout">Logout</a>
 
-	<script src=${pageContext.request.contextPath}/resources/js/game.js param1=${flag} param4=${previousFlag} param2=${previousMatch} param3=${previousInput}></script>
+	<script src=${pageContext.request.contextPath}/resources/js/game.js param1=${flag} param3=${previousInput} param4=${previousFlag} param2=${previousMatch}></script>
+	<script src=${pageContext.request.contextPath}/resources/js/inputValidation.js></script>
 </body>
 </html>
