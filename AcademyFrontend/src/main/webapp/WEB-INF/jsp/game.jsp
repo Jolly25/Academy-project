@@ -9,6 +9,7 @@
     <title>Guess the Country Flag</title>
     <link rel="stylesheet" href=${pageContext.request.contextPath}/resources/style/game2.css type="text/css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <body>
 
@@ -45,14 +46,14 @@
 		<div id="correctModal">
 		  Risposta corretta! <br>
 		  <span id="matchedWord"></span>
-		  <button id="reportButton" class="flagButton">Segnala</button>
+		  <button id="reportButton" type="button" class="flagButton">Segnala</button>
 		</div>
 		
 		<!-- Modale per risposta errata -->
 		<div id="wrongModal">
 		  Risposta errata! <br>
 		  <span id="correctAnswer"></span>
-		  <button id="reportBtn" class="flagButton">Segnala</button>
+		  <button id="reportBtn" type="button" class="flagButton">Segnala</button>
 		</div>
 		
 	</div>

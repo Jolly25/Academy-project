@@ -19,12 +19,22 @@ window.addEventListener('load', function() {
 	    	showWrongModal(previousInput, previousMatch, previousFlag); // Visualizza la modale per la risposta errata
 	  	}
 	}
-	
-
 	sessionStorage.removeItem("firstLoad");
 	  
 	}
 });
+
+
+var reportMatch = function() {
+	var param = {input: previousInput};
+    $.post("addreport", $.param(param));
+}
+
+var $bc =$("#reportButton");
+$bc.click(reportMatch);
+var $bw = $("#reportBtn")
+$bw.click(reportMatch);
+
 
 // Funzione per visualizzare la modale di risposta corretta
   function showCorrectModal(matchedWord, correctWord) {

@@ -3,6 +3,7 @@ package com.corso.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jws.WebParam;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
 import com.corso.model.BandiereRisultato;
+import com.corso.model.Match;
 import com.corso.model.Risultato;
+import com.corso.model.Segnalazione;
 import com.corso.model.User;
 import com.corso.service.BandiereRisultatoService;
+import com.corso.service.MatchService;
 import com.corso.service.RisultatoService;
+import com.corso.service.SegnalazioneService;
 import com.corso.service.StandardWordService;
 
 @Controller
@@ -40,6 +45,12 @@ public class UserController {
 	
 	@Autowired
 	BandiereRisultatoService brs;
+	
+	@Autowired
+	private MatchService matchService;
+	
+	@Autowired
+	SegnalazioneService segnalazioneService;
 	
 	@GetMapping("/home_userr")
 	public String getHomeUser() {
@@ -132,6 +143,18 @@ public class UserController {
 		s.setAttribute("partita", null);
 		
 		return "redirect:/home_userr";
+	}
+	
+	@PostMapping("/addreport")
+	public void postAddReport(@WebParam String input, HttpSession session) {
+		System.out.println("Segnalato il match con input: " + input);
+		Match m = matchService.findByInput(input);
+		User u = (User) session.getAttribute("user");
+		Segnalazione s = new Segnalazione();
+		s.setMatch(m);
+		s.setIdUser(u);
+		segnalazioneService.create(s);
+		System.out.println("Segnalazione " + s.getId() + " approvata!");
 	}
 
 	

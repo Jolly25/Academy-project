@@ -213,8 +213,15 @@ window.addEventListener('load', function() {
 
 fetchData();
 
+var reportMatch = function() {
+	var param = {input: previousInput};
+    $.post("addreport", $.param(param));
+}
 
-
+var $bc =$("#reportButton");
+$bc.click(reportMatch);
+var $bw = $("#reportBtn")
+$bw.click(reportMatch);
 
 
   // Funzione per visualizzare la modale di risposta corretta
