@@ -10,7 +10,7 @@
     <link rel="stylesheet" href=${pageContext.request.contextPath}/resources/style/game2.css type="text/css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
-<body>
+<body style="height: 100%;">
 
 	<h1 id="title">Indovina la bandiera!</h1>
 		<div id="overlay"></div>
@@ -54,6 +54,15 @@
 		  <span id="correctAnswer"></span>
 		  <button id="reportBtn" class="flagButton">Segnala</button>
 		</div>
+
+		<div id="restartModal">
+		  <div class="modal-content">
+		    <p>Cliccando OK ricomincerai la partita</p>
+		    <button id="confirmRestart">OK</button>
+		    <button id="cancelRestart">Annulla</button>
+		  </div>
+		</div>
+		
 		
 	</div>
 	

@@ -93,11 +93,23 @@
   }
 
   function showConfirmationModal() {
-    if (confirm("Sei sicuro di voler ricominciare il gioco?")) {
-	  sessionStorage.removeItem("firstLoad");
-      document.getElementById("restart_form").submit();
-    }
+	  const restartModal = document.getElementById('restartModal');
+	  restartModal.style.display = 'block';
   }
+  
+  //conferma restart della pagina
+	document.getElementById("confirmRestart").addEventListener("click", function() {
+	  sessionStorage.removeItem("firstLoad");
+	  document.getElementById("restart_form").submit();
+	  restartModal.style.display = 'none';
+	});
+	
+	  //annulla il restart della pagina
+	document.getElementById("cancelRestart").addEventListener("click", function() {
+	  restartModal.style.display = 'none';
+	});
+
+
 
   // Aggiungi un event listener per gestire l'invio del modulo
   document.getElementById("userInput").addEventListener("keydown", function(event) {
@@ -142,11 +154,6 @@ var timerAlive = true;
       return arc(i(t));
     };
   }
-
-
-
-
-
 
 let usedNumbers = [];
 let countries;
@@ -212,9 +219,6 @@ window.addEventListener('load', function() {
 });
 
 fetchData();
-
-
-
 
 
   // Funzione per visualizzare la modale di risposta corretta

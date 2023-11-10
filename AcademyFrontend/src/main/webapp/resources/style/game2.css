@@ -96,14 +96,6 @@
     display: none;
   }
 
-  #restartButton {
-    background-color: black;
-  }
-
-  #restartButton.enabled {
-    background-color: #0056b3;
-  }
-
   #counter {
     font-size: 2em;
     color: black;
@@ -139,12 +131,34 @@
     text-align: center;
     z-index: 10000;
   }
+  
+  #restartModal {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    background-color: yellow;
+    border-color: grey;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 10000;
+	}
 
 .close {
   position: absolute;
   top: 10px;
   right: 10px;
   font-size: 20px;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
   cursor: pointer;
 }
 
