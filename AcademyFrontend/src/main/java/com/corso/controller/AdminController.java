@@ -14,8 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.corso.model.Match;
 import com.corso.model.Segnalazione;
+import com.corso.model.User;
 import com.corso.service.MatchService;
 import com.corso.service.SegnalazioneService;
+import com.corso.service.UserService;
 
 
 @Controller
@@ -24,6 +26,9 @@ public class AdminController {
 	
 	@Autowired
 	MatchService matchService;
+	
+	@Autowired
+	UserService userService;
 	
 	@Autowired
 	SegnalazioneService segnalazioneService;
@@ -74,5 +79,17 @@ public class AdminController {
 		segnalazioneService.remove(s);
 		System.out.println("Segnalazione " + s.getId() + " removed!");
 	}
+	
+    @PostMapping("/banPlayer")
+    public void banPlayer(@WebParam int playerId) {
+    	
+        userService.banPlayerById(playerId);
+    }
+
+    @GetMapping("/users")
+    public List<User> getPlayerList() {
+        List<User> players = userService.getAllAvailablePlayer();
+        return players;
+    }
 
 }
