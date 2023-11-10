@@ -25,6 +25,11 @@ public class StandardWordService {
 		return randomlist;
 	}
 	
+	public String getCCA2FromCommon(String common) {
+		StandardWord sw = dao.findByCommon(common);
+		return sw.getCca2();
+	}
+	
 	public void setDao(StandardWordDAO dao) {
 		this.dao = dao;
 	}

@@ -4,14 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +20,7 @@ import com.corso.model.Risultato;
 import com.corso.model.User;
 import com.corso.service.BandiereRisultatoService;
 import com.corso.service.RisultatoService;
-import com.google.gson.Gson;
+import com.corso.service.StandardWordService;
 
 @Controller
 @RequestMapping("/")
@@ -37,6 +34,9 @@ public class UserController {
 	
 	@Autowired
 	RisultatoService risultatoService;
+	
+	@Autowired
+	StandardWordService swService;
 	
 	@Autowired
 	BandiereRisultatoService brs;
@@ -70,9 +70,11 @@ public class UserController {
 	public String getGamePage(Model m, HttpSession s) {
 
 		Risultato risultato = (Risultato) s.getAttribute("partita"); 
-		String flag = risultato.getBandiereDaIndovinare().get(risultato.getTurn()).getBandiera();		
+		String flag = risultato.getBandiereDaIndovinare().get(risultato.getTurn()).getBandiera();
+		String flagcca2 = swService.getCCA2FromCommon(flag);
 		m.addAttribute("flag", flag);
-		m.addAttribute("score", risultato.getScore());
+		m.addAttribute("cca2", flagcca2);
+	    m.addAttribute("score", risultato.getScore());
 		
 		return "game";
 	}
@@ -99,10 +101,13 @@ public class UserController {
 		if(r.getTurn() < r.getBandiereDaIndovinare().size()) {
 			BandiereRisultato flag = r.getBandiereDaIndovinare().get(r.getTurn());
 			String flagname = flag.getBandiera();
-			m.addAttribute("flag", flagname);
+			String flagcca2 = swService.getCCA2FromCommon(flagname);
+			m.addAttribute("flag", flag);
+			m.addAttribute("cca2", flagcca2);
 			m.addAttribute("previousFlag", pFlagname);
 			m.addAttribute("previousInput", input);
 			System.out.println(match);
+			System.out.println(flagcca2);
 			System.out.println(pFlagname);
 			m.addAttribute("previousMatch", match);
 			m.addAttribute("score", r.getScore());

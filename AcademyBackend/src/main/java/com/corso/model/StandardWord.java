@@ -14,8 +14,11 @@ public class StandardWord implements BeanDTO{
 	@Column(name = "IdParoleStandard")
 	private int id;
 
+	@Column(name="cca2")
+	private String cca2;
+	
 	@Column(name="cca3")
-	private String code;
+	private String cca3;
 	
 	@Column(name="Common")
 	private String value;
@@ -24,8 +27,20 @@ public class StandardWord implements BeanDTO{
 		return id;
 	}
 
-	public String getCode() {
-		return code;
+	public String getCca2() {
+		return cca2;
+	}
+
+	public void setCca2(String cca2) {
+		this.cca2 = cca2;
+	}
+
+	public String getCca3() {
+		return cca3;
+	}
+
+	public void setCca3(String cca3) {
+		this.cca3 = cca3;
 	}
 
 	public String getValue() {
@@ -34,10 +49,6 @@ public class StandardWord implements BeanDTO{
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
 	}
 
 	public void setValue(String value) {
