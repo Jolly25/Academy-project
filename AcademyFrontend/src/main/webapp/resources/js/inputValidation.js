@@ -14,8 +14,7 @@ document.getElementById("indovina_form").addEventListener("submit",
 let errorMsg = "";
 function validateForm(input) {
 	if(input == "") {
-		errorMsg = "Devi inserire almeno un carattere";
-		return true;
+		return false;
 	}
 	
 	let regex = /^[a-zA-Z]+$/;
