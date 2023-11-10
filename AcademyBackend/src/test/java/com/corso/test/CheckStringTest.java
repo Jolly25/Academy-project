@@ -95,6 +95,8 @@ public class CheckStringTest {
 		CheckString cs = ah.buildCheckString();
 		System.out.println(cs.check(" "));
 		*/
+		
+		/*
 		UserService service = (UserService) factory.getBean("userService"); 
 		User u = new User();
 		u.setUsername("user2");
@@ -102,7 +104,11 @@ public class CheckStringTest {
 		u.setRuolo("User");
 		u.setStatus(true);
 		service.create(u);
-
+		*/
+		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
+		CheckString cs = ah.buildCheckString();
+		cs.check("Laos");
+		
 		
 	}
 

@@ -78,83 +78,25 @@
                 <div class="card mb-4">
                     <h2 class="card-title">Elenco dei match</h2>
                     <div class="card-body scrollable-card">
-                        <ul class="list-group match-list">
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Match 1
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Match 2
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Match 3
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Match 4
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Match 5
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Match 6
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Match 7
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
+                        <ul class="list-group match-list" id="matchlist">
                         </ul>
                     </div>
+                <div style="padding-top: 5%;">
+                <button id="buttonLoadMatch" type="button" class="btn btn-primary">Load</button> 
+                </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card border-danger mb-4 ">
                     <h2 class="card-title">Segnala un errore</h2>
                     <div class="card-body scrollable-card">
-                        <ul class="list-group match-list">
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Segnalazione 1
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Segnalazione 2
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Segnalazione 3
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Segnalazione 4
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Segnalazione 6
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Segnalazione 6
-                                <button class="btn btn-success btn-sm accept-button">Accetta</button>
-                                <button class="btn btn-danger btn-sm reject-button">Rifiuta</button>
-                            </li>
-                          </ul>
+                        <ul class="list-group match-list" id="reportlist">
+                            
+                        </ul>
                     </div>
+                    <div style="padding-top: 5%;">
+                <button id="buttonLoadReport" type="button" class="btn btn-primary">Load</button> 
+                </div>
                 </div>
             </div>
         </div>
@@ -188,13 +130,9 @@
         </div>
     </div>
 
-<a href="view_matchlist">Visualizza lista dei match</a> <br>
 <a href="logout">Logout</a>
 <div>
-<h2>Lista dei match</h2>
-    <button id="buttonLoad">Load</button> &nbsp;
-    <ul id="list"></ul>
-    <br/><br/>
+    
 </div>
 
 <script src=${pageContext.request.contextPath}/resources/js/admin.js></script>
