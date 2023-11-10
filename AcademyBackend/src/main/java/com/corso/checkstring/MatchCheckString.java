@@ -1,13 +1,11 @@
 package com.corso.checkstring;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.corso.model.Algorithm;
 import com.corso.model.Match;
 import com.corso.service.MatchService;
-import com.corso.standardwords.StandardWords;
 
 public class MatchCheckString extends CheckString{
 
@@ -22,6 +20,10 @@ public class MatchCheckString extends CheckString{
 	@Override
 	protected String checkimpl(String input) {
 		Match m = matchService.findByInput(input);
+		if(!m.isConfirm()) { 
+			matchService.removeMatch(m);
+			m = null;
+		}
 		if(m==null) return null;
 		if(m.getAlgorithm().getAlgorithm().equals(AlgorithmType.NotFound) || m.getStandardword()==null) return "";
 		System.out.println(m.getStandardword());
