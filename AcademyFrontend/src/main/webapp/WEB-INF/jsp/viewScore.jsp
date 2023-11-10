@@ -19,7 +19,7 @@
 <!-- 	<button class="flagButton" id="restartButton" type="submit">Ricomincia</button> -->
 <!-- </form> -->
 
-<button class="restartButton" type="button" onclick="window.location.href='home_userr'">Ricomincia</button>
+<button class="restartButton" id="restartButton" type="button" onclick="window.location.href='home_userr'">Ricomincia</button>
 
 
 <button type="button" class="btn btn-outline-danger btn-logout" onclick="window.location.href='logout'" id="logout">Logout</button>
@@ -35,9 +35,16 @@
 <div id="wrongModal">
   Risposta errata! <br>
   <span id="correctAnswer"></span>
-  <button id="reportButton" class="flagButton">Segnala</button>
+  <button id="reportBtn" class="flagButton">Segnala</button>
 </div>
 
-<script src=${pageContext.request.contextPath}/resources/js/score.js param1=${flag} param4=${previousFlag} param3=${previousInput} param2=${previousMatch}></script>
+<div hidden>
+	<p id="flag">${flag}</p>
+	<p id="previousFlag">${previousFlag}</p>
+	<p id="previousMatch">${previousMatch}</p>
+	<p id="previousInput">${previousInput}</p>
+</div>
+
+<script src=${pageContext.request.contextPath}/resources/js/score.js></script>
 </body>
 </html>

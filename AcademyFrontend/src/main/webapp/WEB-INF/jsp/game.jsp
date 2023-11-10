@@ -12,7 +12,7 @@
 </head>
 <body>
 
-	<h1>Indovina la bandiera!</h1>
+	<h1 id="title">Indovina la bandiera!</h1>
 		<div id="overlay"></div>
 			<div id="country-container">
 			  <div class="row"></div>
@@ -52,18 +52,21 @@
 		<div id="wrongModal">
 		  Risposta errata! <br>
 		  <span id="correctAnswer"></span>
-		  <button id="reportButton" class="flagButton">Segnala</button>
+		  <button id="reportBtn" class="flagButton">Segnala</button>
 		</div>
 		
-		<div id="gameResultModal" class="modal">
-		  <span class="close" id="closeGameResultModal">&times;</span>
-		  <p id="gameResultMessage"></p>
-		</div>
 	</div>
 	
 	<a href="logout" id="logout">Logout</a>
+	
+	<div hidden>
+		<p id="flag">${flag}</p>
+		<p id="previousFlag">${previousFlag}</p>
+		<p id="previousMatch">${previousMatch}</p>
+		<p id="previousInput">${previousInput}</p>
+	</div>
 
-	<script src=${pageContext.request.contextPath}/resources/js/game.js param1=${flag} param3=${previousInput} param4=${previousFlag} param2=${previousMatch}></script>
+	<script src=${pageContext.request.contextPath}/resources/js/game.js></script>
 	<script src=${pageContext.request.contextPath}/resources/js/inputValidation.js></script>
 </body>
 </html>
