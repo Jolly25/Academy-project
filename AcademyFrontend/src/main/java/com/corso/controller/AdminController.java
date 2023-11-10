@@ -82,7 +82,6 @@ public class AdminController {
 	
     @PostMapping("/banPlayer")
     public void banPlayer(@WebParam int playerId) {
-    	
         userService.banPlayerById(playerId);
     }
 

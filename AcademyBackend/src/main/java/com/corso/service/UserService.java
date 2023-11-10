@@ -31,6 +31,7 @@ public class UserService {
 		return false;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<User> getAllAvailablePlayer() {
 		List<User> allUsers = (List<User>) dao.all(User.class);
 		List<User> players = new ArrayList<User>();
@@ -42,6 +43,7 @@ public class UserService {
 		return players;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<User> getAllBannedPlayer() {
 		List<User> allUsers = (List<User>) dao.all(User.class);
 		List<User> players = new ArrayList<User>();
