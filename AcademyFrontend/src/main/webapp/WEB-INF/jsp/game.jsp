@@ -61,6 +61,7 @@
 	
 	<div hidden>
 		<p id="flag">${flag}</p>
+		<p id="cca2">${cca2}</p>
 		<p id="previousFlag">${previousFlag}</p>
 		<p id="previousMatch">${previousMatch}</p>
 		<p id="previousInput">${previousInput}</p>

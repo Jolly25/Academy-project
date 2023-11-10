@@ -155,6 +155,7 @@ let score = 0;
 let countryName;
 
 let flag = document.getElementById("flag").innerHTML;
+let cca2 = document.getElementById("cca2").innerHTML;
 let previousMatch = document.getElementById("previousMatch").innerHTML;
 let previousInput = document.getElementById("previousInput").innerHTML;
 let previousFlag = document.getElementById("previousFlag").innerHTML;
@@ -173,7 +174,7 @@ function getFlag() {
 	let flagURL;
 	
 	for(let i = 0; i < countries.length;  i++) {
-		if(countries[i].name.common === flag) {
+		if(countries[i].cca2 === cca2) {
 			flagURL = countries[i].flags.png;
 			countryName = countries[i].name.common;
 		}
