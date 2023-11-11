@@ -248,7 +248,7 @@ $bw.click(reportMatch);
     const wrongModal = document.getElementById("wrongModal");
     const correctAnswerElement = document.getElementById("correctAnswer");
     if(previousInput === "") {
-		correctAnswerElement.textContent = "Nessun inserimento";
+		correctAnswerElement.textContent = "Nessun inserimento, la risposta corretta era: " + previousFlag;
 		document.getElementById("reportBtn").setAttribute('style', 'display:none !important;');
 	}
     else correctAnswerElement.textContent = "Hai inserito: " + previousInput + " = " + previousMatch + "\n Risposta corretta: " + previousFlag;

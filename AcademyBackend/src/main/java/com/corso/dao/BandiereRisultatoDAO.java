@@ -12,7 +12,7 @@ public class BandiereRisultatoDAO extends BaseDAO{
 	
 	public void deleteBandierePartita(int partitaId) {
 		@SuppressWarnings("unchecked")
-		List<BandiereRisultato> list = (List<BandiereRisultato>) super.findAllByAttributeWithId(BandiereRisultato.class, "IdRisultato", partitaId);
+		List<BandiereRisultato> list = (List<BandiereRisultato>) super.findAllByAttributeInt(BandiereRisultato.class, "IdRisultato", partitaId);
 		for(BandiereRisultato br: list) {
 			super.remove(br);
 		}

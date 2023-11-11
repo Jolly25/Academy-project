@@ -38,7 +38,7 @@ public /*abstract*/ class BaseDAO{
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public List<?> findAllByAttributeWithId(Class c, String attribute, int value) {
+	public List<?> findAllByAttributeInt(Class c, String attribute, int value) {
 		try {
 			List<?> l = manager.createQuery("SELECT t FROM " + c.getName() + " t where " + attribute + " = :value1")
 					.setParameter("value1", value).getResultList();

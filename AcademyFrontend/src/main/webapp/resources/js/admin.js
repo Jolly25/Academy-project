@@ -1,6 +1,7 @@
 window.addEventListener('load', function() {
 	loadMatchList();
 	loadReportList();
+	loadRanking();
 });
 
 var loadMatchList = function() {
@@ -57,4 +58,18 @@ var loadReportList = function() {
 }
 
 $(document).on("click", "#buttonLoadReport", loadReportList);
-             
+
+
+var loadRanking = function() {
+	$.get("ranking", function(responseJson) {
+		var $ul = $("#ranking");
+		$ul.find("li").remove();
+		$.each(responseJson, function(index, user) {
+			var $li = $("<li>").text(user.username).appendTo($ul);
+			$li.addClass("list-group-item d-flex justify-content-between align-items-center match-item");
+			var $div = $("<div>").text(user.score).appendTo($li);
+		})
+	})
+}
+
+$(document).on("click", "#buttonLoadRanking", loadRanking);          

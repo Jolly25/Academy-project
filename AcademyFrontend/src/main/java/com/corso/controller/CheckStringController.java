@@ -95,6 +95,7 @@ public class CheckStringController {
 		u.setNewPassword(rf.getPassword());
 		u.setRuolo("User");
 		u.setStatus(true);
+		u.setScore(0);
 		if(userService.create(u) == null) {
 			br.rejectValue("username", "error.username", "You are already signed up");
 			return "formRegister";

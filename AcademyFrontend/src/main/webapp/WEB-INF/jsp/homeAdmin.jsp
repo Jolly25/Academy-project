@@ -25,24 +25,13 @@
                 <div class="card mb-4">
                     <h2 class="card-title">Classifica giocatori</h2>
                     <div class="card-body scrollable-card">
-                        <ul class="list-group match-list">
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Player1
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Player2
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Player3
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Player4
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Player5
-                            </li>
+                        <ul class="list-group match-list" id="ranking">
+                        
                          </ul>
                     </div>
+                    <div style="padding-top: 5%;">
+	                	<button id="buttonLoadRanking" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+	                </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">

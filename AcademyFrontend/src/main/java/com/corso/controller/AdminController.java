@@ -90,5 +90,12 @@ public class AdminController {
         List<User> players = userService.getAllAvailablePlayer();
         return players;
     }
+    
+	@GetMapping(path={"/ranking"}, produces= {MediaType.APPLICATION_JSON_VALUE})
+	@ResponseBody
+	public List<User> getRanking() {
+	    List<User> ranking = userService.getRanking();
+	    return ranking;
+	}
 
 }

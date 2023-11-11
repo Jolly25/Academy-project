@@ -32,8 +32,19 @@ public class User implements BeanDTO{
 	
 	@Column(name="Status")
 	private boolean status;
-
 	
+	@Column(name="Score")
+	private int score;
+	
+	
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
 	public String getRuolo() {
 		return ruolo;
 	}

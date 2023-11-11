@@ -49,4 +49,8 @@ public class RisultatoService {
 		dao.remove(ris);
 	}
 	
+	public int getPlayerScore(int id) {
+		return dao.getPlayerScore(id);
+	}
+	
 }

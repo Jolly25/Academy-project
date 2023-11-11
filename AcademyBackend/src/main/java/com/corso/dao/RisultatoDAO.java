@@ -28,5 +28,15 @@ public class RisultatoDAO extends BaseDAO{
 	public void remove(Risultato ris) {
 		super.remove(ris);
 	}
+
+	public int getPlayerScore(int id) {
+		@SuppressWarnings("unchecked")
+		List<Risultato> playerResults = (List<Risultato>) super.findAllByAttributeInt(Risultato.class, "IdUser", id);
+		int score = 0;
+		for(Risultato r: playerResults) {
+			score += r.getScore();
+		}
+		return score;
+	}
 	
 }
