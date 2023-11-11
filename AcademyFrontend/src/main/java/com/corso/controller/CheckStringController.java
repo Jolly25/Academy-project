@@ -48,6 +48,7 @@ public class CheckStringController {
 		String pw = lf.getPassword();
 		User u = userService.findByUsername(username);
 		if(u == null) {
+			System.out.println("User not found");
 			br.rejectValue("username", "error.username", "Incorrect username");
 			return "formLogin";
 		}

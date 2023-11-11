@@ -46,7 +46,7 @@
 	<!-- Modale per risposta corretta -->
 		<div id="correctModal">
 		  Risposta corretta! <br>
-		  <span id="matchedWord"></span>
+		  <span id="matchedWord"></span> <br>
 		  <button id="reportButton" type="button" class="flagButton">Segnala</button>
 		</div>
 		
@@ -54,15 +54,16 @@
 		<!-- Modale per risposta errata -->
 		<div id="wrongModal">
 		  Risposta errata! <br>
-		  <span id="correctAnswer"></span>
+		  <span id="matchGot"></span> <br>
+		  <span id="correctAnswer"></span> <br>
 		  <button id="reportBtn" type="button" class="flagButton">Segnala</button>
 		</div>
 
 		<div id="restartModal">
 		  <div class="modal-content">
 		    <p>Cliccando OK ricomincerai la partita</p>
-		    <button id="confirmRestart">OK</button>
-		    <button id="cancelRestart">Annulla</button>
+		    <button id="confirmRestart" class="flagButton">OK</button>
+		    <button id="cancelRestart" class="flagButton">Annulla</button>
 		  </div>
 		</div>
 		

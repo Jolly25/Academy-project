@@ -245,13 +245,22 @@ $bw.click(reportMatch);
 
   // Funzione per visualizzare la modale di risposta errata
   function showWrongModal(previousInput, previousMatch, previousFlag) {
-    const wrongModal = document.getElementById("wrongModal");
+    const wrongModal = document.getElementById("wrongModal"); 
+    const matchGotElement = document.getElementById("matchGot");
     const correctAnswerElement = document.getElementById("correctAnswer");
     if(previousInput === "") {
-		correctAnswerElement.textContent = "Nessun inserimento, la risposta corretta era: " + previousFlag;
+		matchGotElement.textContent = "Nessun inserimento";
+		correctAnswerElement.textContent = "La risposta corretta era: " + previousFlag;
 		document.getElementById("reportBtn").setAttribute('style', 'display:none !important;');
 	}
-    else correctAnswerElement.textContent = "Hai inserito: " + previousInput + " = " + previousMatch + "\n Risposta corretta: " + previousFlag;
+    else {
+		correctAnswerElement.textContent = " Risposta corretta: " + previousFlag;
+		if(previousMatch.length === 1){
+			matchGotElement.textContent = "Nessun risultato per l'input: " + previousInput;
+		}else {
+    		matchGotElement.textContent = "Hai inserito: " + previousInput + " = " + previousMatch;
+    	}
+    }
     wrongModal.style.display = "block";
     setTimeout(() => {
       wrongModal.style.display = "none";
