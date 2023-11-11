@@ -240,7 +240,7 @@ $bw.click(reportMatch);
     correctModal.style.display = "block";
     setTimeout(() => {
       correctModal.style.display = "none";
-    }, 2000);
+    }, 5000);
   }
 
   // Funzione per visualizzare la modale di risposta errata
@@ -255,7 +255,7 @@ $bw.click(reportMatch);
     wrongModal.style.display = "block";
     setTimeout(() => {
       wrongModal.style.display = "none";
-    }, 2000);
+    }, 5000);
   }
 
 

@@ -41,14 +41,16 @@
 			      </div>
 			  </div>
 			</div>
-			
-		<!-- Modale per risposta corretta -->
+		
+		
+	<!-- Modale per risposta corretta -->
 		<div id="correctModal">
 		  Risposta corretta! <br>
 		  <span id="matchedWord"></span>
 		  <button id="reportButton" type="button" class="flagButton">Segnala</button>
 		</div>
 		
+			
 		<!-- Modale per risposta errata -->
 		<div id="wrongModal">
 		  Risposta errata! <br>
