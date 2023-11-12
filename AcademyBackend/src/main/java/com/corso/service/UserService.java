@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.corso.dao.UserDAO;
 import com.corso.model.User;
@@ -71,8 +73,15 @@ public class UserService {
 		dao.update(user);
 	}
 	
-
+	
 	public List<User> getRanking() {
+		updatePlayersScore();
+		List<User> ranking = dao.orderByScore();
+		return ranking;
+	}
+	
+	@Transactional
+	public void updatePlayersScore() {
 		List<User> players = getAllAvailablePlayer();
 
 		for(User player: players) {
@@ -81,8 +90,6 @@ public class UserService {
 			dao.update(player);
 		}
 		
-		List<User> ranking = dao.orderByScore();
-		return ranking;
 	}
 	
 
