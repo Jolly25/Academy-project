@@ -70,6 +70,7 @@ public class UserService {
 		user.setStatus(false);
 		dao.update(user);
 	}
+	
 
 	public List<User> getRanking() {
 		List<User> players = getAllAvailablePlayer();

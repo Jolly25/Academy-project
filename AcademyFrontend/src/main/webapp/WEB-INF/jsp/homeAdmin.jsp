@@ -23,15 +23,15 @@
         <div class="row">
             <div class="col-lg-4 col-md-6">
                 <div class="card mb-4">
+                <div class="title-and-load">
                     <h2 class="card-title">Classifica giocatori</h2>
+                    <button id="buttonLoadRanking" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+                </div>
                     <div class="card-body scrollable-card">
                         <ul class="list-group match-list" id="ranking">
                         
                          </ul>
                     </div>
-                    <div style="padding-top: 5%;">
-	                	<button id="buttonLoadRanking" type="button" class="btn btn-primary load-btn">&#8635;</button> 
-	                </div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">

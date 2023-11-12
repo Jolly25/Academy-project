@@ -17,6 +17,9 @@ public class RisultatoService {
 	@Autowired
 	StandardWordService swService;
 	
+	@Autowired
+	UserService userService;
+	
 	public Risultato create(Risultato ris) {
 		return dao.create(ris); 
 	} 
@@ -52,5 +55,6 @@ public class RisultatoService {
 	public int getPlayerScore(int id) {
 		return dao.getPlayerScore(id);
 	}
+	
 	
 }

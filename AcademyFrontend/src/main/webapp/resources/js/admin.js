@@ -61,13 +61,15 @@ $(document).on("click", "#buttonLoadReport", loadReportList);
 
 
 var loadRanking = function() {
+	var i = 1;
 	$.get("ranking", function(responseJson) {
 		var $ul = $("#ranking");
 		$ul.find("li").remove();
 		$.each(responseJson, function(index, user) {
-			var $li = $("<li>").text(user.username).appendTo($ul);
+			var $li = $("<li>").text(i + ". " + user.username).appendTo($ul);
+			i++;
 			$li.addClass("list-group-item d-flex justify-content-between align-items-center match-item");
-			var $div = $("<div>").text(user.score).appendTo($li);
+			var $div = $("<div>").text(user.score + "%").appendTo($li);
 		})
 	})
 }

@@ -110,13 +110,10 @@ public class CheckStringTest {
 		cs.check("Italy");
 		*/
 		
-		RisultatoService rs = (RisultatoService) factory.getBean("risultatoService");
-		int score1 = rs.getPlayerScore(11);
-		//System.out.println(score1);
 		
 		UserService service = (UserService) factory.getBean("userService");
 		for(User p: service.getRanking()) {
-			System.out.println(p.getUsername());
+			System.out.println(p.getScore());
 		}
 		
 
