@@ -25,6 +25,7 @@ import com.corso.dao.RisultatoDAO;
 import com.corso.dao.SegnalazioneDAO;
 import com.corso.dao.StandardWordDAO;
 import com.corso.dao.UserDAO;
+import com.corso.logging.LoggingAspect;
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
 import com.corso.checkstring.Contained;
@@ -230,6 +231,10 @@ public class Beans {
 		return new Equals();
 	}
 	
+	@Bean(name="loggingAspect")
+	public LoggingAspect getLoggingAspect() {
+		return new LoggingAspect();
+	}
 	
 
 
