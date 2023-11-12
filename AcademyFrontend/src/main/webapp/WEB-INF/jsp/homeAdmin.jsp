@@ -65,26 +65,30 @@
             </div>
             <div class="col-lg-6">
                 <div class="card mb-4">
+                <div class="title-and-load">
                     <h2 class="card-title">Elenco dei match</h2>
+                    <button id="buttonLoadMatch" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+                </div>
                     <div class="card-body scrollable-card">
                         <ul class="list-group match-list" id="matchlist">
                         </ul>
                     </div>
                 <div style="padding-top: 5%;">
-                <button id="buttonLoadMatch" type="button" class="btn btn-primary">Load</button> 
                 </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card border-danger mb-4 ">
+                <div class="title-and-load">
                     <h2 class="card-title">Segnala un errore</h2>
+                    <button id="buttonLoadReport" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+                </div>
                     <div class="card-body scrollable-card">
                         <ul class="list-group match-list" id="reportlist">
                             
                         </ul>
                     </div>
                     <div style="padding-top: 5%;">
-                <button id="buttonLoadReport" type="button" class="btn btn-primary">Load</button> 
                 </div>
                 </div>
             </div>

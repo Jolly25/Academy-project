@@ -69,6 +69,7 @@ public class AdminController {
 	@PostMapping("/approvasegnalazione")
 	public void postApprovaSegnalazione(@WebParam int reportid) {
 		Segnalazione s = segnalazioneService.find(reportid);
+		segnalazioneService.remove(s);
 		matchService.removeMatch(s.getMatch());
 		System.out.println("Segnalazione " + s.getId() + " approvata!");
 	}
