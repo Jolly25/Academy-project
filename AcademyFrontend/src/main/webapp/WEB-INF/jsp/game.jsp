@@ -71,8 +71,6 @@
 		
 	</div>
 	
-	<a href="logout" id="logout">Logout</a>
-	
 	<div hidden>
 		<p id="flag">${flag}</p>
 		<p id="cca2">${cca2}</p>

@@ -1,5 +1,8 @@
 <!-- navbar.html -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
 		.navbar {
             margin-bottom: 50px;
@@ -16,7 +19,7 @@
         }
     </style>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
         <a style="width: 3%;" class="navbar-brand"><img style="width: 95%;" src=${pageContext.request.contextPath}/resources/style/globe-26.gif alt="GIF animata"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -24,17 +27,14 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">Gioca</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Classifica</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profilo</a>
-                </li>
+					<button type="button" class="btn btn-outline-danger btn-logout" onclick="window.location.href='logout'" id="">Logout</button>
+				</li>
             </ul>
         </div>
     </nav>
