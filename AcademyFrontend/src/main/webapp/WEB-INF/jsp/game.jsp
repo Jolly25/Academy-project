@@ -62,8 +62,6 @@
 		<div id="restartModal">
 			<div class="modal-content">
 				<p>Cliccando OK ricomincerai la partita</p>
-				<button id="confirmRestart">OK</button>
-				<button id="cancelRestart">Annulla</button>
 				    
 				<div class="col-md-6">
 				    <button class="buttonModalRestart" id="confirmRestart">OK</button>
