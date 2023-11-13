@@ -13,14 +13,19 @@
 </head>
 <body>
 
-<p id="output">Hai indovinato ${r.score} bandiere su ${r.bandiereViste}</p> 
 
-
-<!-- <form method="get" action="home_userr" id="restart_form"> -->
-<!-- 	<button class="flagButton" id="restartButton" type="submit">Ricomincia</button> -->
-<!-- </form> -->
-
-<button class="restartButton" id="restartButton" type="button" onclick="window.location.href='home_userr'">Ricomincia</button>
+<div class="container">
+    <div class="row">
+        <div class="col-lg">
+            <p id="output">Hai indovinato ${r.score} bandiere su ${r.bandiereViste}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <button class="flagButton" id="restartButton" type="button" onclick="window.location.href='home_userr'">Ricomincia</button>
+        </div>
+    </div>
+</div>
 
 
 <button type="button" class="btn btn-outline-danger btn-logout" onclick="window.location.href='logout'" id="logout">Logout</button>
