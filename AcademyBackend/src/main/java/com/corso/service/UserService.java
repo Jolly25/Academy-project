@@ -1,6 +1,7 @@
 package com.corso.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,12 @@ public class UserService {
 		dao.update(user);
 	}
 	
+	public List<User> usersOrderedByScore(){
+		List<User> users = getAllAvailablePlayer();
+		Collections.sort(users);
+		return users;
+	}
+	
 
 	public List<User> getRanking() {
 		List<User> players = getAllAvailablePlayer();
@@ -76,7 +83,7 @@ public class UserService {
 			dao.update(player);
 		}
 		
-		List<User> ranking = dao.orderByScore();
+		List<User> ranking = usersOrderedByScore();
 		return ranking;
 	}
 	

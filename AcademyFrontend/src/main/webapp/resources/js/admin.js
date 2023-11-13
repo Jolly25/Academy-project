@@ -66,6 +66,7 @@ var loadRanking = function() {
 		var $ul = $("#ranking");
 		$ul.find("li").remove();
 		$.each(responseJson, function(index, user) {
+			console.log(user.score);
 			var $li = $("<li>").text(i + ". " + user.username).appendTo($ul);
 			i++;
 			$li.addClass("list-group-item d-flex justify-content-between align-items-center match-item");
