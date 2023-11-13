@@ -60,13 +60,14 @@
 		</div>
 
 		<div id="restartModal">
-		  <div class="modal-content">
-		    <p>Cliccando OK ricomincerai la partita</p>
-		    <button id="confirmRestart" class="flagButton">OK</button>
-		    <button id="cancelRestart" class="flagButton">Annulla</button>
-		  </div>
-		</div>
-		
+			<div class="modal-content">
+				<p>Cliccando OK ricomincerai la partita</p>
+				    
+				<div class="col-md-6">
+				    <button class="buttonModalRestart" id="confirmRestart">OK</button>
+					<button class="buttonModalRestart" id="cancelRestart">Annulla</button>
+				</div>
+			</div>	
 		
 	</div>
 	
