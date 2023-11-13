@@ -8,8 +8,8 @@ import java.lang.annotation.Target;
 public class LoggingAnnotations {
 	
 	@Retention(RetentionPolicy.RUNTIME)
-	@Target(ElementType.TYPE)
-	public @interface JsonSerializable {
+	@Target(ElementType.METHOD)
+	public @interface LoginLog {
 	}
 	
 }

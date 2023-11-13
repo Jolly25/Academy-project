@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
+import com.corso.logging.LoggingAnnotations.*;
 import com.corso.model.BandiereRisultato;
 import com.corso.model.Match;
 import com.corso.model.Risultato;
@@ -52,6 +53,7 @@ public class UserController {
 	@Autowired
 	SegnalazioneService segnalazioneService;
 	
+	@LoginLog
 	@GetMapping("/home_userr")
 	public String getHomeUser() {
 		System.out.println("Siamo nella home dello user");

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.corso.checkstring.AlgorithmHandler;
+import com.corso.logging.LoggingAnnotations.LoginLog;
 import com.corso.model.Match;
 import com.corso.model.Segnalazione;
 import com.corso.model.User;
@@ -37,6 +38,7 @@ public class AdminController {
 	@Autowired
 	AlgorithmHandler ah;
 	
+	@LoginLog
 	@GetMapping("/home_admin")
 	public String getHomeAdmin() {
 		return "homeAdmin";

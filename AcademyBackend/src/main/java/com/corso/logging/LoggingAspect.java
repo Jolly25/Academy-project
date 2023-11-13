@@ -7,11 +7,11 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect 
 public class LoggingAspect {
 
-	 @Pointcut("within(com.corso.controller..*)")
+	 @Pointcut("@annotation(com.corso.logging.LoggingAnnotations.LoginLog)")
 	 public void generalPointcut() {}
 	 
 	 @Before("generalPointcut()")
 	 public void generalBeforePointcut() {
-	        System.out.println("SIamo nel before dell pointcut");	 }
+	        System.out.println("Un utente ha fatto il login");	 }
 	
 }
