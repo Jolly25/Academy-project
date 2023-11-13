@@ -36,6 +36,7 @@ public abstract class CheckString {
 				m.setStandardword(matchedword);
 				m.setAlgorithm(algorithmService.getAlgorithmByType(getAlgo().getAlgorithm()));
 				m.setConfirm(false);
+				if(input.equals(matchedword)) m.setConfirm(true);
 				matchService.create(m);
 			}
 			System.out.println("Trovata parola con " + this.getClass().getSimpleName() + ": " + matchedword);

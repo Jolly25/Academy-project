@@ -12,7 +12,7 @@ var loadMatchList = function() {
             var $li = $("<li>").text(match.input + "  =>  " + match.standardword).appendTo($ul);
             $li.addClass('list-group-item d-flex justify-content-between align-items-center match-item');
             var $button1 = $("<button>").val(match.id + "ba").text("Conferma").appendTo($li);
-            $button1.addClass('btn btn-success btn-sm accept-button');
+            $button1.addClass('btn btn-success btn-sm accept-button tablebtn');
             $button1.click(function() {
 			   var param = {matchid : match.id};
                $.post("checkmatch",  $.param(param));
@@ -40,7 +40,7 @@ var loadReportList = function() {
             var $li = $("<li>").val(segnalazione.id).text(segnalazione.match.input + "  =>  " + segnalazione.match.standardword + "         Creata da: " + segnalazione.idUser.username).appendTo($ul);
             $li.addClass('list-group-item d-flex justify-content-between align-items-center match-item');
             var $button1 = $("<button>").val(segnalazione.id + "ba").text("Rimuovi match").appendTo($li);
-            $button1.addClass('btn btn-success btn-sm accept-button');
+            $button1.addClass('btn btn-success btn-sm accept-button tablebtn');
             $button1.click(function() {
 			   var param = {reportid : segnalazione.id};
                $.post("approvasegnalazione",  $.param(param));
