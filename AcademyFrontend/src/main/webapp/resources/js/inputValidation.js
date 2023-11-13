@@ -17,7 +17,7 @@ function validateForm(input) {
 		return false;
 	}
 	
-	let regex = /^[a-zA-Z]+$/;
+	let regex = /^[a-zA-Z ]+$/;
 	if (!regex.test(input)) {
    		errorMsg = "Non puoi inserire numeri o simboli speciali";
    		return true;

@@ -28,7 +28,7 @@
 			      
 				    <!--<input type="text" id="userInput" placeholder="Inserisci il nome del Paese">  -->
 				    <form method="post" action="turno" id="indovina_form">
-				        <input type="text" id="userInput" name="input" placeholder="Inserisci il nome del Paese">
+				        <input type="text" id="userInput" name="input" placeholder="Inserisci il nome del Paese"> <br>
 				        <p id="error"></p>
 				        <button type="submit" id="indovina" class="flagButton">Indovina</button>
 		        	</form>
