@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.corso.checkstring.AlgorithmHandler;
 import com.corso.model.Match;
 import com.corso.model.Segnalazione;
 import com.corso.model.User;
@@ -33,6 +34,9 @@ public class AdminController {
 	@Autowired
 	SegnalazioneService segnalazioneService;
 
+	@Autowired
+	AlgorithmHandler ah;
+	
 	@GetMapping("/home_admin")
 	public String getHomeAdmin() {
 		return "homeAdmin";
@@ -86,7 +90,8 @@ public class AdminController {
         userService.banPlayerById(playerId);
     }
 
-    @GetMapping("/users")
+    @GetMapping(path={"/users"}, produces= {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseBody
     public List<User> getPlayerList() {
         List<User> players = userService.getAllAvailablePlayer();
         return players;
@@ -98,5 +103,10 @@ public class AdminController {
 	    List<User> ranking = userService.getRanking();
 	    return ranking;
 	}
+	
+	@PostMapping("/trainAlgos")
+    public void trainAlgos() {
+        ah.trainAlgos();
+    }
 
 }

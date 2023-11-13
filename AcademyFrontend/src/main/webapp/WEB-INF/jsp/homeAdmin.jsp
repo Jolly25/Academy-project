@@ -36,9 +36,11 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="card mb-4">
-                    <div class="card-body">
+                    <div class="card-body trainalgo">
                         <h2 class="card-title">Allena algoritmi</h2>
-                        <button class="btn btn-primary" disabled>Allena algoritmi</button>
+                        <button class="btn btn-primary" id="trainAlgoBtn">Allena algoritmi</button>
+                        <br>
+                        <div id="trainMessage"></div>
                     </div>
                 </div>
             </div>
@@ -95,29 +97,13 @@
         </div>
 
         <div class="card">
+        <div class="title-and-load">
             <h2 class="card-title">Lista dei giocatori</h2>
+            <button id="buttonLoadPlayers" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+        </div>  
             <div class="card-body scrollable-card">
-                <ul class="list-group player-list">
-                    <li class="list-group-item d-flex justify-content-between align-items-center player-item">
-                        Nome Giocatore 1
-                        <button class="btn btn-danger btn-sm ban-button">Banna</button>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center player-item">
-                        Nome Giocatore 2
-                        <button class="btn btn-danger btn-sm ban-button">Banna</button>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center player-item">
-                        Nome Giocatore 3
-                        <button class="btn btn-danger btn-sm ban-button">Banna</button>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center player-item">
-                        Nome Giocatore 4
-                        <button class="btn btn-danger btn-sm ban-button">Banna</button>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center player-item">
-                        Nome Giocatore 5
-                        <button class="btn btn-danger btn-sm ban-button">Banna</button>
-                    </li>
+                <ul class="list-group player-list" id="playerlist">
+                    
                 </ul>
             </div>
         </div>

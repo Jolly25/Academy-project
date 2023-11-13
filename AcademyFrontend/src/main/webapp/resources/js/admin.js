@@ -2,6 +2,7 @@ window.addEventListener('load', function() {
 	loadMatchList();
 	loadReportList();
 	loadRanking();
+	loadPlayerList();
 });
 
 var loadMatchList = function() {
@@ -75,4 +76,43 @@ var loadRanking = function() {
 	})
 }
 
-$(document).on("click", "#buttonLoadRanking", loadRanking);          
+$(document).on("click", "#buttonLoadRanking", loadRanking); 
+
+
+
+var loadPlayerList = function() {
+    $.get("users", function(responseJson) {
+        var $ul = $("#playerlist"); 
+        $ul.find("li").remove();
+        $.each(responseJson, function(index, user) {
+			console.log(user.id);
+            var $li = $("<li>").val(user.id).text(user.username).appendTo($ul);
+            $li.addClass('list-group-item d-flex justify-content-between align-items-center match-item');
+            var $button2 = $("<button>").val(user.id + "br").text("Banna").appendTo($li);
+            $button2.addClass('btn btn-danger btn-sm reject-button');
+            $button2.click(function() {
+			   var param = {playerId : user.id};
+               $.post("banPlayer", $.param(param));
+               $li.remove();
+               });	
+        });                   
+    });
+}
+
+$(document).on("click", "#buttonLoadPlayers", loadPlayerList);   
+
+
+var trainAlgos = function() {
+    $.post("trainAlgos");
+    $("#trainMessage").text("Algoritmi allenati!");
+    setTimeout(() => {
+      $("#trainMessage").text("");
+    }, 5000);
+    
+}
+
+
+$(document).on("click", "#trainAlgoBtn", trainAlgos); 
+
+
+      
