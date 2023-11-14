@@ -14,7 +14,7 @@ import com.google.common.hash.Hashing;
 
 @Entity
 @Table(name = "Users")
-public class User implements BeanDTO{
+public class User implements Comparable<User>, BeanDTO{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -94,5 +94,10 @@ public class User implements BeanDTO{
 	
 	public String getPassword() {
 		return password;
+	}
+
+	@Override
+	public int compareTo(User u) {
+		return (this.score<u.getScore())?1:-1;
 	}
 }

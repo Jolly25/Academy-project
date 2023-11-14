@@ -15,7 +15,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
         <div class="container-fluid">
-        <span class="navbar-brand" style="color: white;">Benvenuto Utente</span>
+        <span class="navbar-brand" style="color: white;">Benvenuto Admin</span>
         <button type="button" class="btn btn-outline-danger" onclick="window.location.href='logout'">Logout</button>
     </div>
     </nav>
@@ -36,9 +36,11 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="card mb-4">
-                    <div class="card-body">
+                    <div class="card-body trainalgo">
                         <h2 class="card-title">Allena algoritmi</h2>
-                        <button class="btn btn-primary" disabled>Allena algoritmi</button>
+                        <button class="btn btn-primary" id="trainAlgoBtn">Allena algoritmi</button>
+                        <br>
+                        <div id="trainMessage"></div>
                     </div>
                 </div>
             </div>
@@ -65,55 +67,43 @@
             </div>
             <div class="col-lg-6">
                 <div class="card mb-4">
+                <div class="title-and-load">
                     <h2 class="card-title">Elenco dei match</h2>
+                    <button id="buttonLoadMatch" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+                </div>
                     <div class="card-body scrollable-card">
                         <ul class="list-group match-list" id="matchlist">
                         </ul>
                     </div>
                 <div style="padding-top: 5%;">
-                <button id="buttonLoadMatch" type="button" class="btn btn-primary">Load</button> 
                 </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card border-danger mb-4 ">
+                <div class="title-and-load">
                     <h2 class="card-title">Segnala un errore</h2>
+                    <button id="buttonLoadReport" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+                </div>
                     <div class="card-body scrollable-card">
                         <ul class="list-group match-list" id="reportlist">
                             
                         </ul>
                     </div>
                     <div style="padding-top: 5%;">
-                <button id="buttonLoadReport" type="button" class="btn btn-primary">Load</button> 
                 </div>
                 </div>
             </div>
         </div>
 
         <div class="card">
+        <div class="title-and-load">
             <h2 class="card-title">Lista dei giocatori</h2>
+            <button id="buttonLoadPlayers" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+        </div>  
             <div class="card-body scrollable-card">
-                <ul class="list-group player-list">
-                    <li class="list-group-item d-flex justify-content-between align-items-center player-item">
-                        Nome Giocatore 1
-                        <button class="btn btn-danger btn-sm ban-button">Banna</button>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center player-item">
-                        Nome Giocatore 2
-                        <button class="btn btn-danger btn-sm ban-button">Banna</button>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center player-item">
-                        Nome Giocatore 3
-                        <button class="btn btn-danger btn-sm ban-button">Banna</button>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center player-item">
-                        Nome Giocatore 4
-                        <button class="btn btn-danger btn-sm ban-button">Banna</button>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center player-item">
-                        Nome Giocatore 5
-                        <button class="btn btn-danger btn-sm ban-button">Banna</button>
-                    </li>
+                <ul class="list-group player-list" id="playerlist">
+                    
                 </ul>
             </div>
         </div>

@@ -9,15 +9,15 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
 	
 	</head>
+	<header>
+		<%@ include file="Navbar.html" %>
+	</header>
 	<body>
+
 	
 
 
 	<button class="glow-on-hover" type="button" onclick="window.location.href='start_game'" style="font-size: medium;">PLAY!</button>
-
-
-	
-	<button type="button" class="btn btn-outline-danger btn-logout" onclick="window.location.href='logout'" id="">Logout</button>
 	
 	</body>
 	</html>

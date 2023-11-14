@@ -28,7 +28,7 @@
 			      
 				    <!--<input type="text" id="userInput" placeholder="Inserisci il nome del Paese">  -->
 				    <form method="post" action="turno" id="indovina_form">
-				        <input type="text" id="userInput" name="input" placeholder="Inserisci il nome del Paese">
+				        <input type="text" id="userInput" name="input" placeholder="Inserisci il nome del Paese"> <br>
 				        <p id="error"></p>
 				        <button type="submit" id="indovina" class="flagButton">Indovina</button>
 		        	</form>
@@ -60,17 +60,16 @@
 		</div>
 
 		<div id="restartModal">
-		  <div class="modal-content">
-		    <p>Cliccando OK ricomincerai la partita</p>
-		    <button id="confirmRestart" class="flagButton">OK</button>
-		    <button id="cancelRestart" class="flagButton">Annulla</button>
-		  </div>
-		</div>
-		
+			<div class="modal-content">
+				<p>Cliccando OK ricomincerai la partita</p>
+				    
+				<div class="col-md-6">
+				    <button class="buttonModalRestart" id="confirmRestart">OK</button>
+					<button class="buttonModalRestart" id="cancelRestart">Annulla</button>
+				</div>
+			</div>	
 		
 	</div>
-	
-	<a href="logout" id="logout">Logout</a>
 	
 	<div hidden>
 		<p id="flag">${flag}</p>

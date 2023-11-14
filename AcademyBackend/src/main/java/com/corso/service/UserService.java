@@ -2,11 +2,7 @@ package com.corso.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,7 +69,17 @@ public class UserService {
 		dao.update(user);
 	}
 	
+<<<<<<< HEAD
 	
+=======
+	public List<User> usersOrderedByScore(){
+		List<User> users = getAllAvailablePlayer();
+		Collections.sort(users);
+		return users;
+	}
+	
+
+>>>>>>> 5e0788f65d40f11511317e67eb24d020ec9c3207
 	public List<User> getRanking() {
 		updatePlayersScore();
 		List<User> ranking = dao.orderByScore();
@@ -90,6 +96,11 @@ public class UserService {
 			dao.update(player);
 		}
 		
+<<<<<<< HEAD
+=======
+		List<User> ranking = usersOrderedByScore();
+		return ranking;
+>>>>>>> 5e0788f65d40f11511317e67eb24d020ec9c3207
 	}
 	
 

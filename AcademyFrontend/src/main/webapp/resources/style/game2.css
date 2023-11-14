@@ -84,6 +84,29 @@
   .flagButton:hover {
     background-color: #0056b3;
   }
+  
+  #restartButton:hover {
+	background-color: #0056b3 !important;
+}
+
+#confirmRestart {
+	margin-right: 3%;
+}
+
+.buttonModalRestart{
+	width: 35%; 
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: black;
+	color: #fff;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+  }
+
+  .buttonModalRestart:hover {
+	background-color: #0056b3;
+  }
 
   #overlay {
     position: fixed;
