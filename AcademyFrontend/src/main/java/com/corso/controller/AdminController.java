@@ -58,6 +58,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("/checkmatch")
+	@ResponseBody
 	public void postCheckmatch(@WebParam int matchid) {
 		Match m = matchService.find(matchid);
 		matchService.checkMatch(m);
@@ -65,6 +66,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("/removematch")
+	@ResponseBody
 	public void postRemoveMatch(@WebParam int matchid) {
 		Match m = matchService.find(matchid);
 		matchService.removeMatch(m);
@@ -79,6 +81,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("/approvasegnalazione")
+	@ResponseBody
 	public void postApprovaSegnalazione(@WebParam int reportid) {
 		Segnalazione s = segnalazioneService.find(reportid);
 		segnalazioneService.remove(s);
@@ -87,6 +90,7 @@ public class AdminController {
 	}
 	
 	@PostMapping("/removesegnalazione")
+	@ResponseBody
 	public void postRemoveSegnalazione(@WebParam int reportid) {
 		Segnalazione s = segnalazioneService.find(reportid);
 		segnalazioneService.remove(s);
@@ -94,6 +98,7 @@ public class AdminController {
 	}
 	
     @PostMapping("/banPlayer")
+    @ResponseBody
     public void banPlayer(@WebParam int playerId) {
         userService.banPlayerById(playerId);
     }
@@ -115,12 +120,15 @@ public class AdminController {
 	@GetMapping(path={"/algorithm"}, produces= {MediaType.APPLICATION_JSON_VALUE})
 	@ResponseBody
 	public List<AlgoResult> getAlgoresult() {
+	
 	    List<AlgoResult> algorithm = algorithmService.getAllAlgoResult();
 	    Collections.sort(algorithm);
 	    return algorithm;
+	    
 	}
 	
 	@PostMapping("/trainAlgos")
+	@ResponseBody
     public void trainAlgos() {
         ah.trainAlgos();
     }

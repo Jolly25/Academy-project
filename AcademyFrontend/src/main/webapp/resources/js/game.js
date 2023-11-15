@@ -178,9 +178,9 @@ function fetchData() {
         });
 }
 
-window.onload = function() {
+window.addEventListener('load', function() {
     document.getElementById('userInput').focus();
-};
+});
 
 function getFlag() {
 	let flagURL;
