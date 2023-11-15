@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
+import com.corso.logging.LoggingAnnotations.*;
 import com.corso.model.BandiereRisultato;
 import com.corso.model.Match;
 import com.corso.model.Risultato;
@@ -52,6 +53,7 @@ public class UserController {
 	@Autowired
 	SegnalazioneService segnalazioneService;
 	
+	@LoginLog
 	@GetMapping("/home_userr")
 	public String getHomeUser() {
 		System.out.println("Siamo nella home dello user");
@@ -80,12 +82,19 @@ public class UserController {
 	@GetMapping("/game")
 	public String getGamePage(Model m, HttpSession s) {
 
-		Risultato risultato = (Risultato) s.getAttribute("partita"); 
-		String flag = risultato.getBandiereDaIndovinare().get(risultato.getTurn()).getBandiera();
-		String flagcca2 = swService.getCCA2FromCommon(flag);
+		Risultato r = (Risultato) s.getAttribute("partita");
+		List<BandiereRisultato> flags = r.getBandiereDaIndovinare();
+		BandiereRisultato flag = null;
+		String flagcca2 = "";
+		String flagname = ""; 
+		if(flags != null) {
+			flag = flags.get(r.getTurn());
+			flagname = flag.getBandiera();
+			flagcca2 = swService.getCCA2FromCommon(flagname);
+		}
 		m.addAttribute("flag", flag);
 		m.addAttribute("cca2", flagcca2);
-	    m.addAttribute("score", risultato.getScore());
+	    m.addAttribute("score", r.getScore());
 		
 		return "game";
 	}
@@ -101,8 +110,13 @@ public class UserController {
 		}
 
 		Risultato r = (Risultato) s.getAttribute("partita");
-		BandiereRisultato pFlag = r.getBandiereDaIndovinare().get(r.getTurn());
-		String pFlagname = pFlag.getBandiera();
+		List<BandiereRisultato> flags = r.getBandiereDaIndovinare();
+		BandiereRisultato pFlag = null;
+		String pFlagname = "";
+		if(flags != null) {
+			pFlag = flags.get(r.getTurn());
+			pFlagname = pFlag.getBandiera();
+		}
 		if(match.toLowerCase().trim().equals(pFlagname.toLowerCase().trim())) {
 			pFlag.setIndovinato(true);
 			r.setScore(r.getScore() + 1);
@@ -110,9 +124,14 @@ public class UserController {
 		r.setBandiereViste(r.getBandiereViste() + 1);
 		r.setTurn(r.getTurn() + 1);
 		if(r.getTurn() < r.getBandiereDaIndovinare().size()) {
-			BandiereRisultato flag = r.getBandiereDaIndovinare().get(r.getTurn());
-			String flagname = flag.getBandiera();
-			String flagcca2 = swService.getCCA2FromCommon(flagname);
+			BandiereRisultato flag = null;
+			String flagcca2 = "";
+			String flagname = ""; 
+			if(flags != null) {
+				flag = flags.get(r.getTurn());
+				flagname = flag.getBandiera();
+				flagcca2 = swService.getCCA2FromCommon(flagname);
+			}
 			m.addAttribute("flag", flag);
 			m.addAttribute("cca2", flagcca2);
 			m.addAttribute("previousFlag", pFlagname);
