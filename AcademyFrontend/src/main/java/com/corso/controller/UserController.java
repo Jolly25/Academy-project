@@ -175,7 +175,10 @@ public class UserController {
 		segnalazioneService.create(s);
 		System.out.println("Segnalazione " + s.getId() + " approvata!");
 	}
-
 	
+	@GetMapping("/not_player")
+	public String notAdminPage() {
+		return "notAuthorized";
+	}
 
 }

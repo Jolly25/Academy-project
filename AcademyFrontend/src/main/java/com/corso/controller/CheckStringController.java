@@ -114,5 +114,10 @@ public class CheckStringController {
 		session.invalidate();
 		return "redirect:/";
 	} 
+	
+	@GetMapping("/not_logged")
+	public String notLoggedPage() {
+		return "notLogged";
+	}
 
 }

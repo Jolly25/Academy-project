@@ -28,7 +28,7 @@ public class LoginFilter implements Filter{
 		HttpSession s = req.getSession();
 
 		if(s.getAttribute("user") == null) {
-			res.setStatus(403);
+			res.sendRedirect(req.getContextPath() + "/not_logged");
 			return;
 		}
 		chain.doFilter(request, response);

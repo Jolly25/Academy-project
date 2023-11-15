@@ -132,5 +132,10 @@ public class AdminController {
     public void trainAlgos() {
         ah.trainAlgos();
     }
+	
+	@GetMapping("/not_admin")
+	public String notAdminPage() {
+		return "notAuthorized";
+	}
 
 }
