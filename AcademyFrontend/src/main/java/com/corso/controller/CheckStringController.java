@@ -52,6 +52,11 @@ public class CheckStringController {
 			br.rejectValue("username", "error.username", "Incorrect username");
 			return "formLogin";
 		}
+		
+		if(!u.getStatus()) {
+			br.rejectValue("status", "error.status", "You are banned");
+			return "formLogin";
+		}
 
 		if(!u.checkPassword(pw)) {
 			br.rejectValue("password", "error.password", "Incorrect password");

@@ -17,27 +17,49 @@
     </filter>
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
-        <url-pattern>/game</url-pattern>
-        <url-pattern>/home_admin</url-pattern>
         <url-pattern>/home_userr</url-pattern>
         <url-pattern>/game</url-pattern>
-        <url-pattern>/checkstring_prova</url-pattern>
         <url-pattern>/turno</url-pattern>
         <url-pattern>/score</url-pattern>
-        <url-pattern>/view_matchlist</url-pattern>
+        <url-pattern>/restart</url-pattern>
+        <url-pattern>/addreport</url-pattern>
+        <url-pattern>/ranking_list</url-pattern>
+        
+        <url-pattern>/home_admin</url-pattern>
+        <url-pattern>/matchlist</url-pattern>
+        <url-pattern>/checkmatch</url-pattern>
+        <url-pattern>/removematch</url-pattern>
+        <url-pattern>/reportlist</url-pattern>
+        <url-pattern>/approvasegnalazione</url-pattern>
+        <url-pattern>/removesegnalazione</url-pattern>
+        <url-pattern>/banPlayer</url-pattern>
+        <url-pattern>/users</url-pattern>
+        <url-pattern>/ranking</url-pattern>
+        <url-pattern>/algorithm</url-pattern>
+
     </filter-mapping>
         <filter-mapping>
         <filter-name>UserFilter</filter-name>
         <url-pattern>/home_userr</url-pattern>
-        <url-pattern>/ranking_list</url-pattern>
         <url-pattern>/game</url-pattern>
-        <url-pattern>/checkstring_prova</url-pattern>
         <url-pattern>/turno</url-pattern>
         <url-pattern>/score</url-pattern>
+        <url-pattern>/restart</url-pattern>
+        <url-pattern>/addreport</url-pattern>
+        <url-pattern>/ranking_list</url-pattern>
     </filter-mapping>
         <filter-mapping>
         <filter-name>AdminFilter</filter-name>
         <url-pattern>/home_admin</url-pattern>
-        <url-pattern>/view_matchlist</url-pattern>
+        <url-pattern>/matchlist</url-pattern>
+        <url-pattern>/checkmatch</url-pattern>
+        <url-pattern>/removematch</url-pattern>
+        <url-pattern>/reportlist</url-pattern>
+        <url-pattern>/approvasegnalazione</url-pattern>
+        <url-pattern>/removesegnalazione</url-pattern>
+        <url-pattern>/banPlayer</url-pattern>
+        <url-pattern>/users</url-pattern>
+        <url-pattern>/ranking</url-pattern>
+        <url-pattern>/algorithm</url-pattern>
     </filter-mapping>
 </web-app>
