@@ -117,6 +117,7 @@
       // Verifica se il tasto premuto Ã¨ "Invio"
       event.preventDefault(); // Impedisce l'invio del modulo predefinito
       document.getElementById("indovina").click(); // Simula il clic sul tasto "Indovina!"
+      document.getElementById('userInput').focus();
     }
   });
 
@@ -176,6 +177,10 @@ function fetchData() {
 			getFlag();
         });
 }
+
+window.onload = function() {
+    document.getElementById('userInput').focus();
+};
 
 function getFlag() {
 	let flagURL;

@@ -13,7 +13,7 @@
 </head>
 <body style="height: 100%;">
 
-	<h1 id="title">Indovina la bandiera!</h1>
+	<h3 id="title">Indovina la bandiera!</h3>
 		<div id="overlay"></div>
 			<div id="country-container">
 			  <div class="row"></div>
@@ -29,15 +29,15 @@
 				    <!--<input type="text" id="userInput" placeholder="Inserisci il nome del Paese">  -->
 				    <form method="post" action="turno" id="indovina_form">
 				        <input type="text" id="userInput" name="input" placeholder="Inserisci il nome del Paese"> <br>
-				        <p id="error"></p>
-				        <button type="submit" id="indovina" class="flagButton">Indovina</button>
+				       <button type="submit" id="indovina" class="flagButton">Indovina</button>
 		        	</form>
+				    <div class="col">
+				    	<p id="error"></p>
+				    </div>
 			     
 			      <div class="col-md-6">
-			     
 			        <form method="get" action="restart" id="restart_form"></form>
 		        	<button class="flagButton" id="restartButton" onclick="showConfirmationModal()">Ricomincia</button>
-			        
 			      </div>
 			  </div>
 			</div>
