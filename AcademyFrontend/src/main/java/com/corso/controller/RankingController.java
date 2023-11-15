@@ -27,10 +27,9 @@ public class RankingController {
 	}
 	
     @GetMapping(path={"/usersRanking"}, produces= {MediaType.APPLICATION_JSON_VALUE})
-    @ResponseBody
-    public List<User> getPlayerListRanking() {
-        List<User> players = userService.getAllAvailablePlayer();
-        return players;
-    }
-	
+	@ResponseBody
+	public List<User> getRankingUserList() {
+	    List<User> ranking = userService.getRanking();
+	    return ranking;
+	}
 }

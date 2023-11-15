@@ -1,1 +1,126 @@
-@charset "UTF-8";
+.gradient-custom {
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(#353752)
+}
+
+.welcome-text {
+    font-size: 18px;
+}
+
+.logout-button {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+    padding-right: 5px 15px;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin-top: 10%;
+    padding: 20px;
+    text-align: center;
+    min-width: 1550px;
+}
+
+.card h2 {
+    font-size: 24px;
+    color: black;
+}
+
+.btn-primary {
+    background-color: black;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    size: 0cap;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.error-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    }
+
+.player-list {
+    list-style: none;
+    padding: 0;
+}
+
+.player-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.ban-button {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.ban-button:hover {
+    background-color: #c82333;
+}
+body {
+    background: linear-gradient(to bottom, #353752, #1FA1C6);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color:#333;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.title-and-load {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.load-btn {
+	height: 40px;
+	width: 40px;
+	font-weight: bold;
+	font-size: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10;
+	padding-bottom: 10;
+}
+
+.tablebtn {
+	right: 20%;
+	position: absolute;
+}
+
+.trainalgo {
+	height: 125px;
+}
