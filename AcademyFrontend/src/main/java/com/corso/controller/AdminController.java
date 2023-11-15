@@ -1,5 +1,6 @@
 package com.corso.controller;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.jws.WebParam;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.logging.LoggingAnnotations.LoginLog;
+import com.corso.model.AlgoResult;
 import com.corso.model.Match;
 import com.corso.model.Segnalazione;
 import com.corso.model.User;
+import com.corso.service.AlgorithmService;
 import com.corso.service.MatchService;
 import com.corso.service.SegnalazioneService;
 import com.corso.service.UserService;
@@ -34,6 +37,9 @@ public class AdminController {
 	
 	@Autowired
 	SegnalazioneService segnalazioneService;
+	
+	@Autowired
+	AlgorithmService algorithmService;
 
 	@Autowired
 	AlgorithmHandler ah;
@@ -104,6 +110,14 @@ public class AdminController {
 	public List<User> getRanking() {
 	    List<User> ranking = userService.getRanking();
 	    return ranking;
+	}
+	
+	@GetMapping(path={"/algorithm"}, produces= {MediaType.APPLICATION_JSON_VALUE})
+	@ResponseBody
+	public List<AlgoResult> getAlgoresult() {
+	    List<AlgoResult> algorithm = algorithmService.getAllAlgoResult();
+	    Collections.sort(algorithm);
+	    return algorithm;
 	}
 	
 	@PostMapping("/trainAlgos")

@@ -46,21 +46,13 @@
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="card mb-4">
-                    <h2 class="card-title">Classifica algoritmi</h2>    
+                    <div class="title-and-load">
+	                    <h2 class="card-title">Classifica algoritmi</h2>
+	                    <button id="buttonLoadAlgorithm" type="button" class="btn btn-primary load-btn">&#8635;</button>  
+                    </div>
                     <div class="card-body scrollable-card">
-                        <ul class="list-group match-list">
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Algo1
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Algo2
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Algo3
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center match-item">
-                                Algo4
-                            </li>
+                        <ul class="list-group match-list" id="algorithm">
+                        
                          </ul>    
                     </div>
                 </div>
