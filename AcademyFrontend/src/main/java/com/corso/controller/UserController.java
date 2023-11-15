@@ -64,6 +64,8 @@ public class UserController {
 	@GetMapping("/start_game")
 	public String startGame(Model m, HttpSession s) {
 		
+		int difficolta = (int) s.getAttribute("difficolta");
+		int nBandiere = (int) s.getAttribute("nBandiere");
 		s.setAttribute("partita", null);
 		User u = ((User) s.getAttribute("user"));
 		Risultato ris = new Risultato();
@@ -72,12 +74,39 @@ public class UserController {
 		ris.setBandiereDaIndovinare(list);
 		ris.setTurn(0);
 		risultatoService.create(ris);
-		risultatoService.insertBandiere(ris, 5);
+		risultatoService.insertBandiere(ris, nBandiere, difficolta);
 		s.setAttribute("partita", ris);
 		
 		return "redirect:/game";
+	}
+	
+	@GetMapping("/start_gameEasy")
+	public String startGameEasy(Model m, HttpSession s) {
+		
+		s.setAttribute("difficolta", 1);
+		s.setAttribute("nBandiere", 5);
+		return "redirect:/start_game";
 		
 	}
+	
+	@GetMapping("/start_gameMid")
+	public String startGameMid(Model m, HttpSession s) {
+		
+		s.setAttribute("difficolta", 2);
+		s.setAttribute("nBandiere", 5);
+		return "redirect:/start_game";
+		
+	}
+	
+	@GetMapping("/start_gameHard")
+	public String startGameHard(Model m, HttpSession s) {
+		
+		s.setAttribute("difficolta", 3);
+		s.setAttribute("nBandiere", 5);
+		return "redirect:/start_game";
+		
+	}
+	
 	
 	@GetMapping("/game")
 	public String getGamePage(Model m, HttpSession s) {
@@ -160,6 +189,8 @@ public class UserController {
 		r.setBandiereViste(r.getBandiereViste() + 1);
 		risultatoService.update(r);
 		s.setAttribute("partita", null);
+		s.setAttribute("difficolta", 3);
+		s.setAttribute("nBandiere", 5);
 		
 		return "redirect:/home_userr";
 	}

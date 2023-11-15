@@ -14,8 +14,8 @@ public class StandardWordService {
 		return dao.findAllSW();
 	}
 	
-	public List<String> getRandomStandardWords(int n) {
-		List<StandardWord> allsw = dao.findAllSW();
+	public List<String> getRandomStandardWords(int n, int d) {
+		List<StandardWord> allsw = dao.findAllSWByDifficult(d);
 		List<String> randomlist = new ArrayList<>();
 		while(randomlist.size() < n) {
 			int randomNum = (int)(Math.random() * allsw.size());

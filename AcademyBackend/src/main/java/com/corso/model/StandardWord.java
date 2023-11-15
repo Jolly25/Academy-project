@@ -20,6 +20,17 @@ public class StandardWord implements BeanDTO{
 	@Column(name="cca3")
 	private String cca3;
 	
+	@Column(name="Difficolta")
+	private int difficolta;
+	
+	public int getDifficolta() {
+		return difficolta;
+	}
+
+	public void setDifficolta(int difficolta) {
+		this.difficolta = difficolta;
+	}
+
 	@Column(name="Common")
 	private String value;
 
