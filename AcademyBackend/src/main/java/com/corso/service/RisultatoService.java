@@ -36,8 +36,8 @@ public class RisultatoService {
 		this.dao = dao;
 	}
 	
-	public void insertBandiere(Risultato ris, int num) {
-		List<String> list = swService.getRandomStandardWords(num);
+	public void insertBandiere(Risultato ris, int num, int dif) {
+		List<String> list = swService.getRandomStandardWords(num, dif);
 		
 		for(String s: list) {
 			BandiereRisultato br = new BandiereRisultato();
