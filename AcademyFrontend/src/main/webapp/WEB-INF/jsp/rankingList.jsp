@@ -8,6 +8,9 @@
     <script src=${pageContext.request.contextPath}/resources/js/rankingList.js></script>
 <title>Classifica Giocatori</title>
 </head>
+	<header>
+		<%@ include file="Navbar.html" %>
+	</header>
 <body>
                 <div class="title-and-load">
                     <h2 class="card-title">Classifica giocatori</h2>
