@@ -17,7 +17,7 @@ public abstract class CheckStringWithList extends CheckString{
 	protected String checkimpl(String input) {
 		countrylist = sw.getStandardWords();
 		for(String s : countrylist) {
-			if(internalcheck(s, input)) return s;
+			if(internalcheck(s.toLowerCase(), input.toLowerCase())) return s;
 		}
 		return null;
 	}
