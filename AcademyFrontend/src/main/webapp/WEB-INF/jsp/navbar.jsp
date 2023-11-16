@@ -29,6 +29,9 @@
 			font-size: 25px;
 			color: rgb(37, 150, 190);
 		}
+		span {
+			font-style: italic;
+		}
     </style>
 </head>
 <body>
@@ -41,7 +44,7 @@
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <div id="welcome">Benvenuto ${user.username}&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <div id="welcome">Benvenuto <span>${user.username}</span>&nbsp;&nbsp;&nbsp;&nbsp;</div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="home_userr">Gioca</a>
