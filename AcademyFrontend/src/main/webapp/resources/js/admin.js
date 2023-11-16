@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
 	loadRanking();
 	loadPlayerList();
 	loadAlgorithm();
-	//loadStandardWords();
+	loadStandardWords();
 });
 
 // Verifica se l'oggetto JSON è vuoto
@@ -56,7 +56,7 @@ var loadMatchList = function() {
 
 
   function showConfirmationModal(input) {
-	  const correctAnswerElement = document.getElementById("inputmatch");
+	  const correctAnswerElement = document.getElementById("inputMatch");
       correctAnswerElement.textContent ="Scegliere il match per l'input: " + input;
       $('#matchModal').modal('show');
   }
@@ -188,10 +188,10 @@ $(document).on("click", "#buttonLoadAlgorithm", loadAlgorithm);
 var loadStandardWords = function() {
 	$.get("allStandardWords", function(responseJson) {
 		var $dropdown = $("#parole");
-		$dropdown.find("select").remove();
+		$dropdown.find("option").remove();
 		$.each(responseJson, function(index, string) {
 			console.log(string);
-			var $select = $("<select>").val(string).text(string).appendTo($dropdown);
+			$("<option>").val(string).text(string).appendTo($dropdown);
 		})
 	})
 }

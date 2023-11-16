@@ -12,6 +12,7 @@ public class StandardWordDAO extends BaseDAO{
 		return (List<StandardWord>) super.all(StandardWord.class);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<StandardWord> findAllSWByDifficult(int dif) {
 		List<StandardWord> list = new ArrayList<StandardWord>();
 		for(StandardWord sw: (List<StandardWord>) super.all(StandardWord.class)) {
