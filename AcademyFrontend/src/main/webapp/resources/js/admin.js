@@ -57,7 +57,7 @@ var loadMatchList = function() {
   function showConfirmationModal(input) {
 	  const restartModal = document.getElementById('matchModal');
 	  restartModal.style.display = 'block';
-	  const correctAnswerElement = document.getElementById("inputMatch");
+	  const correctAnswerElement = document.getElementById("inputmatch");
       correctAnswerElement.textContent ="Scegliere il match per l'input: " + input;
   }
 
