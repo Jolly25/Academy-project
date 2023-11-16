@@ -115,7 +115,7 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <span id="inputMatch"></span>
+          <span id="inputmatch"></span>
           <input type="text" class="form-control" id="inputText" list="parole" autocomplete="off">
           <datalist id="parole">
             <option value="Parola1">
