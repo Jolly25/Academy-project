@@ -146,18 +146,19 @@
     </dependency>
 
 	<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
-<dependency>
-    <groupId>org.aspectj</groupId>
-    <artifactId>aspectjweaver</artifactId>
-    <version>1.9.7</version>
-</dependency>
+	<dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>1.9.7</version>
+	</dependency>
 
-<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-<dependency>
-    <groupId>org.slf4j</groupId>
-    <artifactId>slf4j-api</artifactId>
-    <version>2.0.7</version>
-</dependency>
+	<dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.6</version>
+    </dependency>
+    
+   
 
 
   </dependencies>

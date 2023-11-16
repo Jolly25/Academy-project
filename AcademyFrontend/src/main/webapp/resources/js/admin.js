@@ -4,6 +4,7 @@ window.addEventListener('load', function() {
 	loadRanking();
 	loadPlayerList();
 	loadAlgorithm();
+	loadStandardWords();
 });
 
 // Verifica se l'oggetto JSON è vuoto
@@ -157,7 +158,16 @@ var loadAlgorithm = function() {
 $(document).on("click", "#buttonLoadAlgorithm", loadAlgorithm);
 
 
-
+var loadStandardWords = function() {
+	$.get("allStandardWords", function(responseJson) {
+		var $dropdown = $("#swdropdown");
+		$dropdown.find("select").remove();
+		$.each(responseJson, function(index, string) {
+			console.log(string);
+			var $select = $("<select>").value(string).text(string).appendTo($dropdown);
+		})
+	})
+}
 
 
 var trainAlgos = function() {

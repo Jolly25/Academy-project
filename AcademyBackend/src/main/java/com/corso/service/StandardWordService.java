@@ -14,6 +14,14 @@ public class StandardWordService {
 		return dao.findAllSW();
 	}
 	
+	public List<String> getStandardWords() {
+		List<String> list = new ArrayList<String>();
+		for(StandardWord sw : dao.findAllSW()) {
+			list.add(sw.getValue());
+		}
+		return list;
+	}
+	
 	public List<String> getRandomStandardWords(int n) {
 		List<StandardWord> allsw = dao.findAllSW();
 		List<String> randomlist = new ArrayList<>();

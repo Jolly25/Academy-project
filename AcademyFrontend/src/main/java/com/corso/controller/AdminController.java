@@ -22,6 +22,7 @@ import com.corso.model.User;
 import com.corso.service.AlgorithmService;
 import com.corso.service.MatchService;
 import com.corso.service.SegnalazioneService;
+import com.corso.service.StandardWordService;
 import com.corso.service.UserService;
 
 
@@ -40,6 +41,9 @@ public class AdminController {
 	
 	@Autowired
 	AlgorithmService algorithmService;
+	
+	@Autowired
+	StandardWordService swService;
 
 	@Autowired
 	AlgorithmHandler ah;
@@ -126,6 +130,20 @@ public class AdminController {
 	    return algorithm;
 	    
 	}
+	
+	@GetMapping(path={"/allStandardWords"}, produces= {MediaType.APPLICATION_JSON_VALUE})
+	@ResponseBody
+	public List<String> getAllStandardWords() {
+	    List<String> standardwords = swService.getStandardWords();
+	    return standardwords;
+	    
+	}
+	
+	@PostMapping("/setAdminMatch")
+    @ResponseBody
+    public void setAdminMatch(@WebParam String input, @WebParam String standardword) {
+        matchService.setMatchByAdmin(input, standardword);
+    }
 	
 	@PostMapping("/trainAlgos")
 	@ResponseBody
