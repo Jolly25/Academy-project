@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
 	loadRanking();
 	loadPlayerList();
 	loadAlgorithm();
-	loadStandardWords();
+	//loadStandardWords();
 });
 
 // Verifica se l'oggetto JSON è vuoto
@@ -74,6 +74,7 @@ var loadReportList = function() {
             $li.addClass('list-group-item d-flex justify-content-between align-items-center match-item');
 		}
         $.each(responseJson, function(index, segnalazione) {
+			console.log(segnalazione.match.input);
             var $li = $("<li>").val(segnalazione.id).text(segnalazione.match.input + "  =>  " + segnalazione.match.standardword + "         Creata da: " + segnalazione.idUser.username).appendTo($ul);
             $li.addClass('list-group-item d-flex justify-content-between align-items-center match-item');
             var $button1 = $("<button>").val(segnalazione.id + "ba").text("Rimuovi match").appendTo($li);

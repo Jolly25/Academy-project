@@ -8,10 +8,21 @@ import javax.persistence.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 
-public /*abstract*/ class BaseDAO{
+public abstract class BaseDAO{
 
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("match_pu");
 	EntityManager manager = entityManagerFactory.createEntityManager();
+	
+	@Transactional
+	public void update(BeanDTO o) {
+		try {
+			manager.getTransaction().begin();
+			manager.merge(o);
+			manager.getTransaction().commit();
+		}
+		catch (Exception e) {}
+	}
+	
 
 	@SuppressWarnings("rawtypes")
 	public Object findOneByAttribute(Class c, String attribute, String value) {
@@ -79,15 +90,6 @@ public /*abstract*/ class BaseDAO{
 		}
 	}
 
-	@Transactional
-	public void update(BeanDTO o) {
-		try {
-			manager.getTransaction().begin();
-			manager.merge(o);
-			manager.getTransaction().commit();
-		}
-		catch (Exception e) {}
-	}
 	
 	@Transactional
 	public BeanDTO create(BeanDTO o) {
