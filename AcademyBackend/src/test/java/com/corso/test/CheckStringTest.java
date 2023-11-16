@@ -108,15 +108,16 @@ public class CheckStringTest {
 		AlgorithmHandler ah = (AlgorithmHandler) factory.getBean("ah");
 		CheckString cs = ah.buildCheckString();
 		cs.check("Italy");
-		*/
+		
 		
 		
 		UserService service = (UserService) factory.getBean("userService");
 		for(User p: service.getRanking()) {
 			System.out.println(p.getScore());
 		}
-		
+		*/
 
+		
 
 		
 	}
