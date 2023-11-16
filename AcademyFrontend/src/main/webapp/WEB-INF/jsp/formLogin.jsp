@@ -32,6 +32,7 @@
                 <form:errors path="password" class="error"/>
                 <br>
             </div>
+            <form:errors path="status" class="error"/>
             <button type="submit" class="btn btn-primary btn-block login-button">Login</button>
             <br>
             <p class="small-text"><a href="form_register">Non sei ancora registrato? Registrati</a></p>

@@ -31,7 +31,7 @@ public class UserFilter implements Filter{
 		User u = (User) s.getAttribute("user");
 
 		if(!u.getRuolo().equals("User")) {
-			res.setStatus(403);
+			res.sendRedirect(req.getContextPath() + "/not_player");
 			return;
 		}
 		chain.doFilter(request, response);

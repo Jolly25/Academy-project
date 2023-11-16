@@ -31,7 +31,7 @@ public class AdminFilter implements Filter{
 		User u = (User) s.getAttribute("user");
 
 		if(!u.getRuolo().equals("Admin")) {
-			res.setStatus(403);
+			res.sendRedirect(req.getContextPath() + "/not_admin");
 			return;
 		}
 		chain.doFilter(request, response);
