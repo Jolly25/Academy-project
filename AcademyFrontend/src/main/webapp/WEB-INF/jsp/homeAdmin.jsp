@@ -6,11 +6,10 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href=${pageContext.request.contextPath}/resources/style/homeAdmin.css type="text/css">
-	<meta charset="ISO-8859-1">
-	<title>Home Admin</title>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href=${pageContext.request.contextPath}/resources/style/homeAdmin.css type="text/css">
 	<script src=${pageContext.request.contextPath}/resources/js/admin.js></script>
 </head>
 <body>
@@ -109,7 +108,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal a tutto schermo con Input</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button id="closeButton" type="button" class="close" data-dismiss="modal" aria-label="Close" >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

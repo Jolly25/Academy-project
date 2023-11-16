@@ -54,12 +54,17 @@ var loadMatchList = function() {
     });
 }
 
+
   function showConfirmationModal(input) {
-	  const restartModal = document.getElementById('matchModal');
-	  restartModal.style.display = 'block';
-	  const correctAnswerElement = document.getElementById("inputMatch");
+	  const correctAnswerElement = document.getElementById("inputmatch");
       correctAnswerElement.textContent ="Scegliere il match per l'input: " + input;
+      $('#matchModal').modal('show');
   }
+  
+  
+$(document).on("click", "#closeButton", function() {
+	$('#matchModal').modal('toggle');
+});
 
 $(document).on("click", "#buttonLoadMatch", loadMatchList);
 
@@ -86,9 +91,11 @@ var loadReportList = function() {
                });
             var $button3 = $("<button>").val(segnalazione.id + "ba").text("Correggi").appendTo($li);
              $button3.addClass('btn btn-success btn-sm modify-button');
-             $button3.click(function() {
-			 showConfirmationModal(segnalazione.match.input);
+			 
+			$button3.click(function() {
+				showConfirmationModal(segnalazione.match.input);
 			});
+             
             var $button2 = $("<button>").val(segnalazione.id + "br").text("Ignora").appendTo($li);
             $button2.addClass('btn btn-danger btn-sm reject-button');
             $button2.click(function() {
