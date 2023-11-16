@@ -14,7 +14,6 @@ public class StandardWordService {
 		return dao.findAllSW();
 	}
 	
-<<<<<<< HEAD
 	public List<String> getStandardWords() {
 		List<String> list = new ArrayList<String>();
 		for(StandardWord sw : dao.findAllSW()) {
@@ -22,13 +21,9 @@ public class StandardWordService {
 		}
 		return list;
 	}
-	
-	public List<String> getRandomStandardWords(int n) {
-		List<StandardWord> allsw = dao.findAllSW();
-=======
+
 	public List<String> getRandomStandardWords(int n, int d) {
 		List<StandardWord> allsw = dao.findAllSWByDifficult(d);
->>>>>>> ae2f8d64bc2f06449c6e5fce9fd8700d7bae5ebb
 		List<String> randomlist = new ArrayList<>();
 		while(randomlist.size() < n) {
 			int randomNum = (int)(Math.random() * allsw.size());
