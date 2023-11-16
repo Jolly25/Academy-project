@@ -4,10 +4,12 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.jws.WebParam;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,7 +48,8 @@ public class AdminController {
 	
 	@LoginLog
 	@GetMapping("/home_admin")
-	public String getHomeAdmin() {
+	public String getHomeAdmin(Model m, HttpSession s) {
+		m.addAttribute("user", s.getAttribute("user"));
 		return "homeAdmin";
 	}
 	

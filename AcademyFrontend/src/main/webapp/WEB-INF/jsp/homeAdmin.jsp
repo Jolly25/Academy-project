@@ -15,7 +15,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
         <div class="container-fluid">
-        <span class="navbar-brand" style="color: white;">Benvenuto Admin</span>
+        <span class="navbar-brand" style="color: white;">Benvenuto Admin:&nbsp;${user.username}</span>
         <button type="button" class="btn btn-outline-danger" onclick="window.location.href='logout'">Logout</button>
     </div>
     </nav>
