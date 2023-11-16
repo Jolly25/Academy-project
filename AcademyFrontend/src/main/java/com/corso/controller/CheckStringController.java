@@ -49,17 +49,17 @@ public class CheckStringController {
 		User u = userService.findByUsername(username);
 		if(u == null) {
 			System.out.println("User not found");
-			br.rejectValue("username", "error.username", "Incorrect username");
+			br.rejectValue("username", "error.username", "Username errato");
 			return "formLogin";
 		}
 		
 		if(!u.getStatus()) {
-			br.rejectValue("status", "error.status", "You are banned");
+			br.rejectValue("status", "error.status", "Sei stato bannato");
 			return "formLogin";
 		}
 
 		if(!u.checkPassword(pw)) {
-			br.rejectValue("password", "error.password", "Incorrect password");
+			br.rejectValue("password", "error.password", "Password errata");
 			return "formLogin";
 		}
 
@@ -87,12 +87,12 @@ public class CheckStringController {
 		}
 
 		if(!(rf.getPassword().equals(rf.getConfirmPassword()))) {
-			br.rejectValue("confirmPassword", "error.confirmPassword", "Password do not match");
+			br.rejectValue("confirmPassword", "error.confirmPassword", "Le password non corrispondono");
 			return "formRegister";
 		}
 
 		if(userService.userExists(rf.getUsername())) {
-			br.rejectValue("username", "error.username", "You are already signed up");
+			br.rejectValue("username", "error.username", "Sei già registrato");
 			return "formRegister";
 		}
 		
@@ -103,7 +103,7 @@ public class CheckStringController {
 		u.setStatus(true);
 		u.setScore(0);
 		if(userService.create(u) == null) {
-			br.rejectValue("username", "error.username", "You are already signed up");
+			br.rejectValue("username", "error.username", "Sei già registrato");
 			return "formRegister";
 		}
 		return "redirect:/";
