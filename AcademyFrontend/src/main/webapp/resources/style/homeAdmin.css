@@ -131,7 +131,12 @@ h2 {
 }
 
 .tablebtn {
-	right: 20%;
+	right: 15%;
+	position: absolute;
+}
+
+.modify-button {
+	right: 30%;
 	position: absolute;
 }
 

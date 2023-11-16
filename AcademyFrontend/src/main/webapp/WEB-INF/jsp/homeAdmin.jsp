@@ -30,8 +30,7 @@
                 </div>
                     <div class="card-body scrollable-card">
                         <ul class="list-group match-list" id="ranking">
-                        
-                         </ul>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -96,7 +95,7 @@
             <button id="buttonLoadReport" type="button" class="btn btn-primary load-btn">&#8635;</button> 
         </div>  
             <div class="card-body scrollable-card">
-                <ul class="list-group player-list" id="reportList">
+                <ul class="list-group player-list" id="reportlist">
                 </ul>
             </div>
             </div>
@@ -116,7 +115,7 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <span id="inputmatch"></span>
+          <span id="inputMatch"></span>
           <input type="text" class="form-control" id="inputText" list="parole" autocomplete="off">
           <datalist id="parole">
             <option value="Parola1">
@@ -133,10 +132,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 	
 </body>
 </html>

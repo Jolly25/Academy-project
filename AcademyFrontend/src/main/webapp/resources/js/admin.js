@@ -30,15 +30,15 @@ var loadMatchList = function() {
             var $li = $("<li>").text(match.input + "  =>  " + match.standardword).appendTo($ul);
             $li.addClass('list-group-item d-flex justify-content-between align-items-center match-item');
             var $button1 = $("<button>").val(match.id + "ba").text("Conferma").appendTo($li);
-            $button1.addClass('btn btn-success btn-sm accept-button tablebtn');
+            $button1.addClass('btn btn-warning btn-sm accept-button tablebtn');
             $button1.click(function() {
 			   var param = {matchid : match.id};
                $.post("checkmatch",  $.param(param));
                $li.remove();
                });
                
-            var $button3 = $("<button>").text("Elimina").appendTo($li);
-             $button3.addClass('btn btn-danger btn-sm reject-button');
+            var $button3 = $("<button>").text("Correggi").appendTo($li);
+             $button3.addClass('btn btn-success btn-sm modify-button');
             	$button3.click(function() {
 				showConfirmationModal(match.input);
 			});
@@ -77,17 +77,17 @@ var loadReportList = function() {
 			console.log(segnalazione.match.input);
             var $li = $("<li>").val(segnalazione.id).text(segnalazione.match.input + "  =>  " + segnalazione.match.standardword + "         Creata da: " + segnalazione.idUser.username).appendTo($ul);
             $li.addClass('list-group-item d-flex justify-content-between align-items-center match-item');
-            var $button1 = $("<button>").val(segnalazione.id + "ba").text("Rimuovi match").appendTo($li);
-            $button1.addClass('btn btn-success btn-sm accept-button tablebtn');
+            var $button1 = $("<button>").val(segnalazione.id + "ba").text("Rimuovi").appendTo($li);
+            $button1.addClass('btn btn-warning btn-sm accept-button tablebtn');
             $button1.click(function() {
 			   var param = {reportid : segnalazione.id};
                $.post("approvasegnalazione",  $.param(param));
                $li.remove();
                });
-            var $button3 = $("<button>").text("Elimina").appendTo($li);
-             $button3.addClass('btn btn-danger btn-sm reject-button');
+            var $button3 = $("<button>").val(segnalazione.id + "ba").text("Correggi").appendTo($li);
+             $button3.addClass('btn btn-success btn-sm modify-button');
              $button3.click(function() {
-			 showConfirmationModal(match.input);
+			 showConfirmationModal(segnalazione.match.input);
 			});
             var $button2 = $("<button>").val(segnalazione.id + "br").text("Ignora").appendTo($li);
             $button2.addClass('btn btn-danger btn-sm reject-button');
@@ -180,11 +180,11 @@ $(document).on("click", "#buttonLoadAlgorithm", loadAlgorithm);
 
 var loadStandardWords = function() {
 	$.get("allStandardWords", function(responseJson) {
-		var $dropdown = $("#swdropdown");
+		var $dropdown = $("#parole");
 		$dropdown.find("select").remove();
 		$.each(responseJson, function(index, string) {
 			console.log(string);
-			var $select = $("<select>").value(string).text(string).appendTo($dropdown);
+			var $select = $("<select>").val(string).text(string).appendTo($dropdown);
 		})
 	})
 }
