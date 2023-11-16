@@ -96,7 +96,7 @@
             <button id="buttonLoadReport" type="button" class="btn btn-primary load-btn">&#8635;</button> 
         </div>  
             <div class="card-body scrollable-card">
-                <ul class="list-group player-list" id="reportList">
+                <ul class="list-group player-list" id="reportlist">
                 </ul>
             </div>
             </div>
@@ -133,10 +133,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 	
 </body>
 </html>
