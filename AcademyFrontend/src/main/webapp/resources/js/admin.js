@@ -56,8 +56,14 @@ var loadMatchList = function() {
 
 
   function showConfirmationModal(input) {
+<<<<<<< HEAD
 	  $('#matchModal').modal('show');
 	  const correctAnswerElement = document.getElementById("inputMatch");
+=======
+	  const restartModal = document.getElementById('matchModal');
+	  restartModal.style.display = 'block';
+	  const correctAnswerElement = document.getElementById("inputmatch");
+>>>>>>> 5bb20dbb6e0c68a293e015391719d0d582402fcb
       correctAnswerElement.textContent ="Scegliere il match per l'input: " + input;
   }
   
