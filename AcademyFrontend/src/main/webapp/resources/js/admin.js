@@ -36,6 +36,13 @@ var loadMatchList = function() {
                $.post("checkmatch",  $.param(param));
                $li.remove();
                });
+               
+            var $button3 = $("<button>").text("Elimina").appendTo($li);
+             $button3.addClass('btn btn-danger btn-sm reject-button');
+            	$button3.click(function() {
+				showConfirmationModal(match.input);
+			});
+               
             var $button2 = $("<button>").text("Elimina").appendTo($li);
             $button2.addClass('btn btn-danger btn-sm reject-button');
             $button2.click(function() {
@@ -46,6 +53,13 @@ var loadMatchList = function() {
         });                   
     });
 }
+
+  function showConfirmationModal(input) {
+	  const restartModal = document.getElementById('matchModal');
+	  restartModal.style.display = 'block';
+	  const correctAnswerElement = document.getElementById("inputMatch");
+      correctAnswerElement.textContent ="Scegliere il match per l'input: " + input;
+  }
 
 $(document).on("click", "#buttonLoadMatch", loadMatchList);
 
@@ -69,6 +83,11 @@ var loadReportList = function() {
                $.post("approvasegnalazione",  $.param(param));
                $li.remove();
                });
+            var $button3 = $("<button>").text("Elimina").appendTo($li);
+             $button3.addClass('btn btn-danger btn-sm reject-button');
+             $button3.click(function() {
+			 showConfirmationModal(match.input);
+			});
             var $button2 = $("<button>").val(segnalazione.id + "br").text("Ignora").appendTo($li);
             $button2.addClass('btn btn-danger btn-sm reject-button');
             $button2.click(function() {
