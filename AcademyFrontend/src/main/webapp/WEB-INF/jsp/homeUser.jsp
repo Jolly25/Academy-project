@@ -16,7 +16,7 @@
 	
 	</head>
 	<header>
-		<%@ include file="Navbar.html" %>
+		<%@ include file="navbar.jsp" %>
 	</header>
 	<body>
 	

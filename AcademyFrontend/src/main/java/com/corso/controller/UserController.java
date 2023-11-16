@@ -55,8 +55,9 @@ public class UserController {
 	
 	@LoginLog
 	@GetMapping("/home_userr")
-	public String getHomeUser() {
+	public String getHomeUser(Model m, HttpSession s) {
 		System.out.println("Siamo nella home dello user");
+		m.addAttribute("user", s.getAttribute("user"));
 		return "homeUser";
 	}
 
