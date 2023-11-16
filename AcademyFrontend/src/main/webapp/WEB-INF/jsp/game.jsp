@@ -48,6 +48,7 @@
 		  Risposta corretta! <br>
 		  <span id="matchedWord"></span> <br>
 		  <button id="reportButton" type="button" class="flagButton">Segnala</button>
+		  <span id="reportSentCorrect"></span>
 		</div>
 		
 			
@@ -56,7 +57,8 @@
 		  Risposta errata! <br>
 		  <span id="matchGot"></span> <br>
 		  <span id="correctAnswer"></span> <br>
-		  <button id="reportBtn" type="button" class="flagButton">Segnala</button>
+		  <button id="reportBtn" type="button" class="flagButton">Segnala</button> <br>
+		  <span id="reportSentWrong"></span>
 		</div>
 
 		<div id="restartModal">

@@ -220,3 +220,6 @@
 	gap: 10px;
 }
 
+#reportSentWrong, #reportSentCorrect {
+	font-style: italic;
+}

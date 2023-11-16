@@ -42,6 +42,14 @@ $bw.click(reportMatch);
     const correctAnswerElement = document.getElementById("matchedWord");
     correctAnswerElement.textContent ="Risposta corretta: " + matchedWord + " = " + correctWord;
     correctModal.style.display = "block";
+    
+    const reportBtn = document.getElementById("reportButton")
+    const reportSent = document.getElementById("reportSentCorrect");
+    reportBtn.addEventListener("click", function(e) {
+		reportSent.textContent = "Segnalazione inviata";
+		reportBtn.setAttribute('style', 'display:none !important;');
+	})
+	
     setTimeout(() => {
       correctModal.style.display = "none";
     }, 5000);
@@ -66,6 +74,14 @@ $bw.click(reportMatch);
     	}
     }
     wrongModal.style.display = "block";
+    
+    const reportBtn = document.getElementById("reportBtn")
+    const reportSent = document.getElementById("reportSentWrong");
+    reportBtn.addEventListener("click", function(e) {
+		reportSent.textContent = "Segnalazione inviata";
+		reportBtn.setAttribute('style', 'display:none !important;');
+	})
+	
     setTimeout(() => {
       wrongModal.style.display = "none";
     }, 5000);
