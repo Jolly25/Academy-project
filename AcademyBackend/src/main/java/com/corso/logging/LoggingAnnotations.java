@@ -9,7 +9,7 @@ public class LoggingAnnotations {
 	
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target(ElementType.METHOD)
-	public @interface LoginLog {
+	public @interface LogMethod {
 	}
 	
 }
