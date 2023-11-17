@@ -1,8 +1,13 @@
 Manifest-Version: 1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 Build-Jdk-Spec: 17
 Created-By: Maven Integration for Eclipse
 =======
 Class-Path: 
 >>>>>>> baa9605431d2e51d8c866acc07835d38d507159c
+=======
+Build-Jdk-Spec: 17
+Created-By: Maven Integration for Eclipse
+>>>>>>> fe346a87eb342565d257902e9dda4d1b320e0a6b
 

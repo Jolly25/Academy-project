@@ -209,8 +209,9 @@ public class UserController {
 	}
 	
 	@GetMapping("/not_player")
-	public String notAdminPage() {
-		return "notAuthorized";
+	public String notAdminPage(Model m) {
+		m.addAttribute("message", "Non sei autorizzato ad accedere a questa risorsa");
+		return "errorPage";
 	}
 
 }

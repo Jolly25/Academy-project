@@ -116,8 +116,9 @@ public class CheckStringController {
 	} 
 	
 	@GetMapping("/not_logged")
-	public String notLoggedPage() {
-		return "notLogged";
+	public String notLoggedPage(Model m) {
+		m.addAttribute("message", "Non hai ancora eseguito l'accesso oppure la sessione è scaduta");
+		return "errorPage";
 	}
 
 }
