@@ -155,8 +155,9 @@ public class AdminController {
     }
 	
 	@GetMapping("/not_admin")
-	public String notAdminPage() {
-		return "notAuthorized";
+	public String notAdminPage(Model m) {
+		m.addAttribute("message", "Non sei autorizzato ad accedere a questa risorsa");
+		return "errorPage";
 	}
 
 }

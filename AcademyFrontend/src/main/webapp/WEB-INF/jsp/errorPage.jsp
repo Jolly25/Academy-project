@@ -5,12 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Error</title>
-<link rel="stylesheet" href=${pageContext.request.contextPath}/resources/style/youAreNot.css type="text/css">
+<link rel="stylesheet" href=${pageContext.request.contextPath}/resources/style/errorPage.css type="text/css">
 </head>
 <body>
 	<div>
 		<img src=${pageContext.request.contextPath}/resources/style/attention.svg>
-		Non hai ancora eseguito l'accesso
+		${message}
 	</div>
 </body>
 </html>

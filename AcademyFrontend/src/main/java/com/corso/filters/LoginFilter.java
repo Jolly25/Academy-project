@@ -26,6 +26,8 @@ public class LoginFilter implements Filter{
 		res.setDateHeader("Expires", 0); // Proxies.
 
 		HttpSession s = req.getSession();
+		
+		s.setMaxInactiveInterval(60*10); //invalidate session after 10 minutes
 
 		if(s.getAttribute("user") == null) {
 			res.sendRedirect(req.getContextPath() + "/not_logged");
