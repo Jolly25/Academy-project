@@ -15,13 +15,13 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark gradient-custom">
         <div class="container-fluid">
-        <span class="navbar-brand" style="color: white;">Benvenuto Admin:&nbsp;${user.username}</span>
+        <span class="navbar-brand" style="color: white;">Benvenuto&nbsp;${user.username}</span>
         <button type="button" class="btn btn-outline-danger" onclick="window.location.href='logout'">Logout</button>
     </div>
     </nav>
-	    <div class="container mt-4">
+	    <div class="container mt-6">
 	        <div class="row">
-	            <div class="col-lg-4 col-md-6">
+	            <div class="col-lg-6 col-md-6">
 	                <div class="card mb-4">
                 <div class="title-and-load">
                     <h2 class="card-title">Classifica giocatori</h2>
@@ -33,17 +33,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="card mb-4">
-                    <div class="card-body trainalgo">
-                        <h2 class="card-title">Allena algoritmi</h2>
-                        <button class="btn btn-primary" id="trainAlgoBtn">Allena algoritmi</button>
-                        <br>
-                        <div id="trainMessage"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
+            
+            <div class="col-lg-6 col-md-6">
                 <div class="card mb-4">
                     <div class="title-and-load">
 	                    <h2 class="card-title">Classifica algoritmi</h2>
@@ -56,7 +47,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            </div>
+            
+            <div class="row">
+            <div class="col-lg-9">
                 <div class="card mb-4">
                 <div class="title-and-load">
                     <h2 class="card-title">Elenco dei match</h2>
@@ -70,7 +64,8 @@
                 </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            
+            <div class="col-lg-3">
                 <div class="card mb-4 ">
                 <div class="title-and-load">
                     <h2 class="card-title">Lista dei giocatori</h2>
@@ -86,11 +81,28 @@
                 </div>
             </div>
         </div>
-
         
+        
+		<div class="row">
+			<div class="col-lg-3">
+                <div class="card mb-4">
+                <div class="title-and-load">
+                    <h2 class="card-title">Allena algoritmi</h2>
+                </div>
+                    <div class="card-body trainalgo">
+                        <button class="btn btn-primary" id="trainAlgoBtn">Allena algoritmi</button>
+                        <br>
+                        <div>&nbsp;</div> <br>
+                        <div id="trainMessage"></div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        <div class="col-lg-9">
 		<div class="card border-danger">
         <div class="title-and-load">
-            <h2 class="card-title">Segnala un errore</h2>
+            <h2 class="card-title">Segnalazioni</h2>
             <button id="buttonLoadReport" type="button" class="btn btn-primary load-btn">&#8635;</button> 
         </div>  
             <div class="card-body scrollable-card">
@@ -99,9 +111,10 @@
             </div>
             </div>
         </div>
+        </div>
+        
+</div>
 
-
-<a href="logout">Logout</a>
 
 <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
