@@ -145,7 +145,17 @@ public class AdminController {
 	@PostMapping("/setAdminMatch")
     @ResponseBody
     public void setAdminMatch(@WebParam String input, @WebParam String standardword) {
+		System.out.println(input + "  admin  " + standardword);
         matchService.setMatchByAdmin(input, standardword);
+    }
+	
+	@PostMapping("/setAdminMatchReport")
+    @ResponseBody
+    public void setAdminMatchReport(@WebParam String input, @WebParam String standardword, @WebParam int idreport) {
+		System.out.println(input + "  report  " + standardword);
+        matchService.setMatchByAdmin(input, standardword);
+        Segnalazione s = segnalazioneService.find(idreport);
+		segnalazioneService.remove(s);
     }
 	
 	@PostMapping("/trainAlgos")

@@ -63,6 +63,16 @@
     background-color: #0056b3;
 }
 
+.incredibili {
+    background-color: #0056b3;
+    color: #fff;
+    
+}
+
+.incredibili:hover {
+    background-color: rgb(0, 0, 255);
+}
+
 .error-input {
     width: 100%;
     padding: 10px;

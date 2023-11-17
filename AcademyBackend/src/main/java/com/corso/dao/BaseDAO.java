@@ -18,6 +18,7 @@ public abstract class BaseDAO{
 		try {
 			manager.getTransaction().begin();
 			manager.merge(o);
+			manager.flush();
 			manager.getTransaction().commit();
 		}
 		catch (Exception e) {}
