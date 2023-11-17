@@ -18,13 +18,6 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import com.corso.dao.AlgorithmDAO;
-import com.corso.dao.BandiereRisultatoDAO;
-import com.corso.dao.MatchDAO;
-import com.corso.dao.RisultatoDAO;
-import com.corso.dao.SegnalazioneDAO;
-import com.corso.dao.StandardWordDAO;
-import com.corso.dao.UserDAO;
 import com.corso.logging.LoggingAspect;
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.CheckString;
@@ -36,6 +29,20 @@ import com.corso.checkstring.Levenshtein1;
 import com.corso.checkstring.Levenshtein2;
 import com.corso.checkstring.Levenshtein3;
 import com.corso.checkstring.MatchCheckString;
+import com.corso.dao.AlgorithmDAO;
+import com.corso.dao.BandiereRisultatoDAO;
+import com.corso.dao.MatchDAO;
+import com.corso.dao.RisultatoDAO;
+import com.corso.dao.SegnalazioneDAO;
+import com.corso.dao.StandardWordDAO;
+import com.corso.dao.UserDAO;
+import com.corso.dao.impl.AlgorithmDAOImpl;
+import com.corso.dao.impl.BandiereRisultatoDAOImpl;
+import com.corso.dao.impl.MatchDAOImpl;
+import com.corso.dao.impl.RisultatoDAOImpl;
+import com.corso.dao.impl.SegnalazioneDAOImpl;
+import com.corso.dao.impl.StandardWordDAOImpl;
+import com.corso.dao.impl.UserDAOImpl;
 import com.corso.service.AlgorithmService;
 import com.corso.service.BandiereRisultatoService;
 import com.corso.service.MatchService;
@@ -53,37 +60,37 @@ public class Beans {
 
 	@Bean(name="matchDao")
 	public MatchDAO getMatchDAO() {
-		return new MatchDAO();
+		return new MatchDAOImpl();
 	}
 	
 	@Bean(name="algorithmDao")
 	public AlgorithmDAO getAlgorithmDAO() {
-		return new AlgorithmDAO();
+		return new AlgorithmDAOImpl();
 	}
 	
 	@Bean(name="userDao")
 	public UserDAO getUserDAO() {
-		return new UserDAO();
+		return new UserDAOImpl();
 	}
 
 	@Bean(name="swDAO")
 	public StandardWordDAO getStandardWordDAO() {
-		return new StandardWordDAO();
+		return new StandardWordDAOImpl();
 	}
 	
 	@Bean(name="risultatoDAO")
 	public RisultatoDAO getRisultatoDAO() {
-		return new RisultatoDAO();
+		return new RisultatoDAOImpl();
 	}
 	
 	@Bean(name = "bandiereRisultatoDAO")
 	public BandiereRisultatoDAO getBandiereRisultatoDAO() {
-		return new BandiereRisultatoDAO();
+		return new BandiereRisultatoDAOImpl();
 	}
 	
 	@Bean(name="segnalazioneDAO")
 	public SegnalazioneDAO getSegnalazioneDAO() {
-		return new SegnalazioneDAO();
+		return new SegnalazioneDAOImpl();
 	}
 
 	@Bean(name="matchService")
