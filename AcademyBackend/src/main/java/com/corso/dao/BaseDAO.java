@@ -22,3 +22,6 @@ public interface BaseDAO {
 	
 	public void remove(BeanDTO o);
 }
+
+
+
