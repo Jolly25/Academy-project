@@ -8,8 +8,8 @@ import com.corso.beans.Beans;
 import com.corso.checkstring.AlgorithmHandler;
 import com.corso.checkstring.AlgorithmType;
 import com.corso.checkstring.CheckString;
-import com.corso.dao.BaseDAO;
-import com.corso.dao.MatchDAO;
+import com.corso.dao.impl.BaseDAOImpl;
+import com.corso.dao.impl.MatchDAOImpl;
 import com.corso.model.AlgoResult;
 import com.corso.model.Match;
 import com.corso.model.Risultato;
@@ -23,6 +23,7 @@ import com.corso.service.SegnalazioneService;
 import com.corso.service.UserService;
 
 
+@SuppressWarnings("unused")
 public class CheckStringTest {
 
 	public static void main(String[] args) {
@@ -109,17 +110,16 @@ public class CheckStringTest {
 		CheckString cs = ah.buildCheckString();
 		cs.check("Italy");
 		
-		
+		*/
 		
 		UserService service = (UserService) factory.getBean("userService");
 		for(User p: service.getRanking()) {
 			System.out.println(p.getScore());
 		}
-		*/
-
 		
 
 		
-	}
+		
+		factory.close();	}
 
 }
