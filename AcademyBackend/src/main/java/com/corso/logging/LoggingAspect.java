@@ -8,17 +8,19 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 @Aspect 
 public class LoggingAspect {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	 @Pointcut("@annotation(com.corso.logging.LoggingAnnotations.LoginLog)")
+	 @Pointcut("@annotation(com.corso.logging.LoggingAnnotations.LogMethod)")
 	 public void generalPointcut() {}
 	 
 	 @Before("generalPointcut()")
 	 public void generalBeforePointcut(JoinPoint joinPoint) {
-		 	String message = joinPoint.getSignature().getName(); 
+		 	String message = "Method: " + joinPoint.getSignature().getName(); 
+		 	message += " - in Class: " + joinPoint.getTarget().getClass().getSimpleName();
 	        System.out.println(message);	 
 	        
 	        logger.info(message);

@@ -42,6 +42,7 @@
     padding: 20px;
     text-align: center;
     min-width: 250px;
+    min-height: 200px;
 }
 
 .card h2 {
@@ -63,11 +64,21 @@
     background-color: #0056b3;
 }
 
+.incredibili {
+    background-color: #0056b3;
+    color: #fff;
+    
+}
+
+.incredibili:hover {
+    background-color: rgb(0, 0, 255);
+}
+
 .error-input {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    }
+}
 
 .player-list {
     list-style: none;
@@ -93,6 +104,7 @@
 .ban-button:hover {
     background-color: #c82333;
 }
+
 body {
     background: linear-gradient(to bottom, #353752, #1FA1C6);
     background-attachment: fixed;
@@ -141,5 +153,7 @@ h2 {
 }
 
 .trainalgo {
-	height: 125px;
+	max-height: 200px;
+    min-height: 200px;
+    overflow-y: auto; 
 }

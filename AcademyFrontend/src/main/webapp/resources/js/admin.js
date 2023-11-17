@@ -27,10 +27,10 @@ var loadMatchList = function() {
             $li.addClass('list-group-item d-flex justify-content-between align-items-center match-item');
 		}
         $.each(responseJson, function(index, match) {
-            var $li = $("<li>").text(match.input + "  =>  " + match.standardword).appendTo($ul);
+            var $li = $("<li>").html(match.input + "  &rarr;  " + match.standardword).appendTo($ul);
             $li.addClass('list-group-item d-flex justify-content-between align-items-center match-item');
             var $button1 = $("<button>").val(match.id + "ba").text("Conferma").appendTo($li);
-            $button1.addClass('btn btn-warning btn-sm accept-button tablebtn');
+            $button1.addClass('btn btn-success btn-sm accept-button tablebtn');
             $button1.click(function() {
 			   var param = {matchid : match.id};
                $.post("checkmatch",  $.param(param));
@@ -38,13 +38,13 @@ var loadMatchList = function() {
                });
                
             var $button3 = $("<button>").text("Correggi").appendTo($li);
-             $button3.addClass('btn btn-success btn-sm modify-button');
+             $button3.addClass('btn btn-success incredibili btn-sm modify-button tablebtn');
             	$button3.click(function() {
-				showConfirmationModal(match.input);
+				showConfirmationModalForMatch(match.input);
 			});
                
             var $button2 = $("<button>").text("Elimina").appendTo($li);
-            $button2.addClass('btn btn-danger btn-sm reject-button');
+            $button2.addClass('btn btn-danger btn-sm reject-button ');
             $button2.click(function() {
 			   var param = {matchid : match.id};
                $.post("removematch", $.param(param));
@@ -54,17 +54,6 @@ var loadMatchList = function() {
     });
 }
 
-
-  function showConfirmationModal(input) {
-	  const correctAnswerElement = document.getElementById("inputMatch");
-      correctAnswerElement.textContent ="Scegliere il match per l'input: " + input;
-      $('#matchModal').modal('show');
-  }
-  
-  
-$(document).on("click", "#closeButton", function() {
-	$('#matchModal').modal('toggle');
-});
 
 $(document).on("click", "#buttonLoadMatch", loadMatchList);
 
@@ -80,7 +69,7 @@ var loadReportList = function() {
 		}
         $.each(responseJson, function(index, segnalazione) {
 			console.log(segnalazione.match.input);
-            var $li = $("<li>").val(segnalazione.id).text(segnalazione.match.input + "  =>  " + segnalazione.match.standardword + "         Creata da: " + segnalazione.idUser.username).appendTo($ul);
+            var $li = $("<li>").val(segnalazione.id).html(segnalazione.match.input + " " + "&rarr;" +"  " + segnalazione.match.standardword + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creata da: " + segnalazione.idUser.username).appendTo($ul);
             $li.addClass('list-group-item d-flex justify-content-between align-items-center match-item');
             var $button1 = $("<button>").val(segnalazione.id + "ba").text("Rimuovi").appendTo($li);
             $button1.addClass('btn btn-warning btn-sm accept-button tablebtn');
@@ -90,14 +79,14 @@ var loadReportList = function() {
                $li.remove();
                });
             var $button3 = $("<button>").val(segnalazione.id + "ba").text("Correggi").appendTo($li);
-             $button3.addClass('btn btn-success btn-sm modify-button');
+             $button3.addClass('btn btn-success incredibili btn-sm modify-button tablebtn');
 			 
 			$button3.click(function() {
-				showConfirmationModal(segnalazione.match.input);
+				showConfirmationModalForReport(segnalazione.match.input, segnalazione.id);
 			});
              
             var $button2 = $("<button>").val(segnalazione.id + "br").text("Ignora").appendTo($li);
-            $button2.addClass('btn btn-danger btn-sm reject-button');
+            $button2.addClass('btn btn-danger btn-sm reject-button ');
             $button2.click(function() {
 			   var param = {reportid : segnalazione.id};
                $.post("removesegnalazione", $.param(param));
@@ -188,13 +177,55 @@ $(document).on("click", "#buttonLoadAlgorithm", loadAlgorithm);
 var loadStandardWords = function() {
 	$.get("allStandardWords", function(responseJson) {
 		var $dropdown = $("#parole");
-		$dropdown.find("option").remove();
 		$.each(responseJson, function(index, string) {
-			console.log(string);
-			$("<option>").val(string).text(string).appendTo($dropdown);
+			var $option = $("<option>").val(string).appendTo($dropdown);
+			console.log($option.val());
 		})
 	})
 }
+
+
+var confermaMatch = function() {
+	var param = {input : matchInputInModal, standardword: document.getElementById("inputText").value};
+	$.post("setAdminMatch", $.param(param));
+	setTimeout(() => {
+      loadMatchList();
+    }, 1000);
+	$('#matchModal').modal('toggle');
+	
+}
+
+function showConfirmationModalForMatch(input) {
+	  matchInputInModal = input;
+	  const correctAnswerElement = document.getElementById("inputMatch");
+      correctAnswerElement.textContent ="Scegliere il match per l'input: " + matchInputInModal;
+      $(document).on("click", "#modalMatchConfirm", confermaMatch);
+      $('#matchModal').modal('show');
+}
+
+var confermaReport = function() {
+	var param = {input : matchInputInModal, standardword: document.getElementById("inputText").value, idreport: idReport};
+	$.post("setAdminMatchReport", $.param(param));
+	setTimeout(() => {
+      loadReportList();
+    }, 1000);
+	$('#matchModal').modal('toggle');
+	
+}
+
+function showConfirmationModalForReport(input, id) {
+	  matchInputInModal = input;
+	  idReport = id;
+	  const correctAnswerElement = document.getElementById("inputMatch");
+      correctAnswerElement.textContent ="Scegliere il match per l'input: " + matchInputInModal;
+      $(document).on("click", "#modalMatchConfirm", confermaReport);
+      $('#matchModal').modal('show');
+}
+  
+  
+$(document).on("click", "#closeButton", function() {
+	$('#matchModal').modal('toggle');
+});
 
 
 var trainAlgos = function() {
@@ -206,8 +237,6 @@ var trainAlgos = function() {
     
 }
 
-
 $(document).on("click", "#trainAlgoBtn", trainAlgos); 
 
 
-      

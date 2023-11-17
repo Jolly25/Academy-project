@@ -53,7 +53,7 @@ public class UserController {
 	@Autowired
 	SegnalazioneService segnalazioneService;
 	
-	@LoginLog
+	@LogMethod
 	@GetMapping("/home_userr")
 	public String getHomeUser(Model m, HttpSession s) {
 		System.out.println("Siamo nella home dello user");

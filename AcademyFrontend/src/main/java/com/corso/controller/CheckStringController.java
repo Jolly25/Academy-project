@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.corso.logging.LoggingAnnotations.*;
 import com.corso.model.User;
 import com.corso.service.UserService;
 import com.corso.validation.LoginForm;
@@ -80,6 +81,7 @@ public class CheckStringController {
 		return "formRegister";
 	}
 
+	@LogMethod
 	@PostMapping("/register")
 	public String register(@ModelAttribute("registerForm") @Valid RegisterForm rf, BindingResult br) {
 		if(br.hasErrors()) {
@@ -109,6 +111,7 @@ public class CheckStringController {
 		return "redirect:/";
 	}
 
+	@LogMethod
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
