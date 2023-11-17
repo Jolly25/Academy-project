@@ -108,25 +108,19 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal a tutto schermo con Input</h5>
-        <button id="closeButton" type="button" class="close" data-dismiss="modal" aria-label="Close" >
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
       <div class="modal-body">
         <div class="form-group">
           <span id="inputMatch"></span>
           <input type="text" class="form-control" id="inputText" list="parole" autocomplete="off">
           <datalist id="parole">
-            <option value="Parola1">
-            <option value="Parola2">
-            <option value="Parola3">
-            <!-- Aggiungi altre parole necessarie -->
+            <option value="">
           </datalist>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
-        <button type="button" class="btn btn-primary" onclick="conferma()">Conferma</button>
+        <button type="button" class="btn btn-secondary" id="closeButton" data-dismiss="modal">Annulla</button>
+        <button type="button" class="btn btn-primary" id="modalMatchConfirm">Conferma</button>
       </div>
     </div>
   </div>

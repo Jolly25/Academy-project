@@ -23,6 +23,7 @@ import com.corso.service.SegnalazioneService;
 import com.corso.service.UserService;
 
 
+@SuppressWarnings("unused")
 public class CheckStringTest {
 
 	public static void main(String[] args) {
@@ -109,17 +110,16 @@ public class CheckStringTest {
 		CheckString cs = ah.buildCheckString();
 		cs.check("Italy");
 		
-		
+		*/
 		
 		UserService service = (UserService) factory.getBean("userService");
 		for(User p: service.getRanking()) {
 			System.out.println(p.getScore());
 		}
-		*/
-
 		
 
 		
-	}
+		
+		factory.close();	}
 
 }
