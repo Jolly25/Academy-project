@@ -28,6 +28,7 @@ Benvenuto in "Guess the Flag"! Questa è un'applicazione di minigioco che sfida 
    ```bash
    git clone https://github.com/tuonome/GuessTheFlag.git
    ```
+ATTENZIONE: Utilizzare il comando ```git checkout server_managment``` per spostarsi sul branch che contiene il progetto completo
 2. Configura il database con SQL Management Studio.
 3. Esegui il server backend con Spring e Hibernate.
 4. Avvia il frontend con Angular.
