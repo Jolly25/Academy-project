@@ -1,6 +1,7 @@
 package com.corso.validation;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 public class RegisterForm {
 	
@@ -8,9 +9,11 @@ public class RegisterForm {
 	private String username;
 	
 	@NotEmpty
+	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z]).{5,}$", message="minimo 5 caratteri, almeno una lettera e un numero")
 	private String password;
 	
 	@NotEmpty
+	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z]).{5,}$", message="minimo 5 caratteri, almeno una lettera e un numero")
 	private String confirmPassword;
 	
 	public String getUsername() {
