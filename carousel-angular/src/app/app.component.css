@@ -1,0 +1,19 @@
+main {
+    background-image: linear-gradient(to bottom right, #353752, #1FA1C6);
+    background-size: 200% 200%;
+    animation: gradient 10s infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
