@@ -24,9 +24,9 @@
 	            <div class="col-lg-6 col-md-6">
 	                <div class="card mb-4">
                 <div class="title-and-load">
-                    <h2 class="card-title">Classifica giocatori</h2>
-                    <button id="buttonLoadRanking" type="button" class="btn btn-primary load-btn">&#8635;</button> 
-                </div>
+                    <h2 class="card-title">Classifica giocatori&nbsp; <button id="buttonLoadRanking" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+                </h2>
+                    </div>
                     <div class="card-body scrollable-card">
                         <ul class="list-group match-list" id="ranking">
                         </ul>
@@ -37,9 +37,9 @@
             <div class="col-lg-6 col-md-6">
                 <div class="card mb-4">
                     <div class="title-and-load">
-	                    <h2 class="card-title">Classifica algoritmi</h2>
-	                    <button id="buttonLoadAlgorithm" type="button" class="btn btn-primary load-btn">&#8635;</button>  
-                    </div>
+	                    <h2 class="card-title">Classifica algoritmi&nbsp; <button id="buttonLoadAlgorithm" type="button" class="btn btn-primary load-btn">&#8635;</button>  
+                    </h2>
+	                   </div>
                     <div class="card-body scrollable-card">
                         <ul class="list-group match-list" id="algorithm">
                         
@@ -53,7 +53,7 @@
             <div class="col-lg-8">
                 <div class="card mb-4">
                 <div class="title-and-load">
-                    <h2 class="card-title">Elenco dei match<button id="buttonLoadMatch" type="button" class="btn btn-primary load-btn">&#8635;</button></h2>
+                    <h2 class="card-title">Elenco dei match&nbsp; <button id="buttonLoadMatch" type="button" class="btn btn-primary load-btn">&#8635;</button></h2>
                      
                 </div>
                     <div class="card-body scrollable-card">
@@ -68,9 +68,9 @@
             <div class="col-lg-4">
                 <div class="card mb-4 ">
                 <div class="title-and-load">
-                    <h2 class="card-title">Lista dei giocatori</h2>
-                    <button id="buttonLoadPlayers" type="button" class="btn btn-primary load-btn">&#8635;</button> 
-                </div>
+                    <h2 class="card-title">Lista dei giocatori&nbsp; <button id="buttonLoadPlayers" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+                </h2>
+                    </div>
                     <div class="card-body scrollable-card">
                         <ul class="list-group match-list" id="playerlist">
                             
@@ -102,9 +102,9 @@
         <div class="col-lg-9">
 		<div class="card border-danger">
         <div class="title-and-load">
-            <h2 class="card-title">Segnalazioni</h2>
-            <button id="buttonLoadReport" type="button" class="btn btn-primary load-btn">&#8635;</button> 
-        </div>  
+            <h2 class="card-title">Segnalazioni&nbsp; <button id="buttonLoadReport" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+        </h2>
+            </div>  
             <div class="card-body scrollable-card">
                 <ul class="list-group player-list" id="reportlist">
                 </ul>
