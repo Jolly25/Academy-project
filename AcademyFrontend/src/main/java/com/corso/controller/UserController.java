@@ -119,8 +119,10 @@ public class UserController {
 		String flagname = ""; 
 		if(flags != null) {
 			flag = flags.get(r.getTurn());
-			flagname = flag.getBandiera();
-			flagcca2 = swService.getCCA2FromCommon(flagname);
+			if (flag!=null) {
+				flagname = flag.getBandiera();
+				flagcca2 = swService.getCCA2FromCommon(flagname);
+			}
 		}
 		m.addAttribute("flag", flag);
 		m.addAttribute("cca2", flagcca2);
