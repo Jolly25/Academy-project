@@ -55,6 +55,10 @@ public class AdminRestController {
 	@PostMapping("/checkmatch")
 	public void postCheckmatch(@WebParam int matchid) {
 		Match m = matchService.find(matchid);
+		List<Segnalazione> segnalazioni = segnalazioneService.findAllByMatchInput(m.getInput());
+		for(Segnalazione s : segnalazioni) {
+			segnalazioneService.remove(s);
+		}
 		matchService.checkMatch(m);
 		System.out.println("Match " + matchid + " checked!");
 	}
@@ -62,6 +66,10 @@ public class AdminRestController {
 	@PostMapping("/removematch")
 	public void postRemoveMatch(@WebParam int matchid) {
 		Match m = matchService.find(matchid);
+		List<Segnalazione> segnalazioni = segnalazioneService.findAllByMatchInput(m.getInput());
+		for(Segnalazione s : segnalazioni) {
+			segnalazioneService.remove(s);
+		}
 		matchService.removeMatch(m);
 		System.out.println("Match " + matchid + " removed!");
 	}
@@ -124,6 +132,10 @@ public class AdminRestController {
     public void setAdminMatch(@WebParam String input, @WebParam String standardword) {
 		System.out.println(input + "  admin  " + standardword);
         matchService.setMatchByAdmin(input, standardword);
+        List<Segnalazione> segnalazioni = segnalazioneService.findAllByMatchInput(input);
+		for(Segnalazione s : segnalazioni) {
+			segnalazioneService.remove(s);
+		}
     }
 	
 	@PostMapping("/setAdminMatchReport")

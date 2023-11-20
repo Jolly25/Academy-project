@@ -1,5 +1,6 @@
 package com.corso.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.corso.dao.SegnalazioneDAO;
@@ -22,5 +23,18 @@ public class SegnalazioneDAOImpl  extends BaseDAOImpl implements SegnalazioneDAO
 	@SuppressWarnings("unchecked")
 	public List<Segnalazione> getAllSegnalazioni() {
 		return (List<Segnalazione>) super.all(Segnalazione.class);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Segnalazione> findAllByMatchInput(String matchinput) {
+		List<Segnalazione> allreports = (List<Segnalazione>) super.all(Segnalazione.class);
+		List<Segnalazione> allreportswithinput = new ArrayList<Segnalazione>();
+		for(Segnalazione s: allreports) {
+			if(s.getMatch().getInput().equals(matchinput)) {
+				allreportswithinput.add(s);
+			}
+		}
+		return allreportswithinput;
 	}
 }
