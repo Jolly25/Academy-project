@@ -35,7 +35,9 @@ var loadMatchList = function() {
 			   var param = {matchid : match.id};
                $.post("checkmatch",  $.param(param));
                $li.remove();
-               loadReportList();
+               setTimeout(() => {
+			     loadReportList();
+			   }, 1000);
                });
                
             var $button3 = $("<button>").text("Correggi").appendTo($li);
@@ -50,7 +52,9 @@ var loadMatchList = function() {
 			   var param = {matchid : match.id};
                $.post("removematch", $.param(param));
                $li.remove();
-               loadReportList();
+               setTimeout(() => {
+			     loadReportList();
+			   }, 1000);
                });	
         });                   
     });
@@ -79,7 +83,9 @@ var loadReportList = function() {
 			   var param = {reportid : segnalazione.id};
                $.post("approvasegnalazione",  $.param(param));
                $li.remove();
-               loadMatchList();
+               setTimeout(() => {
+			     loadMatchList();
+			   }, 1000);
                });
             var $button3 = $("<button>").val(segnalazione.id + "ba").text("Correggi").appendTo($li);
              $button3.addClass('btn btn-success incredibili btn-sm modify-button tablebtn');
