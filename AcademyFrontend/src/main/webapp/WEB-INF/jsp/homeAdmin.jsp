@@ -50,11 +50,11 @@
             </div>
             
             <div class="row">
-            <div class="col-lg-9">
+            <div class="col-lg-8">
                 <div class="card mb-4">
                 <div class="title-and-load">
-                    <h2 class="card-title">Elenco dei match</h2>
-                    <button id="buttonLoadMatch" type="button" class="btn btn-primary load-btn">&#8635;</button> 
+                    <h2 class="card-title">Elenco dei match<button id="buttonLoadMatch" type="button" class="btn btn-primary load-btn">&#8635;</button></h2>
+                     
                 </div>
                     <div class="card-body scrollable-card">
                         <ul class="list-group match-list" id="matchlist">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div class="card mb-4 ">
                 <div class="title-and-load">
                     <h2 class="card-title">Lista dei giocatori</h2>

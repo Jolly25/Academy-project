@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './carousel.component.css'
 })
 export class CarouselComponent{
-  slides: string [] = ['./assets/slides/slide1.png', './assets/slides/slide2.png', './assets/slides/slide3.png' ]
+  slides: string [] = ['./assets/slides/slide1.png', './assets/slides/slide2.png', './assets/slides/slide3.png', './assets/slides/slide4.png', './assets/slides/slide5.png', './assets/slides/slide6.png', './assets/slides/slide7.png', './assets/slides/slide8.png', './assets/slides/slide9.png', './assets/slides/slide10.png', './assets/slides/slide11.png', './assets/slides/slide12.png', './assets/slides/slide13.png', './assets/slides/slide14.png', './assets/slides/slide15.png', './assets/slides/slide16.png', './assets/slides/slide17.png', './assets/slides/slide18.png', './assets/slides/slide19.png', './assets/slides/slide20.png', './assets/slides/slide21.png', './assets/slides/slide22.png', './assets/slides/slide23.png' ]
   i=0;
 
   getSlide() {
