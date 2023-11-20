@@ -28,4 +28,8 @@ public class SegnalazioneService {
 	public void setDao(SegnalazioneDAO dao) {
 		this.dao = dao;
 	}
+	
+	public List<Segnalazione> findAllByMatchInput(String matchinput){
+		return dao.findAllByMatchInput(matchinput);
+	}
 }
